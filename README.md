@@ -24,4 +24,5 @@
 ## 0326
 피그마를 통한 디자인 설계 : https://www.figma.com/file/5utvKSJ7OBsQNwb5enyHG5/Eco?type=design&node-id=0-1&mode=design&t=dBePuh2O2g0Y4qZ6-0 <br>
 https://dbdydow430243242.imweb.me/?mode=login&back_url=L2FkbWluL2Rlc2lnbg%3D%3D <br>
-깃허브 및 개발 환경 구축
+깃허브 사용법 : https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>
+개발 환경 구축
