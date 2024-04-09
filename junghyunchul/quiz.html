@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
-    <title>환경 퀴즈</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="../css/templatemo-kind-heart-charity.css" rel="stylesheet">
     
     <style>
         body {
@@ -39,19 +41,82 @@
         #startButton:hover {
             background-color: #0056b3;
         }
+
+        /* 헤더에 대한 스타일링 */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999; /* 다른 요소들보다 위에 배치되도록 설정 */
+        }
     </style>
 </head>
 
-<header>
-    
-</header>
-
-
 <body>
+    <!-- 헤더 부분 -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../images/GreenIssue.png" class="logo img-fluid" alt="">
+                    <span>
+                        <!-- Kind Heart Charity
+                        <small>Non-profit Organization</small>-->
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="index.html#section_1">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="index.html#section_2">캠페인</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="index.html#section_3">분리수거</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="index.html#section_4">퀴즈</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="index.html#section_5"
+                                id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">뉴스</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item active" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="index.html#section_6">게시판</a>
+                        </li>
+
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="donate.html">Donate</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
     <div>
         <h1>환경 퀴즈를 시작해보세요!</h1>
         <button id="startButton" onclick="startQuiz()"><a href="index.html">환경 퀴즈 시작</a></button>
-        
     </div>
 
     <script>
