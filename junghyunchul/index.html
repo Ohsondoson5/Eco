@@ -4,15 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>환경 퀴즈</title>
+    <link rel="stylesheet" href="index.css">
     <style>
-       
+        /* 여기에 추가적인 스타일링을 할 수 있습니다. */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+        }
+
+        .header .user-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .top-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .top-nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .logo {
+            display: block;
+            margin-left: 10px; /* 이미지 왼쪽 여백 조정 */
+            margin-right: auto;
+            width: 200px; /* 이미지 너비에 맞게 조정하세요 */
+        }
+
+        .section {
+            margin-bottom: 20px; /* 각 섹션 간격 조정 */
+        }
     </style>
 </head>
 <body>
-    <img id="gi" src="greenissue.png" alt="이미지 설명">
-    <link rel="stylesheet" href="index.css">
-    <h1>환경 퀴즈</h1>
+    <div class="header">
+        <img class="logo" src="your_image_path.jpg" alt="Your Logo">
+        <div class="user-actions">
+            <a href="#">Login</a>
+            <a href="#">Join</a>
+        </div>
+    </div>
+    <div class="top-nav">
+        <ul>
+            <li><a href="#">뉴스</a></li>
+            <li><a href="#">캠페인</a></li>
+            <li><a href="#">분리수거</a></li>
+            <li><a href="#">퀴즈</a></li>
+            <li><a href="#">게시판</a></li>
+        </ul>
+    </div>
     <hr>
+
+    <div class="section">
+        <h1>뉴스</h1>
+        <!-- 뉴스 내용을 여기에 추가하세요 -->
+    </div>
+
+    <div class="section">
+        <h1>캠페인</h1>
+        <!-- 캠페인 내용을 여기에 추가하세요 -->
+    </div>
+
+    <div class="section">
+        <h1>분리수거</h1>
+        <!-- 분리수거 내용을 여기에 추가하세요 -->
+    </div>
+
+    <div class="section">
+        <h1>퀴즈</h1>
+        <!-- 퀴즈 내용을 여기에 추가하세요 -->
+    </div>
+
+    <div class="section">
+        <h1>게시판</h1>
+        <!-- 게시판 내용을 여기에 추가하세요 -->
+    </div>
 
     <div id="questionContainer">
         <p id="pageNumber">1 / 5</p>
@@ -163,5 +244,3 @@
     </script>
 </body>
 </html>
-
-
