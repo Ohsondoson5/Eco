@@ -17,6 +17,11 @@
 
 5. 정보 공유 게시판 제공
 
+-깃허브-
+깃허브 사용법 : https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
+ https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
+https://bba-jin.tistory.com/50<br> 
+
 ## 0402
 페이지 로고 제작 <br>
 피그마를 통한 파트 별 페이지 작성
