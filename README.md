@@ -18,10 +18,13 @@
 5. 정보 공유 게시판 제공
 
 ### 깃허브  
-<br> 깃허브 사용법 <br> 
+깃허브 사용법 <br> 
 https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
 https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
 https://bba-jin.tistory.com/50<br> 
+
+## 0409
+파트 배분 및 페이지 작성
 
 ## 0402
 페이지 로고 제작 <br>
