@@ -2,7 +2,7 @@
 캡스톤 환경 보호 플랫폼
 ### 오승목, 유용재, 오재영, 정현철, 손민욱, 김경완
 
-### 환경 보호 플랫폼 ###
+### 환경 보호 플랫폼 
 1. 환경 관련 최신 뉴스정보 제공
 참고:https://greennews360.com/
 
@@ -17,8 +17,8 @@
 
 5. 정보 공유 게시판 제공
 
-### 깃허브 ### <br>
-깃허브 사용법 <br> 
+### 깃허브  
+<br> 깃허브 사용법 <br> 
 https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
 https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
 https://bba-jin.tistory.com/50<br> 
