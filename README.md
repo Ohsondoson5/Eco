@@ -20,7 +20,6 @@
 ### 깃허브  
 깃허브 사용법 <br> 
 https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
-https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
 https://bba-jin.tistory.com/50<br> 
 
 ## 0409
