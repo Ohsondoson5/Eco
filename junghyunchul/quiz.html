@@ -44,10 +44,12 @@
 
         /* 헤더에 대한 스타일링 */
         header {
+            
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 999; /* 다른 요소들보다 위에 배치되도록 설정 */
+            
         }
     </style>
 </head>
@@ -105,7 +107,7 @@
                         </li>
 
                         <li class="nav-item ms-3">
-                            <a class="nav-link custom-btn custom-border-btn btn" href="donate.html">Donate</a>
+                            <a class="nav-link custom-btn custom-border-btn btn" href="../kimkyungwan/Login.html">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -117,7 +119,15 @@
     <div>
         <h1>환경 퀴즈를 시작해보세요!</h1>
         <button id="startButton" onclick="startQuiz()"><a href="index.html">환경 퀴즈 시작</a></button>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <image id="Image1" onclick="e1()"><a href="e1.html">환경 퀴즈 시작</a></button>
+        <image id="Image2" onclick="e2()"><a href="e2.html">환경 퀴즈 시작</a></button>
+        <image id="Image3" onclick="e3()"><a href="e3.html">환경 퀴즈 시작</a></button>
+        <image id="Image4" onclick="e4()"><a href="e4.html">환경 퀴즈 시작</a></button>
     </div>
+
+
+    
 
     <script>
         function startQuiz() {
