@@ -18,6 +18,9 @@
 5. 정보 공유 게시판 제공
 
 ### 깃허브  
+commit 하기 이전에 merge(동기화)하기!<br>
+commit 할 때 메시지 넣기!<br>
+
 깃허브 사용법 <br> 
 https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
 https://bba-jin.tistory.com/50<br> 
@@ -28,7 +31,7 @@ https://bba-jin.tistory.com/50<br>
 |:---:|:---:|
 |오승목|캠페인 페이지|
 |유용재|게시판 페이지|
-|손민욱|뉴스 페이지|
+|손민욱|헤더, 뉴스 페이지|
 |오재영|분리수거 페이지|
 |김경완|메인, 로그인 페인지|
 |정현철|로고, 퀴즈 페이지|
