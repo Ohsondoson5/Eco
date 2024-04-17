@@ -13,6 +13,15 @@
             margin: 0;
             padding: 0;
             background-color: #f7f7f7;
+
+
+            margin-top: 20px;
+
+         
+        }
+
+        #submit1 {
+            font-size: 20px;
         }
 
         h1 {
@@ -26,19 +35,26 @@
         }
 
         #questionContainer {
-            max-width: 500px;
+            max-width: 1200px;
+            max-height: 3000px;
             margin: 0 auto;
             background-color: #f2f2f2;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative; /* 추가 */
         }
 
         #questionText {
-            font-size: 18px;
+            font-size: 28px;
             font-weight: bold;
             margin-bottom: 20px;
+        }
+
+        #answer1 , #answer2, #answer3, #answer4 {
+            font-size: 24px;
+            font-weight: Arial, sans-serif;
+
         }
 
         form {
@@ -50,10 +66,10 @@
         }
 
         #result {
-            font-size: 16px;
+            font-size: 32px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 32px;
         }
 
         #nextButton, #prevButton, #homeButton {
@@ -64,7 +80,7 @@
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 32px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
@@ -76,7 +92,7 @@
         #pageNumber {
             text-align: center;
             color: #666;
-            font-size: 14px;
+            font-size: 22px;
         }
 
         #gi {
@@ -85,11 +101,22 @@
             left: 0;
             z-index: -1; /* 이미지가 다른 요소보다 뒤로 가도록 설정 */
         }
+/* 
+        #img1 {
+            max-width: 500px;
+            max-height: 300px;
+        } */
     </style>
 </head>
 <body>
-    <h1>환경 퀴즈</h1>
+    <h1>Quiz</h1>
+    <br>
     <hr>
+    <br><br><br><br>
+
+
+        
+        <!-- <img src="eco1.jpg" id="img1" alt=""> -->
 
     <div id="questionContainer">
         <p id="pageNumber">1 / 5</p>
@@ -100,7 +127,7 @@
             <input type="radio" name="answer" value="3"> <span id="answer3"></span><br>
             <input type="radio" name="answer" value="4"> <span id="answer4"></span><br>
             <br>
-            <input type="submit" value="확인">
+            <input type="submit" value="확인" id= "submit1">
         </form>
     </div>
 
@@ -110,14 +137,16 @@
     <button id="nextButton" onclick="nextQuestion()">Next</button>
     <button id="homeButton" onclick="goToHome()" style="display: none;">Home</button>
 
+
     <script>
+        
         var currentQuestionIndex = 0;
         var correctAnswers = 0;
         var questions = [
             {
                 question: "다음 중 일반쓰레기가 아닌것은?",
                 answers: [
-                    "칫솔",
+                    "칫솔", 
                     "달걀 껍질",
                     "바나나 껍질",
                     "치킨 뼈"
@@ -165,6 +194,7 @@
                 correctAnswer: "4"
             }
         ];
+        
 
         function displayQuestion() {
             var currentQuestion = questions[currentQuestionIndex];
