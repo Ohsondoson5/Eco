@@ -11,11 +11,11 @@
     <title>Kind Heart Charity - News Detail</title>
 
     <!-- CSS FILES -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="css/templatemo-kind-heart-charity.css" rel="stylesheet">
+    <link href="../css/templatemo-kind-heart-charity.css" rel="stylesheet">
     <!--
 
 TemplateMo 581 Kind Heart Charity
@@ -27,109 +27,57 @@ https://templatemo.com/tm-581-kind-heart-charity
 
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <div class="row">
+    <!-- 헤더 부분 -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="main.html">
+                    <img src="../images/GreenIssue.png" class="logo img-fluid" alt="">
 
-                <div class="col-lg-8 col-12 d-flex flex-wrap">
-                    <p class="d-flex me-4 mb-0">
-                        <i class="bi-geo-alt me-2"></i>
-                        Akershusstranda 20, 0150 Oslo, Norway
-                    </p>
+                </a>
 
-                    <p class="d-flex mb-0">
-                        <i class="bi-envelope me-2"></i>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                        <a href="mailto:info@company.com">
-                            info@company.com
-                        </a>
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
-                    <ul class="social-icon">
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-twitter"></a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="main.html">Home</a>
                         </li>
 
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-facebook"></a>
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../ohseungmok/index.html">캠페인</a>
                         </li>
 
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../ohjaeyoung/index.html">분리수거</a>
                         </li>
 
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-youtube"></a>
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../junghyunchul/quiz.html">퀴즈</a>
                         </li>
 
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
+                        </li>
+
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn"
+                                href="../kimkyungwan/Login.html">Login</a>
                         </li>
                     </ul>
                 </div>
-
             </div>
-        </div>
+        </nav>
     </header>
 
-    <nav class="navbar navbar-expand-lg bg-light shadow-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" class="logo img-fluid" alt="">
-                <span>
-                    Kind Heart Charity
-                    <small>Non-profit Organization</small>
-                </span>
-            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="index.html#section_1">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link smoothscroll" href="index.html#section_2">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="index.html#section_3">Causes</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="index.html#section_4">Volunteer</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link click-scroll dropdown-toggle" href="index.html#section_5"
-                            id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">News</a>
-
-                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="news.html">News Listing</a></li>
-
-                            <li><a class="dropdown-item active" href="news-detail.html">News Detail</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="index.html#section_6">Contact</a>
-                    </li>
-
-                    <li class="nav-item ms-3">
-                        <a class="nav-link custom-btn custom-border-btn btn" href="donate.html">Donate</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
     <main>
 
@@ -160,7 +108,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                                     <div class="news-block-date">
                                         <p>
                                             <i class="bi-calendar4 custom-icon me-1"></i>
-                                            October 12, 2036
+                                            2024.04.15 14:46
                                         </p>
                                     </div>
 
@@ -304,26 +252,27 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <div class="col-lg-4 col-12 mx-auto mt-4 mt-lg-0">
 
 
-                        <h5 class="mt-5 mb-3">Recent news</h5>
+                        <h5 class="mt-5 mb-3">인기뉴스</h5>
 
                         <div class="news-block news-block-two-col d-flex mt-4">
                             <div class="news-block-two-col-image-wrap">
                                 <a href="news-detail.html">
-                                    <img src="images/news/africa-humanitarian-aid-doctor.jpg"
+                                    <img src="..\images\news\africa-humanitarian-aid-doctor.jpg"
                                         class="news-image img-fluid" alt="">
                                 </a>
                             </div>
 
                             <div class="news-block-two-col-info">
                                 <div class="news-block-title mb-2">
-                                    <h6><a href="news-detail.html" class="news-block-title-link">Food donation area</a>
+                                    <h6><a href="news-detail.html" class="news-block-title-link">국립수목원-수원시, 식물유전자원 보전
+                                            협력</a>
                                     </h6>
                                 </div>
 
                                 <div class="news-block-date">
                                     <p>
                                         <i class="bi-calendar4 custom-icon me-1"></i>
-                                        October 16, 2036
+                                        2024.04.15 14:46
                                     </p>
                                 </div>
                             </div>
@@ -332,64 +281,53 @@ https://templatemo.com/tm-581-kind-heart-charity
                         <div class="news-block news-block-two-col d-flex mt-4">
                             <div class="news-block-two-col-image-wrap">
                                 <a href="news-detail.html">
-                                    <img src="images/news/close-up-happy-people-working-together.jpg"
+                                    <img src="..\images\news\africa-humanitarian-aid-doctor.jpg"
                                         class="news-image img-fluid" alt="">
                                 </a>
                             </div>
 
                             <div class="news-block-two-col-info">
                                 <div class="news-block-title mb-2">
-                                    <h6><a href="news-detail.html" class="news-block-title-link">Volunteering Clean</a>
+                                    <h6><a href="news-detail.html" class="news-block-title-link">지난해 신규 석탄발전 착공 95% 중국
+                                            ‘70.2GW‘</a>
                                     </h6>
                                 </div>
 
                                 <div class="news-block-date">
                                     <p>
                                         <i class="bi-calendar4 custom-icon me-1"></i>
-                                        October 20, 2036
+                                        2024.04.15 13:09
                                     </p>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="news-block news-block-two-col d-flex mt-4">
+                            <div class="news-block-two-col-image-wrap">
+                                <a href="news-detail.html">
+                                    <img src="..\images\news\africa-humanitarian-aid-doctor.jpg"
+                                        class="news-image img-fluid" alt="">
+                                </a>
+                            </div>
 
-                        <div class="tags-block">
-                            <h5 class="mb-3">Tags</h5>
+                            <div class="news-block-two-col-info">
+                                <div class="news-block-title mb-2">
+                                    <h6><a href="news-detail.html" class="news-block-title-link">지난해 신규 석탄발전 착공 95% 중국
+                                            ‘70.2GW‘</a>
+                                    </h6>
+                                </div>
 
-                            <a href="#" class="tags-block-link">
-                                Donation
-                            </a>
-
-                            <a href="#" class="tags-block-link">
-                                Clothing
-                            </a>
-
-                            <a href="#" class="tags-block-link">
-                                Food
-                            </a>
-
-                            <a href="#" class="tags-block-link">
-                                Children
-                            </a>
-
-                            <a href="#" class="tags-block-link">
-                                Education
-                            </a>
-
-                            <a href="#" class="tags-block-link">
-                                Poverty
-                            </a>
-
-                            <a href="#" class="tags-block-link">
-                                Clean Water
-                            </a>
+                                <div class="news-block-date">
+                                    <p>
+                                        <i class="bi-calendar4 custom-icon me-1"></i>
+                                        2024.04.15 13:09
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-
 
                     </div>
-
                 </div>
-            </div>
         </section>
 
         <section class="news-section section-padding section-bg">
@@ -424,7 +362,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                                     <div class="news-block-date">
                                         <p>
                                             <i class="bi-calendar4 custom-icon me-1"></i>
-                                            October 16, 2036
+                                            2024.04.15 14:46
                                         </p>
                                     </div>
 
@@ -484,7 +422,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                                     <div class="news-block-date">
                                         <p>
                                             <i class="bi-calendar4 custom-icon me-1"></i>
-                                            October 20, 2036
+                                            2024.04.15 14:46
                                         </p>
                                     </div>
 
