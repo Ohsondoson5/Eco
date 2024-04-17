@@ -14,7 +14,10 @@
             padding: 0;
             background-color: #f7f7f7;
 
-            
+
+            margin-top: 20px;
+
+         
         }
 
         #submit1 {
@@ -55,7 +58,7 @@
         }
 
         form {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         input[type="radio"] {
@@ -98,6 +101,11 @@
             left: 0;
             z-index: -1; /* 이미지가 다른 요소보다 뒤로 가도록 설정 */
         }
+/* 
+        #img1 {
+            max-width: 500px;
+            max-height: 300px;
+        } */
     </style>
 </head>
 <body>
@@ -106,9 +114,10 @@
     <hr>
     <br><br><br><br>
 
-    <script>
 
-    </script>
+        
+        <!-- <img src="eco1.jpg" id="img1" alt=""> -->
+
     <div id="questionContainer">
         <p id="pageNumber">1 / 5</p>
         <p id="questionText"></p>
@@ -130,6 +139,7 @@
 
 
     <script>
+        
         var currentQuestionIndex = 0;
         var correctAnswers = 0;
         var questions = [
@@ -184,6 +194,7 @@
                 correctAnswer: "4"
             }
         ];
+        
 
         function displayQuestion() {
             var currentQuestion = questions[currentQuestionIndex];
