@@ -1,7 +1,7 @@
 ul {
-    padding: 0;
-    margin: 0;
-    display: inline-block;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
 }
 
 /* 
@@ -11,101 +11,144 @@ ul {
             가운데 정렬
             번호, 제목, 작성자, 작성일, 조회, 좋아요 와 데이터 정렬
         */
+
 .board_row {
-
-    width: 1000px;
-    border-bottom: solid 1px gray;
-
+  width: 1000px;
+  border-bottom: solid 1px gray;
 }
 
 /* 게시글 목록 공통 개별 요소 속성 */
 li {
-    list-style: none;
-    border-bottom: solid 1px gray;
-    float: left;
-    text-align: center;
-    /* padding: 0;
+  list-style: none;
+  border-bottom: solid 1px gray;
+  float: left;
+  text-align: center;
+  /* padding: 0;
             margin: 0; */
 }
 
 /* 번호, 제목, 작성자, 작성일, 조회, 좋아요 row의 style 설정 */
-.title_row>li {
-    height: 50px;
-    line-height: 50px;
-    background: rgb(233, 233, 233);
-    font-weight: bold;
-    border-top: solid 2px rgb(0, 0, 0);
-    border-right: solid 1px gray;
+.title_row > li {
+  height: 50px;
+  line-height: 50px;
+  background: rgb(233, 233, 233);
+  font-weight: bold;
+  border-top: solid 2px rgb(0, 0, 0);
+  border-right: solid 1px gray;
 }
 
 /* 게시글 목록 데이터 개별 요소 속성 */
-.data_row>li {
-    height: 40px;
-    line-height: 40px;
-    font-weight: lighter;
-    /* border-right:solid 1px gray; */
-
+.data_row > li {
+  height: 40px;
+  line-height: 40px;
+  font-weight: lighter;
+  /* border-right:solid 1px gray; */
 }
 
 /* 요소들의 너비 설정 */
 .w70 {
-    width: 70px;
+  width: 70px;
 }
 
 .w80 {
-    width: 80px;
+  width: 80px;
 }
 
 .w90 {
-    width: 90px;
+  width: 90px;
 }
 
 .w500 {
-    width: 500px;
+  width: 500px;
 }
 
 .w120 {
-    width: 120px;
+  width: 120px;
 }
 
 .w100 {
-    width: 100px;
+  width: 100px;
 }
-
 
 /* 게시판 목록 박스 */
 .notice_board {
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    /* 구성 요소 세로로 배치 */
-    flex-direction: column;
-
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  /* 구성 요소 세로로 배치 */
+  flex-direction: column;
 }
 
-
 .pagination {
-    display: flex;
-    width: 400px;
-    justify-content: space-between;
-
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  position: relative;
+  top: -24px;
 }
 
 /* 전체 중앙 정렬 */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.board-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pagination button {
-    background-color: #fff;
-    border: none;
-    font-size: 16px;
+  background-color: #fff;
+  border: none;
+  font-size: 16px;
 }
 
 .pagination button:hover {
-    background-color: #CCC
+  background-color: #ccc;
+}
+
+.writing_board button {
+  background-color: #fff;
+  border: none;
+  font-size: 16px;
+  padding: 0;
+}
+
+.writing_board button:hover {
+  background-color: #ccc;
+}
+
+header {
+  /* position: fixed; */
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  /* 다른 요소들보다 위에 배치되도록 설정 */
+}
+
+.writing_board {
+  width: 1000px;
+}
+
+.writing_board button {
+  float: right;
+}
+
+.board-top .board_row .title_row li {
+  width: 100px;
+}
+
+.board-top .notice_board > ul > li {
+  color: #000 !important;
+}
+
+.custom-border-btn {
+  background: transparent;
+  border: 2px solid var(--custom-btn-bg-color);
+  color: var(--primary-color);
+}
+
+.custom-border-btn {
+  background: transparent;
+  border: 2px solid var(--custom-btn-bg-color);
+  color: var(--primary-color);
+  border-radius: 100px;
 }
