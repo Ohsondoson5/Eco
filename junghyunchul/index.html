@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>환경 퀴즈</title>
-
+ <!-- Firebase JavaScript SDK -->
+ <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-database.js"></script>
+ 
 
     
     <style>
@@ -13,6 +16,15 @@
             margin: 0;
             padding: 0;
             background-color: #f7f7f7;
+
+
+            margin-top: 20px;
+
+         
+        }
+
+        #submit1 {
+            font-size: 20px;
         }
 
         h1 {
@@ -26,19 +38,26 @@
         }
 
         #questionContainer {
-            max-width: 500px;
+            max-width: 1200px;
+            max-height: 3000px;
             margin: 0 auto;
             background-color: #f2f2f2;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative; /* 추가 */
         }
 
         #questionText {
-            font-size: 18px;
+            font-size: 28px;
             font-weight: bold;
             margin-bottom: 20px;
+        }
+
+        #answer1 , #answer2, #answer3, #answer4 {
+            font-size: 24px;
+            font-weight: Arial, sans-serif;
+
         }
 
         form {
@@ -50,10 +69,10 @@
         }
 
         #result {
-            font-size: 16px;
+            font-size: 32px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 32px;
         }
 
         #nextButton, #prevButton, #homeButton {
@@ -64,7 +83,7 @@
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 32px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
@@ -76,7 +95,7 @@
         #pageNumber {
             text-align: center;
             color: #666;
-            font-size: 14px;
+            font-size: 22px;
         }
 
         #gi {
@@ -85,11 +104,22 @@
             left: 0;
             z-index: -1; /* 이미지가 다른 요소보다 뒤로 가도록 설정 */
         }
+/* 
+        #img1 {
+            max-width: 500px;
+            max-height: 300px;
+        } */
     </style>
 </head>
 <body>
-    <h1>환경 퀴즈</h1>
+    <h1>Quiz</h1>
+    <br>
     <hr>
+    <br><br><br><br>
+
+
+        
+        <!-- <img src="eco1.jpg" id="img1" alt=""> -->
 
     <div id="questionContainer">
         <p id="pageNumber">1 / 5</p>
@@ -100,7 +130,7 @@
             <input type="radio" name="answer" value="3"> <span id="answer3"></span><br>
             <input type="radio" name="answer" value="4"> <span id="answer4"></span><br>
             <br>
-            <input type="submit" value="확인">
+            <input type="submit" value="확인" id= "submit1">
         </form>
     </div>
 
@@ -110,14 +140,247 @@
     <button id="nextButton" onclick="nextQuestion()">Next</button>
     <button id="homeButton" onclick="goToHome()" style="display: none;">Home</button>
 
+
     <script>
+        
         var currentQuestionIndex = 0;
         var correctAnswers = 0;
         var questions = [
+
+        
+            
+
+                {
+    question: "가장 환경 친화적인 가정 제품은 무엇입니까?",
+    answers: [
+        "LED 전구",
+        "일회용 거품컵",
+        "금속 스트로우",
+        "플라스틱 이쑤시개"
+    ],
+    correctAnswer: "1"
+},
+{
+    question: "환경에 가장 해로운 물질은 무엇입니까?",
+    answers: [
+        "이산화탄소",
+        "황산가스",
+        "메탄",
+        "녹차"
+    ],
+    correctAnswer: "1"
+},
+{
+    question: "재활용이 된다고 알려진 것 중 가장 많은 종류는 무엇입니까?",
+    answers: [
+        "플라스틱",
+        "유리",
+        "종이",
+        "알루미늄"
+    ],
+    correctAnswer: "3"
+},
+{
+    question: "가장 오래된 환경 보호 단체는 어디입니까?",
+    answers: [
+        "WWF",
+        "녹색평화",
+        "UNEP",
+        "세라클럽"
+    ],
+    correctAnswer: "4"
+},
+{
+    question: "가장 친환경적인 운송 방법은 무엇입니까?",
+    answers: [
+        "자동차",
+        "비행기",
+        "열차",
+        "버스"
+    ],
+    correctAnswer: "3"
+},
+{
+    question: "가장 친환경적인 에너지 원천은 무엇입니까?",
+    answers: [
+        "석탄",
+        "천연 가스",
+        "태양",
+        "수력"
+    ],
+    correctAnswer: "4"
+},
+{
+    question: "가장 일반적인 환경 문제는 무엇입니까?",
+    answers: [
+        "대기 오염",
+        "기후 변화",
+        "수질 오염",
+        "땅 침식"
+    ],
+    correctAnswer: "2"
+},
+{
+    question: "환경 오염을 줄이기 위한 가장 효과적인 방법은 무엇입니까?",
+    answers: [
+        "자동차 운행 줄이기",
+        "쓰레기를 버리지 않기",
+        "정원에 나무 심기",
+        "모두 해당됨"
+    ],
+    correctAnswer: "4"
+},
+{
+    question: "가장 친환경적인 물건은 무엇입니까?",
+    answers: [
+        "일회용 플라스틱 병",
+        "리필 가능한 유리 병",
+        "비닐 봉지",
+        "알루미늄 호일"
+    ],
+    correctAnswer: "2"
+},
+{
+    question: "친환경적인 농업 방법은 무엇입니까?",
+    answers: [
+        "화학 비료 사용",
+        "유기농법",
+        "무인도 농업",
+        "모두 해당됨"
+    ],
+    correctAnswer: "2"
+},
+{
+    question: "가장 많은 에너지를 사용하는 건물은 무엇입니까?",
+    answers: [
+        "공장",
+        "학교",
+        "병원",
+        "사무실 빌딩"
+    ],
+    correctAnswer: "4"
+},
+{
+    question: "가장 대표적인 환경오염 물질은 무엇입니까?",
+    answers: [
+        "이산화탄소",
+        "황산가스",
+        "메탄",
+        "녹차"
+    ],
+    correctAnswer: "1"
+},
+{
+    question: "일회용 플라스틱 사용을 줄이는 가장 좋은 방법은 무엇입니까?",
+    answers: [
+        "재활용하기",
+        "생물 분해 가능한 대안 사용",
+        "쓰레기통에 버리기",
+        "모두 해당됨"
+    ],
+    correctAnswer: "4"
+},
+{
+    question: "가장 친환경적인 운송 방법은 무엇입니까?",
+    answers: [
+        "자동차",
+        "비행기",
+        "열차",
+        "버스"
+    ],
+    correctAnswer: "3"
+},
+{
+    question: "가장 친환경적인 에너지 원천은 무엇입니까?",
+    answers: [
+        "석탄",
+        "천연 가스",
+        "태양",
+        "수력"
+    ],
+    correctAnswer: "4"
+},
+{
+    question: "가장 일반적인 환경 문제는 무엇입니까?",
+    answers: [
+        "대기 오염",
+        "기후 변화",
+        "수질 오염",
+        "땅 침식"
+    ],
+    correctAnswer: "2"
+},
+{
+    question: "환경 오염을 줄이기 위한 가장 효과적인 방법은 무엇입니까?",
+    answers: [
+        "자동차 운행 줄이기",
+        "쓰레기를 버리지 않기",
+        "정원에 나무 심기",
+        "모두 해당됨"
+    ],
+    correctAnswer: "4"
+},
+{
+    question: "가장 친환경적인 물건은 무엇입니까?",
+    answers: [
+        "일회용 플라스틱 병",
+        "리필 가능한 유리 병",
+        "비닐 봉지",
+        "알루미늄 호일"
+    ],
+    correctAnswer: "2"
+},
+{
+    question: "친환경적인 농업 방법은 무엇입니까?",
+    answers: [
+        "화학 비료 사용",
+        "유기농법",
+        "무인도 농업",
+        "모두 해당됨"
+    ],
+    correctAnswer: "2"
+},
+{
+    question: "가장 많은 에너지를 사용하는 건물은 무엇입니까?",
+    answers: [
+        "공장",
+        "학교",
+        "병원",
+        "사무실 빌딩"
+    ],
+    correctAnswer: "4"
+},
+{
+    question: "가장 대표적인 환경오염 물질은 무엇입니까?",
+    answers: [
+        "이산화탄소",
+        "황산가스",
+        "메탄",
+        "녹차"
+    ],
+    correctAnswer: "1"
+},
+{
+    question: "일회용 플라스틱 사용을 줄이는 가장 좋은 방법은 무엇입니까?",
+    answers: [
+        "재활용하기",
+        "생물 분해 가능한 대안 사용",
+        "쓰레기통에 버리기",
+        "모두 해당됨"
+    ],
+    correctAnswer: "4"
+}
+,
+
+
+
+
+
+
             {
                 question: "다음 중 일반쓰레기가 아닌것은?",
                 answers: [
-                    "칫솔",
+                    "칫솔", 
                     "달걀 껍질",
                     "바나나 껍질",
                     "치킨 뼈"
@@ -165,6 +428,7 @@
                 correctAnswer: "4"
             }
         ];
+        
 
         function displayQuestion() {
             var currentQuestion = questions[currentQuestionIndex];
@@ -203,6 +467,8 @@
                 document.getElementById("prevButton").style.display = "block";
                 document.getElementById("homeButton").style.display = "none";
             } else {
+
+              
                 document.getElementById("questionContainer").style.display = "none";
                 document.getElementById("nextButton").style.display = "none";
                 document.getElementById("prevButton").style.display = "none";
@@ -228,9 +494,98 @@
             // 홈으로 이동하는 코드
             window.location.href = "quiz.html";
         }
-//
-        // 초기 문제 표시
+
+
+//   // 퀴즈 완료 시 결과 저장
+//   saveQuizResult(correctAnswers, questions.length);
+
+
+        function loadQuizData() {
+    var quizRef = database.ref('quizData');
+    quizRef.once('value', function(snapshot) {
+        var data = snapshot.val();
+        console.log(data); // 가져온 데이터를 콘솔에 출력하여 확인
+    });
+}
+// 랜덤하게 문제 선택 함수
+function selectRandomQuestions() {
+            var shuffledQuestions = questions.slice(); // 원본 배열 복사
+            shuffledQuestions.sort(() => Math.random() - 0.5); // 배열 랜덤 셔플
+            return shuffledQuestions.slice(0, 10); // 랜덤하게 10개의 문제 선택
+        }
+// 초기 문제 표시
+questions = selectRandomQuestions();
         displayQuestion();
+
+
+        // Firebase 프로젝트 설정 정보
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyDgb_f8tZd5NJKgFOMNxPl2fYRvtdwm2x4",
+  authDomain: "eco1-38a2e.firebaseapp.com",
+  databaseURL: "https://eco1-38a2e-default-rtdb.firebaseio.com",
+  projectId: "eco1-38a2e",
+  storageBucket: "eco1-38a2e.appspot.com",
+  messagingSenderId: "1098298721758",
+  appId: "1:1098298721758:web:7acfd8b24f6d01cf49494f",
+  measurementId: "G-FVL5G5W426"
+};
+        
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+
+        // Firebase 데이터베이스 참조 생성
+        var database = firebase.database();
+
+        // 나머지 스크립트 코드는 여기에 입력
+        // 퀴즈 결과 저장 함수
+    function saveQuizResult(correctAnswers, totalQuestions) {
+        var userId = firebase.auth().currentUser.uid; // 사용자 ID를 가져오거나 로그인 상태를 확인하여 적절히 설정해야 합니다.
+        var resultRef = database.ref('quizResults/' + userId);
+        resultRef.set({
+            correctAnswers: correctAnswers,
+            totalQuestions: totalQuestions
+        });
+    }
+
+    // 퀴즈 데이터 동적으로 가져오기
+    function loadQuizData() {
+        var quizRef = database.ref('quizData');
+        quizRef.once('value', function(snapshot) {
+            var data = snapshot.val();
+            // 퀴즈 데이터를 사용하여 questions 배열에 할당하거나 직접 사용할 수 있습니다.
+            console.log(data); // 가져온 데이터를 콘솔에 출력하여 확인
+        });
+    }
+
+    // 퀴즈 결과 저장 (예시)
+    // saveQuizResult(3, 5); // 퀴즈 결과 저장 예시
+
+    // 퀴즈 데이터 가져오기 (예시)
+    // loadQuizData(); // 퀴즈 데이터 가져오기 예시
+
+    window.onload = function() {
+        loadQuizData();
+    }
+
+
+
+// 로그인 여부 확인
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+        // 사용자가 로그인한 경우
+        // 퀴즈 결과 저장 함수 호출
+        saveQuizResult(correctAnswers, questions.length);
+    } else {
+        // No user is signed in.
+        // 사용자가 로그인하지 않은 경우
+        // 로그인 페이지로 리다이렉트 또는 로그인 알림을 표시할 수 있습니다.
+        console.log("사용자가 로그인하지 않았습니다.");
+    }
+});
     </script>
+
+  
 </body>
 </html>

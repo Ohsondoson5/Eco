@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환경 퀴즈</title>
+
+
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+
+
+            margin-top: 20px;
+
+         
+        }
+
+        #submit1 {
+            font-size: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        hr {
+            border: 1px solid #4CAF50;
+            margin-top: 20px;
+        }
+
+        #questionContainer {
+            max-width: 1200px;
+            max-height: 3000px;
+            margin: 0 auto;
+            background-color: #f2f2f2;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* 추가 */
+        }
+
+        #questionText {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #answer1 , #answer2, #answer3, #answer4 {
+            font-size: 24px;
+            font-weight: Arial, sans-serif;
+
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        #result {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        #nextButton, #prevButton, #homeButton {
+            display: block;
+            margin: 0 auto;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 32px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #nextButton:hover, #prevButton:hover, #homeButton:hover {
+            background-color: #0056b3;
+        }
+
+        #pageNumber {
+            text-align: center;
+            color: #666;
+            font-size: 22px;
+        }
+
+        #gi {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 이미지가 다른 요소보다 뒤로 가도록 설정 */
+        }
+/* 
+        #img1 {
+            max-width: 500px;
+            max-height: 300px;
+        } */
+    </style>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <br>
+    <hr>
+    <br><br><br><br>
+
+
+        
+        <!-- <img src="eco1.jpg" id="img1" alt=""> -->
+
+    <div id="questionContainer">
+        <p id="pageNumber">1 / 5</p>
+        <p id="questionText"></p>
+        <form id="quizForm" onsubmit="checkAnswer(); return false;">
+            <input type="radio" name="answer" value="1"> <span id="answer1"></span><br>
+            <input type="radio" name="answer" value="2"> <span id="answer2"></span><br>
+            <input type="radio" name="answer" value="3"> <span id="answer3"></span><br>
+            <input type="radio" name="answer" value="4"> <span id="answer4"></span><br>
+            <br>
+            <input type="submit" value="확인" id= "submit1">
+        </form>
+    </div>
+
+    <p id="result"></p>
+
+    <button id="prevButton" onclick="prevQuestion()" style="display: none;">Prev</button>
+    <button id="nextButton" onclick="nextQuestion()">Next</button>
+    <button id="homeButton" onclick="goToHome()" style="display: none;">Home</button>
+
+
+    <script>
+        
+        var currentQuestionIndex = 0;
+        var correctAnswers = 0;
+        var questions = [
+            {
+                question: "다음 중 일반쓰레기가 아닌것은?",
+                answers: [
+                    "칫솔", 
+                    "달걀 껍질",
+                    "바나나 껍질",
+                    "치킨 뼈"
+                ],
+                correctAnswer: "3"
+            },
+            {
+                question: "지구의 날은 언제일까요?",
+                answers: [
+                    "6/2",
+                    "6/5",
+                    "6/15",
+                    "6/22"
+                ],
+                correctAnswer: "2"
+            },
+            {
+                question: "다음 보기 중 환경 운동의 3R이 아닌 것은?",
+                answers: [
+                    "Reuse",
+                    "Reduce",
+                    "Recycle",
+                    "Reform"
+                ],
+                correctAnswer: "4"
+            },
+            {
+                question: "모노필라멘트 낚싯줄이 분해되는데까지 걸리는 시간은?",
+                answers: [
+                    "200년",
+                    "400년",
+                    "600년",
+                    "800년"
+                ],
+                correctAnswer: "3"
+            },
+            {
+                question: "태양광 발전의 최적 온도는?",
+                answers: [
+                    "19°C",
+                    "21°C",
+                    "23°C",
+                    "25°C"
+                ],
+                correctAnswer: "4"
+            }
+        ];
+        
+
+        function displayQuestion() {
+            var currentQuestion = questions[currentQuestionIndex];
+            document.getElementById("pageNumber").innerText = (currentQuestionIndex + 1) + " / " + questions.length;
+            document.getElementById("questionText").innerText = currentQuestion.question;
+            document.getElementById("answer1").innerText = currentQuestion.answers[0];
+            document.getElementById("answer2").innerText = currentQuestion.answers[1];
+            document.getElementById("answer3").innerText = currentQuestion.answers[2];
+            document.getElementById("answer4").innerText = currentQuestion.answers[3];
+        }
+
+        function checkAnswer() {
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer === null) {
+                alert("답을 선택해주세요!");
+                return;
+            }
+
+            var answer = selectedAnswer.value;
+            var currentQuestion = questions[currentQuestionIndex];
+            if (answer === currentQuestion.correctAnswer) {
+                document.getElementById("result").innerText = "정답입니다!";
+                correctAnswers++;
+            } else {
+                document.getElementById("result").innerText = "틀렸습니다. 다시 시도해보세요.";
+            }
+
+            document.getElementById("nextButton").style.display = "block";
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+                document.getElementById("result").innerText = "";
+                document.getElementById("prevButton").style.display = "block";
+                document.getElementById("homeButton").style.display = "none";
+            } else {
+                document.getElementById("questionContainer").style.display = "none";
+                document.getElementById("nextButton").style.display = "none";
+                document.getElementById("prevButton").style.display = "none";
+                document.getElementById("homeButton").style.display = "block";
+                var percentage = (correctAnswers / questions.length) * 100;
+                document.getElementById("result").innerText = "맞힌 문제: " + correctAnswers + " / " + questions.length + " (" + percentage.toFixed(2) + "%)";
+            }
+        }
+
+        function prevQuestion() {
+            currentQuestionIndex--;
+            if (currentQuestionIndex >= 0) {
+                displayQuestion();
+                document.getElementById("result").innerText = "";
+                if (currentQuestionIndex === 0) {
+                    document.getElementById("prevButton").style.display = "none";
+                }
+                document.getElementById("homeButton").style.display = "none";
+            }
+        }
+
+        function goToHome() {
+            // 홈으로 이동하는 코드
+            window.location.href = "quiz.html";
+        }
+//
+        // 초기 문제 표시
+        displayQuestion();
+    </script>
+</body>
+</html>
