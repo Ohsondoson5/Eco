@@ -1,19 +1,18 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getDatabase, ref, set } from 'firebase/database';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js';
+import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
 
 // Firebase 구성
 const firebaseConfig = {
-    apiKey: "AIzaSyAzB8dtkIxFAq1PSDf1IawowHOcEF2GfB0",
-    authDomain: "webproject-7bbac.firebaseapp.com",
-    databaseURL: "https://webproject-7bbac-default-rtdb.firebaseio.com",
-    projectId: "webproject-7bbac",
-    storageBucket: "webproject-7bbac.appspot.com",
-    messagingSenderId: "149573232901",
-    appId: "1:149573232901:web:cd3c3e6c4cc07b07f2af6c",
-    measurementId: "G-26XF6G9VGW"
-  };
+  apiKey: "AIzaSyCRDJ4CRCg5bFCNRwH_pnfxbUNlcZbcM1k",
+  authDomain: "greenissue-2a081.firebaseapp.com",
+  projectId: "greenissue-2a081",
+  storageBucket: "greenissue-2a081.appspot.com",
+  messagingSenderId: "155412299179",
+  appId: "1:155412299179:web:890f117a1c5ed80d0826ee",
+  measurementId: "G-HZ30WZEM8J"
+};
 
 // Firebase 초기화
 const app = initializeApp(firebaseConfig);
