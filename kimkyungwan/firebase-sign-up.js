@@ -34,6 +34,7 @@ const signUp = async (email, password, username) => {
     });
 
     console.log('사용자가 생성되었으며, 데이터베이스에 저장되었습니다.');
+    toggle(); // toggle 함수를 호출하여 화면을 로그인 화면으로 변경
   } catch (error) {
     console.error('회원가입 중 오류 발생:', error.message);
   }
