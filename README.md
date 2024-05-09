@@ -25,6 +25,10 @@ commit 할 때 메시지 넣기!<br>
 https://12716.tistory.com/entry/Git-GitHub-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0 <br>  
 https://bba-jin.tistory.com/50<br> 
 
+## 0507
+firebase 연결 및 데이터 확인<br>
+퀴즈 페이지 수정 및 보완
+
 ## 0430
 각자 파트별 기능 구현 및 부족한 부분 보완<br>
 `캠페인 페이지` : iframe을 통한 구글폼 가져오기<br>
