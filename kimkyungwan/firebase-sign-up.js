@@ -102,7 +102,7 @@ signUpButton.addEventListener('click', () => {
     return;
   }
 
-//비밀번호 일치
+  //비밀번호 일치
   if (password !== confirmPassword) {
     showAlertRed('비밀번호가 일치하지 않습니다.');
     return;
