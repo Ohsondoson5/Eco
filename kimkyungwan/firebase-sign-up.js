@@ -59,6 +59,35 @@ function showAlertRed(message) {
   }, 2000); // 2초 후에 다이얼로그가 자동으로 사라지도록 설정
 }
 
+// 로그인 함수
+function signIn(email, password) {
+  // Firebase 인증 서비스를 이용하여 로그인
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // 로그인 성공
+      const user = userCredential.user;
+      console.log("로그인 성공:", user);
+      window.location.href = 'main.html'; // 로그인 성공 시 페이지 이동
+    })
+    .catch((error) => {
+      // 로그인 실패
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("로그인 실패:", errorMessage);
+      alert(errorMessage); // 로그인 실패 메시지 출력
+    });
+}
+
+// 이벤트 핸들러
+const signInButton = document.getElementById('sign-in-btn');
+
+signInButton.addEventListener('click', () => {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  signIn(username, password); // 로그인 함수 호출
+});
+
 // 이벤트 핸들러
 const signUpButton = document.getElementById('sign-up-btn');
 

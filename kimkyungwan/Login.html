@@ -406,9 +406,7 @@
               <i class='bx bxs-lock-alt'></i>
               <input type="password" placeholder="비밀번호">
             </div>
-            <button>
-              로그인
-            </button>
+            <button id="sign-in-btn">로그인</button>
             <p>
               <b onclick="toggle()" class="pointer">
                 아이디 / 비밀번호 찾기
@@ -468,5 +466,7 @@
       container.classList.add('sign-in');
     }, 200);
   </script>
+  <button onclick="signUp()">회원가입</button>
+  <button onclick="signIn()">로그인</button>
   </body>
   </html>
