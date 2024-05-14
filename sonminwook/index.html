@@ -16,6 +16,95 @@
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
 
     <link href="../css/templatemo-kind-heart-charity.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: #fff;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-item img {
+            max-width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .news-item-content {
+            flex: 1;
+        }
+
+        .news-item-content h2 {
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+            cursor: pointer;
+            color: #007BFF;
+            transition: color 0.2s;
+        }
+
+        .news-item-content h2:hover {
+            color: #0056b3;
+        }
+
+        .news-item-content p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .pagination button:hover {
+            background-color: #0056b3;
+        }
+
+        .pagination button[disabled] {
+            background-color: #ccc;
+            cursor: default;
+        }
+    </style>
     <!--
 
 TemplateMo 581 Kind Heart Charity
@@ -100,455 +189,148 @@ https://templatemo.com/tm-581-kind-heart-charity
         </section>
 
         <section class="news-section section-padding">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-7 col-12">
-                        <div class="news-block">
-                            <div class="news-block-top">
-                                <a href="news-detail.html">
-                                    <img src="../images/news//medium-shot-people-collecting-foodstuff.jpg"
-                                        class="news-image img-fluid" alt="">
-                                </a>
-
-
-                            </div>
-
-                            <div class="news-block-info">
-                                <div class="d-flex mt-2">
-                                    <div class="news-block-date">
-                                        <p>
-                                            <i class="bi-calendar4 custom-icon me-1"></i>
-                                            2024.04.16 12:47
-                                        </p>
-                                    </div>
-
-                                    <div class="news-block-author mx-5">
-                                        <p>
-                                            <i class="bi-person custom-icon me-1"></i>
-                                            By Admin
-                                        </p>
-                                    </div>
-
-
-                                </div>
-
-                                <div class="news-block-title mb-2">
-                                    <h4><a href="news-detail.html" class="news-block-title-link">한국의 ‘갯벌’ 보전방안 모색</a>
-                                    </h4>
-                                </div>
-
-                                <div class="news-block-body">
-                                    <p>[환경일보] 해양수산부(장관 강도형)는 4월17일(수)부터 4월19일(금)까지 3일간 인천광역시 송도 컨벤시아에서 갯벌 세계자연유산 국제심포지엄을
-                                        개최한다.이번 심포지엄은 ‘한국의 갯벌’ 유네</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-block mt-3">
-                            <div class="news-block-top">
-                                <a href="news-detail.html">
-                                    <img src="../images/news/medium-shot-people-collecting-foodstuff.jpg"
-                                        class="news-image img-fluid" alt="">
-                                </a>
-
-
-                            </div>
-
-                            <div class="news-block-info">
-                                <div class="d-flex mt-2">
-                                    <div class="news-block-date">
-                                        <p>
-                                            <i class="bi-calendar4 custom-icon me-1"></i>
-                                            2024.04.15 15:30
-                                        </p>
-                                    </div>
-
-                                    <div class="news-block-author mx-5">
-                                        <p>
-                                            <i class="bi-person custom-icon me-1"></i>
-                                            By Admin
-                                        </p>
-                                    </div>
-
-
-                                </div>
-
-                                <div class="news-block-title mb-2">
-                                    <h4><a href="news-detail.html" class="news-block-title-link">자전거 타면 탄소배출권을 준다고?</a>
-                                    </h4>
-                                </div>
-
-                                <div class="news-block-body">
-                                    <p>[환경일보] 대통령직속 2050탄소중립녹색성장위원회(공동위원장: 한덕수 국무총리, 김상협 카이스트 부총장, 이하 탄녹위)와 환경부(장관:한화진),
-                                        국토교통부(장관:박상우), 행정안전부(장관:이</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="additional-news mt-3" style="display: none;">
-                            <!-- 여기서부터 숨김 뉴스 기능-->
-
-                            <div class="news-block mt-4">
-                                <div class="news-block-top">
-                                    <a href="news-detail.html">
-                                        <img src="../images/news/medium-shot-people-collecting-foodstuff.jpg"
-                                            class="news-image img-fluid" alt="">
-                                    </a>
-
-                                    <div class="news-category-block">
-                                        <a href="#" class="category-block-link">
-                                            Food,
-                                        </a>
-
-                                        <a href="#" class="category-block-link">
-                                            Donation,
-                                        </a>
-
-                                        <a href="#" class="category-block-link">
-                                            Caring
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="news-block-info">
-                                    <div class="d-flex mt-2">
-                                        <div class="news-block-date">
-                                            <p>
-                                                <i class="bi-calendar4 custom-icon me-1"></i>
-                                                2024.04.16 12:47
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-author mx-5">
-                                            <p>
-                                                <i class="bi-person custom-icon me-1"></i>
-                                                By Admin
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-comment">
-                                            <p>
-                                                <i class="bi-chat-left custom-icon me-1"></i>
-                                                35 Comments
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block-title mb-2">
-                                        <h4><a href="news-detail.html" class="news-block-title-link">Food donation
-                                                area</a>
-                                        </h4>
-                                    </div>
-
-                                    <div class="news-block-body">
-                                        <p>You are not allowed to redistribute this template ZIP file on any other
-                                            template
-                                            collection website. Please <a href="https://templatemo.com/contact"
-                                                target="_blank">contact TemplateMo</a> for more information.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="news-block mt-5">
-                                <div class="news-block-top">
-                                    <a href="news-detail.html">
-                                        <img src="../images/news/medium-shot-people-collecting-foodstuff.jpg"
-                                            class="news-image img-fluid" alt="">
-                                    </a>
-
-                                    <div class="news-category-block">
-                                        <a href="#" class="category-block-link">
-                                            Food,
-                                        </a>
-
-                                        <a href="#" class="category-block-link">
-                                            Donation,
-                                        </a>
-
-                                        <a href="#" class="category-block-link">
-                                            Caring
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="news-block-info">
-                                    <div class="d-flex mt-2">
-                                        <div class="news-block-date">
-                                            <p>
-                                                <i class="bi-calendar4 custom-icon me-1"></i>
-                                                October 12, 2036
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-author mx-5">
-                                            <p>
-                                                <i class="bi-person custom-icon me-1"></i>
-                                                By Admin
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-comment">
-                                            <p>
-                                                <i class="bi-chat-left custom-icon me-1"></i>
-                                                35 Comments
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block-title mb-2">
-                                        <h4><a href="news-detail.html" class="news-block-title-link">Food donation
-                                                area</a>
-                                        </h4>
-                                    </div>
-
-                                    <div class="news-block-body">
-                                        <p>You are not allowed to redistribute this template ZIP file on any other
-                                            template
-                                            collection website. Please <a href="https://templatemo.com/contact"
-                                                target="_blank">contact TemplateMo</a> for more information.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="news-block mt-6">
-                                <div class="news-block-top">
-                                    <a href="news-detail.html">
-                                        <img src="../images/news/medium-shot-people-collecting-foodstuff.jpg"
-                                            class="news-image img-fluid" alt="">
-                                    </a>
-
-                                    <div class="news-category-block">
-                                        <a href="#" class="category-block-link">
-                                            Food,
-                                        </a>
-
-                                        <a href="#" class="category-block-link">
-                                            Donation,
-                                        </a>
-
-                                        <a href="#" class="category-block-link">
-                                            Caring
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="news-block-info">
-                                    <div class="d-flex mt-2">
-                                        <div class="news-block-date">
-                                            <p>
-                                                <i class="bi-calendar4 custom-icon me-1"></i>
-                                                2024.04.16 12:47
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-author mx-5">
-                                            <p>
-                                                <i class="bi-person custom-icon me-1"></i>
-                                                By Admin
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-comment">
-                                            <p>
-                                                <i class="bi-chat-left custom-icon me-1"></i>
-                                                35 Comments
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block-title mb-2">
-                                        <h4><a href="news-detail.html" class="news-block-title-link">Food donation
-                                                area</a>
-                                        </h4>
-                                    </div>
-
-                                    <div class="news-block-body">
-                                        <p>You are not allowed to redistribute this template ZIP file on any other
-                                            template
-                                            collection website. Please <a href="https://templatemo.com/contact"
-                                                target="_blank">contact TemplateMo</a> for more information.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="news-block mt-7">
-                                <div class="news-block-top">
-                                    <a href="news-detail.html">
-                                        <img src="../images/news/medium-shot-people-collecting-foodstuff.jpg"
-                                            class="news-image img-fluid" alt="">
-                                    </a>
-
-                                    <div class="news-category-block">
-                                        <a href="#" class="category-block-link">
-                                            Food,
-                                        </a>
-
-                                        <a href="#" class="category-block-link">
-                                            Donation,
-                                        </a>
-
-                                        <a href="#" class="category-block-link">
-                                            Caring
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="news-block-info">
-                                    <div class="d-flex mt-2">
-                                        <div class="news-block-date">
-                                            <p>
-                                                <i class="bi-calendar4 custom-icon me-1"></i>
-                                                October 12, 2036
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-author mx-5">
-                                            <p>
-                                                <i class="bi-person custom-icon me-1"></i>
-                                                By Admin
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-comment">
-                                            <p>
-                                                <i class="bi-chat-left custom-icon me-1"></i>
-                                                35 Comments
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block-title mb-2">
-                                        <h4><a href="news-detail.html" class="news-block-title-link">Food donation
-                                                area</a>
-                                        </h4>
-                                    </div>
-
-                                    <div class="news-block-body">
-                                        <p>You are not allowed to redistribute this template ZIP file on any other
-                                            template
-                                            collection website. Please <a href="https://templatemo.com/contact"
-                                                target="_blank">contact TemplateMo</a> for more information.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 뉴스 페이지 이동 링크 -->
-                            <div class="text-center mt-4">
-                                <a href="#news1" class="btn btn-secondary">1</a>
-                                <a href="#news2" class="btn btn-secondary">2</a>
-                                <a href="#news3" class="btn btn-secondary">3</a>
-                                <a href="#news4" class="btn btn-secondary">4</a>
-                                <a href="#news5" class="btn btn-secondary">5</a>
-                            </div>
-
-
-                        </div>
-
-                        <div class="text-center mt-4">
-                            <button id="showMoreBtn" class="btn btn-primary">더 많은 뉴스 보기</button>
-                        </div>
-                    </div>
-                    <script>
-                        // 더 많은 뉴스 보기 버튼 클릭 시 숨겨진 뉴스 블록을 표시하거나 숨기는 함수
-                        document.getElementById('showMoreBtn').addEventListener('click', function () {
-                            var additionalNews = document.querySelector('.additional-news');
-                            if (additionalNews.style.display === 'none' || additionalNews.style.display === '') {
-                                additionalNews.style.display = 'block';
-                                document.getElementById('showMoreBtn').textContent = '더 많은 뉴스 숨기기';
-                            } else {
-                                additionalNews.style.display = 'none';
-                                document.getElementById('showMoreBtn').textContent = '더 많은 뉴스 보기';
-                            }
-                        });
-                    </script>
-
-                    <div class="col-lg-4 col-12 mx-auto mt-4 mt-lg-0">
-
-
-                        <h5 class="mt-5 mb-3">인기뉴스</h5>
-
-                        <div class="news-block news-block-two-col d-flex mt-4">
-                            <div class="news-block-two-col-image-wrap">
-                                <a href="news-detail.html">
-                                    <img src="..\images\news\africa-humanitarian-aid-doctor.jpg"
-                                        class="news-image img-fluid" alt="">
-                                </a>
-                            </div>
-
-                            <div class="news-block-two-col-info">
-                                <div class="news-block-title mb-2">
-                                    <h6><a href="news-detail.html" class="news-block-title-link">국립수목원-수원시, 식물유전자원 보전
-                                            협력</a>
-                                    </h6>
-                                </div>
-
-                                <div class="news-block-date">
-                                    <p>
-                                        <i class="bi-calendar4 custom-icon me-1"></i>
-                                        2024.04.15 14:46
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-block news-block-two-col d-flex mt-4">
-                            <div class="news-block-two-col-image-wrap">
-                                <a href="news-detail.html">
-                                    <img src="..\images\news\africa-humanitarian-aid-doctor.jpg"
-                                        class="news-image img-fluid" alt="">
-                                </a>
-                            </div>
-
-                            <div class="news-block-two-col-info">
-                                <div class="news-block-title mb-2">
-                                    <h6><a href="news-detail.html" class="news-block-title-link">지난해 신규 석탄발전 착공 95% 중국
-                                            ‘70.2GW‘</a>
-                                    </h6>
-                                </div>
-
-                                <div class="news-block-date">
-                                    <p>
-                                        <i class="bi-calendar4 custom-icon me-1"></i>
-                                        2024.04.15 13:09
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-block news-block-two-col d-flex mt-4">
-                            <div class="news-block-two-col-image-wrap">
-                                <a href="news-detail.html">
-                                    <img src="..\images\news\africa-humanitarian-aid-doctor.jpg"
-                                        class="news-image img-fluid" alt="">
-                                </a>
-                            </div>
-
-                            <div class="news-block-two-col-info">
-                                <div class="news-block-title mb-2">
-                                    <h6><a href="news-detail.html" class="news-block-title-link">지난해 신규 석탄발전 착공 95% 중국
-                                            ‘70.2GW‘</a>
-                                    </h6>
-                                </div>
-
-                                <div class="news-block-date">
-                                    <p>
-                                        <i class="bi-calendar4 custom-icon me-1"></i>
-                                        2024.04.15 13:09
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-
-                    </div>
-
-                </div>
+            <div class="news-container" id="news-container">
+                <!-- 뉴스가 여기에 동적으로 추가될 것입니다. -->
             </div>
+
+            <div class="pagination" id="pagination">
+                <!-- 페이지 버튼이 여기에 추가될 것입니다. -->
+            </div>
+
+            <!-- 파이어베이스 JavaScript SDK 직접 로드 -->
+            <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+
+            <script>
+                // Firebase 프로젝트 설정
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAbNYchKcFia8-uIdjlBUOAfalqBwStJdY",
+                    authDomain: "my-eco-prj.firebaseapp.com",
+                    databaseURL: "https://my-eco-prj-default-rtdb.firebaseio.com",
+                    projectId: "my-eco-prj",
+                    storageBucket: "my-eco-prj.appspot.com",
+                    messagingSenderId: "322109404527",
+                    appId: "1:322109404527:web:ab160e33c4927336fc249a",
+                    measurementId: "G-LGEKHFM498"
+                };
+
+                // Firebase 초기화
+                firebase.initializeApp(firebaseConfig);
+
+                // Firebase 데이터베이스 참조
+                const database = firebase.database();
+                const newsRef = database.ref('news');
+
+                // 페이지네이션 설정
+                const itemsPerPage = 5;
+                let currentPage = 1;
+                let totalItems = 0;
+
+                // 뉴스 데이터 가져오기
+                newsRef.once('value', (snapshot) => {
+                    const newsContainer = document.getElementById('news-container');
+                    const pagination = document.getElementById('pagination');
+
+                    totalItems = snapshot.numChildren();
+                    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+                    function renderPage(page) {
+                        newsContainer.innerHTML = '';
+                        const start = (page - 1) * itemsPerPage;
+                        const end = start + itemsPerPage;
+                        let counter = 0;
+
+                        snapshot.forEach((childSnapshot) => {
+                            if (counter >= start && counter < end) {
+                                const newsData = childSnapshot.val();
+                                const newsItem = document.createElement('div');
+                                newsItem.classList.add('news-item');
+
+                                const img = document.createElement('img');
+                                img.src = newsData.img_href;
+                                newsItem.appendChild(img);
+
+                                const contentContainer = document.createElement('div');
+                                contentContainer.classList.add('news-item-content');
+
+                                const title = document.createElement('h2');
+                                title.textContent = newsData.title;
+                                title.addEventListener('click', () => {
+                                    window.location.href = `news-detail.html?id=${childSnapshot.key}`;
+                                });
+                                contentContainer.appendChild(title);
+
+                                const date = document.createElement('p');
+                                date.textContent = newsData.date;
+                                contentContainer.appendChild(date);
+
+                                const content = document.createElement('p');
+                                const maxContentLength = 100;
+                                content.textContent = newsData.content.length > maxContentLength ? newsData.content.slice(0, maxContentLength) + '...' : newsData.content;
+                                contentContainer.appendChild(content);
+
+                                newsItem.appendChild(contentContainer);
+                                newsContainer.appendChild(newsItem);
+                            }
+                            counter++;
+                        });
+
+                        renderPagination(page, totalPages);
+                    }
+
+                    function renderPagination(current, total) {
+                        pagination.innerHTML = '';
+
+                        const prevButton = document.createElement('button');
+                        prevButton.textContent = 'Prev';
+                        prevButton.disabled = current === 1;
+                        prevButton.addEventListener('click', () => {
+                            currentPage--;
+                            renderPage(currentPage);
+                        });
+                        pagination.appendChild(prevButton);
+
+                        let startPage, endPage;
+                        if (total <= 7) {
+                            startPage = 1;
+                            endPage = total;
+                        } else {
+                            if (current <= 4) {
+                                startPage = 1;
+                                endPage = 7;
+                            } else if (current + 3 >= total) {
+                                startPage = total - 6;
+                                endPage = total;
+                            } else {
+                                startPage = current - 3;
+                                endPage = current + 3;
+                            }
+                        }
+
+                        for (let i = startPage; i <= endPage; i++) {
+                            const pageButton = document.createElement('button');
+                            pageButton.textContent = i;
+                            pageButton.disabled = i === current;
+                            pageButton.addEventListener('click', () => {
+                                currentPage = i;
+                                renderPage(currentPage);
+                            });
+                            pagination.appendChild(pageButton);
+                        }
+
+                        const nextButton = document.createElement('button');
+                        nextButton.textContent = 'Next';
+                        nextButton.disabled = current === total;
+                        nextButton.addEventListener('click', () => {
+                            currentPage++;
+                            renderPage(currentPage);
+                        });
+                        pagination.appendChild(nextButton);
+                    }
+
+                    renderPage(currentPage);
+                });
+            </script>
         </section>
     </main>
 
