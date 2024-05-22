@@ -33,22 +33,7 @@ function signUp() {
   }
 }
 
-// 로그인 함수
-// function signIn() {
-//   const email = document.getElementById('email').value;
-//   const password = document.getElementById('signin-password').value;
 
-//   // 이메일을 기반으로 사용자의 정보를 가져와서 비밀번호를 확인
-//   const username = email.split('@')[0]; // 이메일에서 '@' 이전 부분이 사용자 이름(아이디)
-//   database.ref('users/' + username).once('value', (snapshot) => {
-//     const user = snapshot.val();
-//     if (user && user.password === password) {
-//       alert("로그인 성공!");
-//     } else {
-//       alert("이메일 또는 비밀번호가 올바르지 않습니다.");
-//     }
-//   });
-// }
 
 // 로그인 함수
 function signIn() {
