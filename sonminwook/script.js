@@ -12,7 +12,7 @@ const firebaseConfig = {
   
   // Firebase 초기화
   firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+  const auth = firebase.authDomain();
   
   // 회원가입 함수
   function signUp() {
