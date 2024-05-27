@@ -16,23 +16,63 @@ const database = firebase.database();
 
 // 회원가입 함수
 function signUp() {
-  const username = document.getElementById('username').value;
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirm-password').value;
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+  
+    // 아이디가 공백인지 확인
+    if (username.trim() === '') {
+      alert('아이디를 입력해주세요.');
+      document.getElementById('username').focus();
+      return false;
+    }
+  
+    //이메일 유효성 검사
+    function isValidEmail(email) {
+        // 간단한 이메일 유효성을 위한 정규 표현식
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(email);
+    }
 
-  if (password === confirmPassword) {
-    // 사용자 정보를 Realtime Database에 저장
+    // 이메일 유효성 검사
+    if (!isValidEmail(email)) {
+      alert('올바른 이메일 주소를 입력해주세요.');
+      document.getElementById('email').focus();
+      return false;
+    }
+  
+    // 비밀번호 검사
+    if (password === '' || password.length < 4) {
+      alert('비밀번호는 4자 이상이어야 합니다.');
+      document.getElementById('password').focus();
+      return false;
+    }
+  
+    // 확인 비밀번호 검사
+    if (confirmPassword === '') {
+      alert('비밀번호를 입력하세요.');
+      document.getElementById('confirm-password').focus();
+      return false;
+    }
+  
+    // 비밀번호 일치 여부 확인
+    if (password !== confirmPassword) {
+      alert('비밀번호가 일치하지 않습니다.');
+      document.getElementById('confirm-password').focus();
+      return false;
+    }
+  
+    // 모든 조건을 통과했을 때 사용자 정보를 Realtime Database에 저장
     database.ref('users/' + username).set({
       email: email,
       password: password
     });
     alert("회원가입 성공!");
     window.location.href = 'login.html'; // 로그인 페이지로 이동
-  } else {
-    alert("비밀번호가 일치하지 않습니다.");
+    return true;
   }
-}
+  
 
 
 
