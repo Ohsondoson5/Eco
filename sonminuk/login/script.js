@@ -28,7 +28,7 @@ function signUp() {
       password: password
     });
     alert("회원가입 성공!");
-    window.location.href = '/kimkyungwan/main.html'; // 메인페이지로 이동
+    window.location.href = 'login.html'; // 로그인 페이지로 이동
   } else {
     alert("비밀번호가 일치하지 않습니다.");
   }
@@ -46,6 +46,8 @@ function signIn() {
     const user = snapshot.val();
     if (user && user.password === password) {
       alert("로그인 성공!");
+      localStorage.setItem('username', username); // 유저 아이디를 로컬 스토리지에 저장
+      window.location.href = '/kimkyungwan/main.html'; // 메인페이지로 이동
     } else {
       alert("아이디 또는 비밀번호가 올바르지 않습니다.");
     }

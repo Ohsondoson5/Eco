@@ -72,6 +72,10 @@ https://templatemo.com/tm-581-kind-heart-charity
                             <li class="nav-item ms-3">
                                 <a class="nav-link custom-btn custom-border-btn btn" href="../kimkyungwan/Login.html">Login</a>
                             </li>
+
+                            <li class="nav-item ms-3">
+                                <a id="logout-btn" class="nav-link custom-btn custom-border-btn btn" href="#" onclick="logout()">Login</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -142,6 +146,25 @@ https://templatemo.com/tm-581-kind-heart-charity
         <script src="js/click-scroll.js"></script>
         <script src="js/counter.js"></script>
         <script src="js/custom.js"></script>
-
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const username = localStorage.getItem('username');
+                if (username) {
+                    const loginButton = document.querySelector('.custom-btn');
+                    if (loginButton) {
+                        loginButton.textContent = username; // 로그인 버튼 자리에 유저 아이디 표시
+                        loginButton.removeAttribute('href'); // 링크 속성 제거
+                        loginButton.className = ''; // 모든 클래스 제거
+                        // loginButton.style = 'color: green; font-size: 1rem;'; // 스타일 추가 (필요에 따라)
+                    }
+                }
+            });
+        </script>
+        <script>
+            function logout() {
+              localStorage.removeItem('username');
+              window.location.href = '../kimkyungwan/Login.html'; // 로그인 페이지로 이동
+            }
+        </script>
     </body>
 </html>

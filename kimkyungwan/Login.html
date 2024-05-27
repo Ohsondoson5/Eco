@@ -1,13 +1,17 @@
-  <!DOCTYPE html>
-  <html lang="ko">
-  <head>
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up & Sign In</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
-  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js" type="modules"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js" type="modules"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js" type="modules"></script>
+
+  <!-- 파이어베이스 JavaScript SDK 직접 로드 -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+
+  <script src="script.js" defer></script>
 
   <style>
     :root {
@@ -291,6 +295,7 @@
     /* RESPONSIVE */
 
     @media only screen and (max-width: 425px) {
+
       .container::before,
       .container.sign-in::before,
       .container.sign-up::before {
@@ -354,14 +359,13 @@
     }
   </style>
 
-  <!-- 모듈 스크립트 로드 -->
-  <script type="module" src="firebase-sign-up.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
   <div id="container" class="container">
-    <!-- FORM SECTION -->
+    <!-- 폼 섹션 -->
     <div class="row">
-      <!-- SIGN UP -->
+      <!-- 회원가입 -->
       <div class="col align-items-center flex-col sign-up">
         <div class="form-wrapper align-items-center">
           <div class="form sign-up">
@@ -383,90 +387,79 @@
             </div>
             <button id="sign-up-btn">회원가입</button>
             <p>
-              <span>
-                그린 이슈 회원이신가요?
-              </span>
-              <b onclick="toggle()" class="pointer">
-                로그인
-              </b>
+              <span>그린 이슈 회원이신가요?</span>
+              <b onclick="toggle()" class="pointer">로그인</b>
             </p>
           </div>
         </div>
       </div>
-      <!-- END SIGN UP -->
-      <!-- SIGN IN -->
+      <!-- 회원가입 끝 -->
+
+      <!-- 로그인 -->
       <div class="col align-items-center flex-col sign-in">
         <div class="form-wrapper align-items-center">
           <div class="form sign-in">
             <div class="input-group">
               <i class='bx bxs-user'></i>
-              <input type="text" placeholder="아이디">
+              <input type="text" id="signin-username" placeholder="아이디">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="비밀번호">
+              <input type="password" id="signin-password" placeholder="비밀번호">
             </div>
             <button id="sign-in-btn">로그인</button>
             <p>
-              <b onclick="toggle()" class="pointer">
-                아이디 / 비밀번호 찾기
-              </b>
+              <b onclick="toggle()" class="pointer">아이디 / 비밀번호 찾기</b>
             </p>
             <p>
-              <span>
-                그린 이슈 회원이 아니신가요?
-              </span>
-              <b onclick="toggle()" class="pointer">
-                회원가입
-              </b>
+              <span>그린 이슈 회원이 아니신가요?</span>
+              <b onclick="toggle()" class="pointer">회원가입</b>
             </p>
           </div>
         </div>
-        <div class="form-wrapper">
-    
-        </div>
       </div>
-      <!-- END SIGN IN -->
+      <!-- 로그인 끝 -->
     </div>
-    <!-- END FORM SECTION -->
-    <!-- CONTENT SECTION -->
+    <!-- 폼 섹션 끝 -->
+
+    <!-- 콘텐츠 섹션 -->
     <div class="row content-row">
-      <!-- SIGN IN CONTENT -->
+      <!-- 로그인 콘텐츠 -->
       <div class="col align-items-center flex-col">
-        <div class="text sign-in">
-        </div>
+        <div class="text sign-in"></div>
         <div class="img sign-in">
-          <img style="margin-bottom: 400px;" src="LoginLogo.png" alt="Sign In Image">
+          <img style="margin-bottom: 400px;" src="LoginLogo.png" alt="로그인 이미지">
         </div>
       </div>
-      <!-- END SIGN IN CONTENT -->
-      <!-- SIGN UP CONTENT -->
+      <!-- 로그인 콘텐츠 끝 -->
+
+      <!-- 회원가입 콘텐츠 -->
       <div class="col align-items-center flex-col">
         <div class="img sign-up">
-          <img style="margin-top: 400px;" src="LoginLogo.png" alt="Sign Up Image">
+          <img style="margin-top: 400px;" src="LoginLogo.png" alt="회원가입 이미지">
         </div>
-        <div class="text sign-up">
-        </div>
+        <div class="text sign-up"></div>
       </div>
-      <!-- END SIGN UP CONTENT -->
-  </div>
-
-    <!-- END CONTENT SECTION -->
+      <!-- 회원가입 콘텐츠 끝 -->
+    </div>
+    <!-- 콘텐츠 섹션 끝 -->
   </div>
 
   <script>
-    let container = document.getElementById('container')
+    // 컨테이너 요소 가져오기
+    let container = document.getElementById('container');
 
+    // 로그인 및 회원가입 폼 전환 함수
     function toggle() {
       container.classList.toggle('sign-in');
       container.classList.toggle('sign-up');
     }
 
+    // 초기 상태를 로그인 폼으로 설정
     setTimeout(() => {
       container.classList.add('sign-in');
     }, 200);
   </script>
-  <button onclick="signUp()">회원가입</button>
-  <button onclick="signIn()">로그인</button>
-  </body>
-  </html>
+</body>
+
+</html>
