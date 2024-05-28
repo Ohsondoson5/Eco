@@ -69,9 +69,17 @@ https://templatemo.com/tm-581-kind-heart-charity
                                 <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
                             </li>
 
-                            <li class="nav-item ms-3">
+                            <li class="nav-item ms-3" id="login-item">
                                 <a class="nav-link custom-btn custom-border-btn btn" href="../kimkyungwan/Login.html">Login</a>
                             </li>
+                            
+                            <li class="nav-item" id="username-item" style="display: none;">
+                                <span class="nav-link smoothscroll" id="username-display"></span>
+                            </li>
+
+                            <li class="nav-item ms-3" id="logout-item" style="display: none;">
+                                <a class="nav-link custom-btn custom-border-btn btn" href="#" onclick="logout()">Logout</a>
+                            </li>  
                         </ul>
                     </div>
                 </div>
@@ -142,6 +150,52 @@ https://templatemo.com/tm-581-kind-heart-charity
         <script src="js/click-scroll.js"></script>
         <script src="js/counter.js"></script>
         <script src="js/custom.js"></script>
+        <script>
+            function signIn() {
+            const username = document.getElementById('signin-username').value;
+            const password = document.getElementById('signin-password').value;
 
+            // 사용자의 아이디를 기반으로 사용자의 정보를 가져와서 비밀번호를 확인
+            database.ref('users/' + username).once('value', (snapshot) => {
+                const user = snapshot.val();
+                if (user && user.password === password) {
+                alert("로그인 성공!");
+                localStorage.setItem('username', username); // 유저 아이디를 로컬 스토리지에 저장
+                window.location.href = '/kimkyungwan/main.html'; // 메인페이지로 이동
+                } else {
+                alert("아이디 또는 비밀번호가 올바르지 않습니다.");
+                }
+            });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+            const username = localStorage.getItem('username');
+            const loginItem = document.getElementById('login-item');
+            const usernameItem = document.getElementById('username-item');
+            const logoutItem = document.getElementById('logout-item');
+            
+            if (username) {
+                const usernameDisplay = document.getElementById('username-display');
+                if (usernameDisplay) {
+                usernameDisplay.textContent = username; // 유저 네임 표시
+                usernameDisplay.style.color = '#00b22d'; // 폰트 색상 설정
+                usernameDisplay.style.fontSize = '1rem'; // 폰트 크기 설정
+                usernameDisplay.style.lineHeight = '1.5'; // 줄 높이 설정
+                }
+                loginItem.style.display = 'none'; // 로그인 버튼 숨기기
+                usernameItem.style.display = 'block'; // 유저 네임 표시
+                logoutItem.style.display = 'block'; // 로그아웃 버튼 보이기
+            } else {
+                loginItem.style.display = 'block'; // 로그인 버튼 보이기
+                usernameItem.style.display = 'none'; // 유저 네임 숨기기
+                logoutItem.style.display = 'none'; // 로그아웃 버튼 숨기기
+            }
+            });
+
+            function logout() {
+            localStorage.removeItem('username');
+            window.location.href = '../kimkyungwan/Login.html'; // 로그인 페이지로 이동
+            }
+        </script>
     </body>
 </html>

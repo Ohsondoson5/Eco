@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kind Heart Charity - News Listing</title>
+
+    <!-- CSS FILES -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="../css/templatemo-kind-heart-charity.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: #fff;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-item img {
+            max-width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .news-item-content {
+            flex: 1;
+        }
+
+        .news-item-content h2 {
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+            cursor: pointer;
+            color: #007BFF;
+            transition: color 0.2s;
+        }
+
+        .news-item-content h2:hover {
+            color: #0056b3;
+        }
+
+        .news-item-content p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .pagination button:hover {
+            background-color: #0056b3;
+        }
+
+        .pagination button[disabled] {
+            background-color: #ccc;
+            cursor: default;
+        }
+
+        /* 검색창 디자인 */
+
+        /* 검색 입력 필드 스타일 */
+        #search-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #search-input:focus {
+            border-color: #007bff;
+        }
+
+        /* 검색 버튼 스타일 */
+        #search-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #search-button:hover {
+            background-color: #0056b3;
+        }
+
+        #search-button:active {
+            transform: scale(0.95);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 헤더 부분 -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="main.html">
+                    <img src="../images/GreenIssue.png" class="logo img-fluid" alt="">
+                    <span>
+                        GreenIssue
+                        <small>Ohsondoson</small>
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="main.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../ohseungmok/index.html">캠페인</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../ohjaeyoung/index.html">분리수거</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../junghyunchul/quiz.html">퀴즈</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
+                        </li>
+
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn"
+                                href="../kimkyungwan/Login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+    <main>
+        <section class="news-detail-header-section text-center">
+            <div class="section-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <h1 class="text-white">환경 뉴스</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-section section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <input type="text" id="search-input" placeholder="검색어를 입력하세요">
+                        <button id="search-button">검색</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-container" id="news-container">
+                <!-- 뉴스가 여기에 동적으로 추가될 것입니다. -->
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- 페이지 버튼이 여기에 추가될 것입니다. -->
+            </div>
+
+            <!-- 파이어베이스 JavaScript SDK 직접 로드 -->
+            <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+
+            <script>
+                // Firebase 프로젝트 설정
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAbNYchKcFia8-uIdjlBUOAfalqBwStJdY",
+                    authDomain: "my-eco-prj.firebaseapp.com",
+                    databaseURL: "https://my-eco-prj-default-rtdb.firebaseio.com",
+                    projectId: "my-eco-prj",
+                    storageBucket: "my-eco-prj.appspot.com",
+                    messagingSenderId: "322109404527",
+                    appId: "1:322109404527:web:ab160e33c4927336fc249a",
+                    measurementId: "G-LGEKHFM498"
+                };
+
+                // Firebase 초기화
+                firebase.initializeApp(firebaseConfig);
+
+                // Firebase 데이터베이스 참조
+                const database = firebase.database();
+                const newsRef = database.ref('news');
+
+                // 페이지네이션 설정
+                const itemsPerPage = 5;
+                let currentPage = 1;
+                let totalItems = 0;
+                let currentSnapshot = null;
+
+                // 뉴스 데이터 가져오기
+                function fetchNewsData(callback) {
+                    newsRef.once('value', (snapshot) => {
+                        currentSnapshot = snapshot;
+                        callback(snapshot);
+                    });
+                }
+
+                function renderPage(snapshot, page) {
+                    const newsContainer = document.getElementById('news-container');
+                    const pagination = document.getElementById('pagination');
+
+                    totalItems = snapshot.numChildren();
+                    const totalPages = Math.ceil(totalItems / itemsPerPage);
+                    newsContainer.innerHTML = '';
+
+                    const start = (page - 1) * itemsPerPage;
+                    const end = start + itemsPerPage;
+                    let counter = 0;
+
+                    snapshot.forEach((childSnapshot) => {
+                        if (counter >= start && counter < end) {
+                            const newsData = childSnapshot.val();
+                            const newsItem = document.createElement('div');
+                            newsItem.classList.add('news-item');
+
+                            const img = document.createElement('img');
+                            img.src = newsData.img_href;
+                            newsItem.appendChild(img);
+
+                            const contentContainer = document.createElement('div');
+                            contentContainer.classList.add('news-item-content');
+
+                            const title = document.createElement('h2');
+                            title.textContent = newsData.title;
+                            title.addEventListener('click', () => {
+                                window.location.href = `news-detail.html?id=${childSnapshot.key}`;
+                            });
+                            contentContainer.appendChild(title);
+
+                            const date = document.createElement('p');
+                            date.textContent = newsData.date;
+                            contentContainer.appendChild(date);
+
+                            const content = document.createElement('p');
+                            const maxContentLength = 100;
+                            content.textContent = newsData.content.length > maxContentLength ? newsData.content.slice(0, maxContentLength) + '...' : newsData.content;
+                            contentContainer.appendChild(content);
+
+                            newsItem.appendChild(contentContainer);
+                            newsContainer.appendChild(newsItem);
+                        }
+                        counter++;
+                    });
+
+                    renderPagination(page, totalPages);
+                }
+
+                function renderPagination(current, total) {
+                    const pagination = document.getElementById('pagination');
+                    pagination.innerHTML = '';
+
+                    const prevButton = document.createElement('button');
+                    prevButton.textContent = 'Prev';
+                    prevButton.disabled = current === 1;
+                    prevButton.addEventListener('click', () => {
+                        currentPage--;
+                        renderPage(currentSnapshot, currentPage);
+                    });
+                    pagination.appendChild(prevButton);
+
+                    let startPage, endPage;
+                    if (total <= 7) {
+                        startPage = 1;
+                        endPage = total;
+                    } else {
+                        if (current <= 4) {
+                            startPage = 1;
+                            endPage = 7;
+                        } else if (current + 3 >= total) {
+                            startPage = total - 6;
+                            endPage = total;
+                        } else {
+                            startPage = current - 3;
+                            endPage = current + 3;
+                        }
+                    }
+
+                    for (let i = startPage; i <= endPage; i++) {
+                        const pageButton = document.createElement('button');
+                        pageButton.textContent = i;
+                        pageButton.disabled = i === current;
+                        pageButton.addEventListener('click', () => {
+                            currentPage = i;
+                            renderPage(currentSnapshot, currentPage);
+                        });
+                        pagination.appendChild(pageButton);
+                    }
+
+                    const nextButton = document.createElement('button');
+                    nextButton.textContent = 'Next';
+                    nextButton.disabled = current === total;
+                    nextButton.addEventListener('click', () => {
+                        currentPage++;
+                        renderPage(currentSnapshot, currentPage);
+                    });
+                    pagination.appendChild(nextButton);
+                }
+
+                document.getElementById('search-button').addEventListener('click', () => {
+                    const searchQuery = document.getElementById('search-input').value.toLowerCase();
+                    newsRef.once('value', (snapshot) => {
+                        const filteredNews = [];
+                        snapshot.forEach((childSnapshot) => {
+                            const newsData = childSnapshot.val();
+                            if (newsData.title.toLowerCase().includes(searchQuery) || newsData.content.toLowerCase().includes(searchQuery)) {
+                                filteredNews.push({ key: childSnapshot.key, data: newsData });
+                            }
+                        });
+                        currentSnapshot = filteredNews;
+                        currentPage = 1;
+                        renderFilteredNews(filteredNews, currentPage);
+                    });
+                });
+
+                function renderFilteredNews(newsArray, page) {
+                    const newsContainer = document.getElementById('news-container');
+                    const pagination = document.getElementById('pagination');
+                    newsContainer.innerHTML = '';
+                    pagination.innerHTML = '';
+
+                    const totalItems = newsArray.length;
+                    if (totalItems === 0) {
+                        const noResultsMessage = document.createElement('p');
+                        noResultsMessage.classList.add('no-results');
+                        noResultsMessage.textContent = '검색 결과가 없습니다.';
+                        newsContainer.appendChild(noResultsMessage);
+                        return;
+                    }
+
+                    const totalPages = Math.ceil(totalItems / itemsPerPage);
+                    const start = (page - 1) * itemsPerPage;
+                    const end = start + itemsPerPage;
+
+                    newsArray.slice(start, end).forEach(({ key, data: newsData }) => {
+                        const newsItem = document.createElement('div');
+                        newsItem.classList.add('news-item');
+
+                        const img = document.createElement('img');
+                        img.src = newsData.img_href;
+                        newsItem.appendChild(img);
+
+                        const contentContainer = document.createElement('div');
+                        contentContainer.classList.add('news-item-content');
+
+                        const title = document.createElement('h2');
+                        title.textContent = newsData.title;
+                        title.addEventListener('click', () => {
+                            window.location.href = `news-detail.html?id=${key}`;
+                        });
+                        contentContainer.appendChild(title);
+
+                        const date = document.createElement('p');
+                        date.textContent = newsData.date;
+                        contentContainer.appendChild(date);
+
+                        const content = document.createElement('p');
+                        const maxContentLength = 100;
+                        content.textContent = newsData.content.length > maxContentLength ? newsData.content.slice(0, maxContentLength) + '...' : newsData.content;
+                        contentContainer.appendChild(content);
+
+                        newsItem.appendChild(contentContainer);
+                        newsContainer.appendChild(newsItem);
+                    });
+
+                    renderFilteredPagination(page, totalPages, newsArray);
+                }
+
+                function renderFilteredPagination(current, total, newsArray) {
+                    const pagination = document.getElementById('pagination');
+                    pagination.innerHTML = '';
+
+                    const prevButton = document.createElement('button');
+                    prevButton.textContent = 'Prev';
+                    prevButton.disabled = current === 1;
+                    prevButton.addEventListener('click', () => {
+                        currentPage--;
+                        renderFilteredNews(newsArray, currentPage);
+                    });
+                    pagination.appendChild(prevButton);
+
+                    let startPage, endPage;
+                    if (total <= 7) {
+                        startPage = 1;
+                        endPage = total;
+                    } else {
+                        if (current <= 4) {
+                            startPage = 1;
+                            endPage = 7;
+                        } else if (current + 3 >= total) {
+                            startPage = total - 6;
+                            endPage = total;
+                        } else {
+                            startPage = current - 3;
+                            endPage = current + 3;
+                        }
+                    }
+
+                    for (let i = startPage; i <= endPage; i++) {
+                        const pageButton = document.createElement('button');
+                        pageButton.textContent = i;
+                        pageButton.disabled = i === current;
+                        pageButton.addEventListener('click', () => {
+                            currentPage = i;
+                            renderFilteredNews(newsArray, currentPage);
+                        });
+                        pagination.appendChild(pageButton);
+                    }
+
+                    const nextButton = document.createElement('button');
+                    nextButton.textContent = 'Next';
+                    nextButton.disabled = current === total;
+                    nextButton.addEventListener('click', () => {
+                        currentPage++;
+                        renderFilteredNews(newsArray, currentPage);
+                    });
+                    pagination.appendChild(nextButton);
+                }
+
+                fetchNewsData((snapshot) => renderPage(snapshot, currentPage));
+            </script>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
+    <script src="../js/counter.js"></script>
+    <script src="../js/custom.js"></script>
+
+</body>
+
+</html>

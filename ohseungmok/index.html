@@ -1,118 +1,239 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <link href="../css/templatemo-kind-heart-charity.css" rel="stylesheet">
-</head>
-<body>
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-12 text-center mx-auto">
-                    <h2 class="mb-5">환경 캠페인 소개</h2>
-                </div>
+        <title>Kind Heart Charity - Free Bootstrap 5.2.2 CSS Template</title>
 
-                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                    <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="https://earthplogging.com/" class="d-block">
-                            <img src="../images/icons/earthplogging.jpg" class="featured-block-image img-fluid" alt="">
+        <!-- CSS FILES -->        
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
 
-                            <p class="featured-block-text"><strong>지구쓰담</strong></p>
-                        </a>
-                    </div>
-                </div>
+        <link href="./css/bootstrap-icons.css" rel="stylesheet">
 
-                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
-                    <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="https://www.greenpeace.org/korea/.html" class="d-block">
-                            <img src="../images/icons/greenpeace.jpg" class="featured-block-image img-fluid" alt="">
+        <link href="./css/templatemo-kind-heart-charity.css" rel="stylesheet">
+<!--
 
-                            <p class="featured-block-text"><strong>GREEN</strong> PEACE</p>
-                        </a>
-                    </div>
-                </div>
+TemplateMo 581 Kind Heart Charity
 
-                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
-                    <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="https://me.go.kr/home/web/main.do" class="d-block">
-                            <img src="../images/icons/environment.png" class="featured-block-image img-fluid" alt="">
+https://templatemo.com/tm-581-kind-heart-charity
 
-                            <p class="featured-block-text"><strong>환경부</strong></p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                    <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="https://www.greenfund.org/" class="d-block">
-                            <img src="../images/icons/greenfoundation.png" class="featured-block-image img-fluid" alt="">
-
-                            <p class="featured-block-text"><strong>환경재단</strong></p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-padding section-bg" id="section_2">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-                    <a href="https://earthplogging.com/39">
-                    <img src="../images/idea.png" class="custom-text-box-image img-fluid" alt="">
+-->
+<style>
+    /* iframe을 꾸미기 위한 CSS 스타일 */
+    iframe {
+        max-width: 600px; /* 최대 너비 설정 */
+        margin: 0 auto; /* 가운데 정렬 */
+        padding: 20px; /* 여백 설정 */
+        background-color: #fff;
+        border-radius: var(--border-radius-small);
+        border-radius: var(--border-radius-medium);
+        position: relative;
+        overflow: hidden;
+        margin-right: 20px;
+    }
+</style>
+    </head>
+    
+    <body id="section_1">
+    <!-- 헤더 부분 -->
+        <header>
+            <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="main.html">
+                        <img src="./images/GreenIssue.png" class="logo img-fluid" alt="">
+                        <span>
+                            GreenIssue
+                            <small>Ohsondoson</small>
+                        </span>
                     </a>
-                </div>
 
-                <div class="col-lg-6 col-12">
-                    <div class="custom-text-box">
-                        <h2 class="mb-2">지구쓰담 아이디어 공모전</h2>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                        <h5 class="mb-3">지구를 위한 아이디어를 모읍니다!</h5>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link smoothscroll" href="#top">Home</a>
+                            </li>
 
-                        <p class="mb-0">지구쓰담 아이디어 공모전은 플라스틱 문제 해결을 위한 창의적인 아이디어와 활동을 발굴하는 캠페인입니다. 일상의 쓰레기를 저감할 수 있는 아이디어 지원을 통해 쓰레기 문제의 심각성을 알리고, 일회용품 소비를 줄여 건강한 지구를 만드는 문화를 만들고자 노력했어요.</p>
+                            <li class="nav-item">
+                                <a class="nav-link smoothscroll" href="#section_2">캠페인</a>
+                            </li>                            
+
+                            <li class="nav-item">
+                                <a class="nav-link smoothscroll" href="./Tree/index.html">분리수거</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link smoothscroll" href="./quiz/index.html">퀴즈</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
+                            </li>
+
+                            <li class="nav-item ms-3">
+                                <a class="nav-link custom-btn custom-border-btn btn" href="../kimkyungwan/Login.html">Login</a>
+                            </li>
+                        </ul>
                     </div>
-                    
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero-section hero-section-full-height">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="custom-text-box mb-lg-0">
-                                <h5 class="mb-3">공모요강</h5>
 
-                                <p>지원대상 : 창의적인 아이디어를 기반으로 환경 문제 해결을 위한 활동이 가능한 개인/팀/단체</p>
-                                <p><b>※ 본 내용은 참고 자료입니다. 반드시 주최사 홈페이지의 일정 및 상세 내용을 확인하세요.</b>
-                                </p>
+                        <div class="col-lg-12 col-12 p-0">
+                            <div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="images/slide/children-5606239_1920.jpg" class="carousel-image img-fluid" alt="...">
+                                        
+                                        <div class="carousel-caption d-flex flex-column justify-content-end">
+                                            <h1>환경의 날</h1>
+                                            <p>환경의 날은 6월 5일이다.</p>   
+                                            <p>환경부 주관으로 국민의 환경보전의식 함양과</p>   
+                                            <p>실천의 생활화를 위한 행사를 개최하는 세계의 기념일이다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="images/slide/oak-tree-2018822_1920.jpg" class="carousel-image img-fluid" alt="...">
+                                        
+                                        <div class="carousel-caption d-flex flex-column justify-content-end">
+                                            <h1>식목일</h1>
+                                            <p>식목일은 4월 5일이다.</p>   
+                                            <p>나무 심기를 통하여 국민의 나무 사랑 정신을 북돋우고,</p> 
+                                            <p>산지(山地)의 자원화를 위하여 제정된 날.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="images/slide/waves-3473335_1920.jpg" class="carousel-image img-fluid" alt="...">
+                                        
+                                        <div class="carousel-caption d-flex flex-column justify-content-end">
+                                            <h1>바다의 날</h1>
+                                            <p>바다의 날은 5월 31일이다.</p>
+                                            <p>국제적으로 바다의 중요성을 인식하고 보호하는 기념일이다</p> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#hero-slide" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+
+                                <button class="carousel-control-next" type="button" data-bs-target="#hero-slide" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="custom-text-box mb-lg-0">
-                                <h5 class="mb-3">접수 기간</h5>
 
-                                <p>2021-09-13 ~ 2021-10-12</p>
-
-                                <ul class="custom-list mt-2">
-                                    <li class="custom-list-item d-flex">
-                                        <i class="bi-check custom-text-box-icon me-2"></i>
-                                        면접 : 10.19
-                                    </li>
-                                    <li>
-                                        <i class="bi-check custom-text-box-icon me-2"></i>
-                                        최종발표 : 10.20
-                                    </li>
-                                </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- 오승목 캠페인 파트 -->
+            <section class="section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-12 text-center mx-auto">
+                            <h2 class="mb-5">환경 캠페인 소개</h2>
+                        </div>
+        
+                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="https://earthplogging.com/" class="d-block">
+                                    <img src="../images/icons/earthplogging.jpg" class="featured-block-image img-fluid" alt="">
+        
+                                    <p class="featured-block-text"><strong>지구쓰담</strong></p>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="https://www.greenpeace.org/korea/.html" class="d-block">
+                                    <img src="../images/icons/greenpeace.jpg" class="featured-block-image img-fluid" alt="">
+        
+                                    <p class="featured-block-text"><strong>GREENPEACE</strong></p>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="https://me.go.kr/home/web/main.do" class="d-block">
+                                    <img src="../images/icons/environment.png" class="featured-block-image img-fluid" alt="">
+        
+                                    <p class="featured-block-text"><strong>환경부</strong></p>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="https://www.greenfund.org/" class="d-block">
+                                    <img src="../images/icons/greenfoundation.png" class="featured-block-image img-fluid" alt="">
+        
+                                    <p class="featured-block-text"><strong>환경재단</strong></p>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
+            <section class="section-padding section-bg" id="section_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                            <a href="https://greenfund.org/board/board.php?bo_table=notice&idx=701">
+                            <img src="../images/idea.png" class="custom-text-box-image img-fluid" alt="">
+                            </a>
+                        </div>
+        
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                        <!-- Google Form의 iframe 삽입 -->
+                                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd87P3ECzkbnkQwO_MSMhaxjCjm9eSTAi7yDAc1TyHD2SqdSg/viewform?embedded=true" width="100%" height="614" frameborder="0" marginheight="0" marginwidth="0">로드 중...</iframe>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 오승목 캠페인 파트 -->
+        <!-- 오재영 분리수거 파트 -->
 
-            </div>
-        </div>
-    </section>
+        <!-- 오재영 분리수거 파트 -->
+        <!-- 정현철 퀴즈 파트 -->
+        
+        <!-- 정현철 퀴즈 파트 -->
+        <!-- 손민욱 뉴스 파트 -->
+        
+        <!-- 손민욱 뉴스 파트 -->
+        </main>
+        
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/counter.js"></script>
+        <script src="js/custom.js"></script>
 
-</body>
+    </body>
 </html>

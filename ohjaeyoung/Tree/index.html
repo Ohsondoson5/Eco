@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  
 
   
 
@@ -19,6 +20,9 @@
       -webkit-background-clip: text; /* 텍스트에만 그라데이션 적용 */
       -webkit-text-fill-color: transparent; /* 텍스트 색상 투명하게 설정 */
     }
+
+    
+    
   </style>
 
 <style>
@@ -71,9 +75,22 @@
     color: #000; /* 텍스트 색상 (검은색) */
     line-height: 1.5; /* 줄 간격 */
   }
+
+  
 </style>
 
 
+ 
+
+<body>
+
+
+
+
+
+
+
+  
   <!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,62 +119,61 @@
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
-<nav class="navbar navbar-expand-lg bg-light shadow-lg">
-  <div class="container">
-      <a class="navbar-brand" href="index.html" >
-          <img src="images/GreenIssue.png" class="logo img-fluid" alt="">
-          <span>
-              <!-- Kind Heart Charity
-              <small>Non-profit Organization</small>-->
-          </span>
-      </a>
+<!-- 헤더 부분 -->
+<header>
+  <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+      <div class="container">
+          <a class="navbar-brand" href="main.html">
+              <img src="images/GreenIssue.png" class="logo img-fluid" alt="">
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+              <span>
+                <br>
+                
+                GreenIssue<br>
+                <small>Ohsondoson</small>
+            </span>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                  <a class="nav-link smoothscroll" href="index.html#section_1">Home</a>
-              </li>
+          </a>
 
-              <li class="nav-item">
-                  <a class="nav-link smoothscroll" href="index.html#section_2">캠페인</a>
-              </li>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
 
-              <li class="nav-item">
-                  <a class="nav-link smoothscroll" href="index.html#section_3">분리수거</a>
-              </li>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="main.html">Home</a>
+                  </li>
 
-              <li class="nav-item">
-                  <a class="nav-link smoothscroll" href="index.html#section_4">퀴즈</a>
-              </li>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../ohseungmok/index.html">캠페인</a>
+                  </li>
 
-              <li class="nav-item dropdown">
-                  <a class="nav-link click-scroll dropdown-toggle" href="index.html#section_5"
-                      id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">뉴스</a>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../ohjaeyoung/Tree/index.html">분리수거</a>
+                  </li>
 
-                  <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                      <li><a class="dropdown-item active" href="news.html">News Listing</a></li>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../junghyunchul/quiz.html">퀴즈</a>
+                  </li>
 
-                      <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
-                  </ul>
-              </li>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
+                  </li>
 
-              <li class="nav-item">
-                  <a class="nav-link smoothscroll" href="index.html#section_6">게시판</a>
-              </li>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
+                  </li>
 
-              <li class="nav-item ms-3">
-                  <a class="nav-link custom-btn custom-border-btn btn" href="donate.html">Donate</a>
-              </li>
-          </ul>
+                  <li class="nav-item ms-3">
+                      <a class="nav-link custom-btn custom-border-btn btn" href="../kimkyungwan/Login.html">Login</a>
+                  </li>
+              </ul>
+          </div>
       </div>
-  </div>
-</nav>
+  </nav>
+</header>
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <div class="custom_menu-btn">
@@ -215,11 +231,10 @@
   <section class="team_section layout_padding">
     <div class="container-fluid">
       <div class="heading_container">
-        <h1>
-          분리수거 하는법
-        </h1>
+        
+        <img src="images/using.jpg" alt="" />
         <p>
-          사진을 선택해보세요
+          <h3>사진을 선택해보세요!</h3>
         </p>
       </div>
       <div class="carousel-wrap ">
@@ -343,6 +358,86 @@
      
     </p>
   </footer>
+
+  <canvas></canvas> <!-- 여기에 <canvas></canvas> 태그 추가 -->
+
+<!-- <script>
+    const canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const ctx = canvas.getContext('2d');
+
+    const TOTAL = 150;
+    const petalArray = [];
+
+    const petalImg = new Image();
+    petalImg.src = "images/petal.png";
+    petalImg.onload = () => {
+      for (let i = 0; i < TOTAL; i++) {
+        petalArray.push(new Petal());
+      }
+      render();
+    };
+
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      window.requestAnimationFrame(render);
+      petalArray.forEach((petal) => {
+        petal.animate();
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    class Petal {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        // Adjusting y range to make particles fly within a smaller vertical range
+        this.y = Math.random() * canvas.height * 0.5 - canvas.height * 0.25;
+        this.w = 30 + Math.random() * 15;
+        this.h = 20 + Math.random() * 10;
+        this.opacity = this.w / 45;
+        this.xSpeed = 2 + Math.random();
+        this.ySpeed = 1 + Math.random();
+        this.flip = Math.random();
+        this.flipSpeed = Math.random() * 0.03;
+      }
+
+      draw() {
+        if (this.y > canvas.height || this.x > canvas.width) {
+          this.x = -petalImg.width;
+          // Adjusting y range when particles go beyond canvas height
+          this.y = Math.random() * canvas.height * 0.5 - canvas.height * 0.25;
+          this.xSpeed = 2 + Math.random();
+          this.ySpeed = 1 + Math.random();
+          this.flip = Math.random();
+        }
+
+        ctx.globalAlpha = this.opacity;
+        // Drawing the petal image
+        ctx.drawImage(petalImg, this.x, this.y, this.w * (0.66 + Math.abs(Math.cos(this.flip) / 3)), this.h * (0.8 + Math.abs(Math.sin(this.flip) / 2)));
+      }
+
+      animate() {
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+        this.draw();
+        this.flip += this.flipSpeed;
+      }
+    }
+  </script> -->
+
+
+
+<div style="text-align : center;">
+
+ <!--  <img class="front" src="images/bankai.jpg"> -->
+
+</div>
   <!-- footer section -->
 
   <script src="js/jquery-3.4.1.min.js"></script>
