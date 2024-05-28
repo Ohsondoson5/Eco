@@ -3,7 +3,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js';
 import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
 
-// Firebase 구성
+//Firebase 구성
 const firebaseConfig = {
   apiKey: "AIzaSyCRDJ4CRCg5bFCNRwH_pnfxbUNlcZbcM1k",
   authDomain: "greenissue-2a081.firebaseapp.com",
@@ -13,6 +13,7 @@ const firebaseConfig = {
   appId: "1:155412299179:web:890f117a1c5ed80d0826ee",
   measurementId: "G-HZ30WZEM8J"
 };
+
 
 // Firebase 초기화
 const app = initializeApp(firebaseConfig);

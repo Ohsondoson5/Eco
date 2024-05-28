@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>게시글 상세보기</title>
+</head>
+
+<body>
+    <h1>게시글 상세보기</h1>
+    <div id="postDetail"></div>
+
+    <h2>댓글</h2>
+    <div id="commentsSection"></div>
+    <div id="writeCommentSection">
+        <input type="text" id="commentAuthor" placeholder="작성자">
+        <textarea id="commentContent" placeholder="내용"></textarea>
+        <button onclick="writeComment()">댓글 작성</button>
+    </div>
+
+    <a href="index.html">메인 페이지로 이동</a>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+    <script>
+        // Firebase 프로젝트 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbNYchKcFia8-uIdjlBUOAfalqBwStJdY",
+            authDomain: "my-eco-prj.firebaseapp.com",
+            databaseURL: "https://my-eco-prj-default-rtdb.firebaseio.com",
+            projectId: "my-eco-prj",
+            storageBucket: "my-eco-prj.appspot.com",
+            messagingSenderId: "322109404527",
+            appId: "1:322109404527:web:ab160e33c4927336fc249a",
+            measurementId: "G-LGEKHFM498"
+        };
+
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        // 게시글 상세보기 함수
+        function getPostDetail(postId) {
+            const postRef = db.ref('posts/' + postId);
+            postRef.once('value', (snapshot) => {
+                const post = snapshot.val();
+                if (post) {
+                    document.getElementById('postDetail').innerHTML = `
+                        <h2>${post.title}</h2>
+                        <p>작성자: ${post.author}</p>
+                        <p>작성일: ${post.date}</p>
+                        <p>조회수: ${post.views}</p>
+                        <p>${post.content}</p>
+                    `;
+                } else {
+                    document.getElementById('postDetail').innerHTML = '게시글을 찾을 수 없습니다.';
+                }
+            });
+        }
+
+        // 댓글 읽기 함수
+        function readComments(postId) {
+            const commentsRef = db.ref('comments/' + postId);
+            commentsRef.on('value', (snapshot) => {
+                const comments = snapshot.val();
+                let commentsHTML = '<ul>';
+                for (let id in comments) {
+                    commentsHTML += `<li><strong>${comments[id].author}</strong>: ${comments[id].content}</li>`;
+                }
+                commentsHTML += '</ul>';
+                document.getElementById('commentsSection').innerHTML = commentsHTML;
+            });
+        }
+
+        // 댓글 작성 함수
+        function writeComment() {
+            const author = document.getElementById('commentAuthor').value;
+            const content = document.getElementById('commentContent').value;
+
+            if (!author || !content) {
+                alert('작성자 및 내용을 입력해주세요.');
+                return;
+            }
+
+            const postId = getPostIdFromUrl();
+            const newCommentKey = db.ref().child('comments/' + postId).push().key;
+            const commentData = {
+                author: author,
+                content: content,
+                date: new Date().toISOString()
+            };
+
+            let updates = {};
+            updates['/comments/' + postId + '/' + newCommentKey] = commentData;
+
+            db.ref().update(updates)
+                .then(() => {
+                    alert('댓글이 작성되었습니다.');
+                    document.getElementById('commentAuthor').value = '';
+                    document.getElementById('commentContent').value = '';
+                    readComments(postId);  // 댓글 목록 갱신
+                })
+                .catch(error => {
+                    alert('댓글 작성 실패: ' + error.message);
+                });
+        }
+
+        // URL에서 postId 추출
+        function getPostIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        // 페이지 로드 시 게시글 상세보기 및 댓글 표시
+        const postId = getPostIdFromUrl();
+        if (postId) {
+            getPostDetail(postId);
+            readComments(postId);
+        } else {
+            document.getElementById('postDetail').innerHTML = '잘못된 접근입니다.';
+        }
+    </script>
+</body>
+
+</html>

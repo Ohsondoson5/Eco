@@ -46,28 +46,21 @@ li {
 }
 
 /* 요소들의 너비 설정 */
-.w70 {
-  width: 70px;
-}
 
-.w80 {
-  width: 80px;
-}
-
-.w90 {
-  width: 90px;
-}
-
-.w500 {
-  width: 500px;
+.w100 {
+  width: 100px;
 }
 
 .w120 {
   width: 120px;
 }
 
-.w100 {
-  width: 100px;
+.w140 {
+  width: 140px;
+}
+
+.w510 {
+  width: 510px;
 }
 
 /* 게시판 목록 박스 */
