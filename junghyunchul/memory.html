@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game with Environmental Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #2e8b57;
+        }
+        .user-input {
+            margin-bottom: 20px;
+        }
+        .user-input label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        .user-input input {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .user-input button {
+            padding: 5px 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #2e8b57;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .user-input button:hover {
+            background-color: #3cb371;
+        }
+        #user-list {
+            margin-bottom: 20px;
+        }
+        #user-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #user-list li {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        #board {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+        }
+        .card {
+            width: 150px;
+            height: 150px;
+            background-color: #4682b4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            background-color: #4169e1;
+        }
+        .matched {
+            background-color: #3cb371;
+        }
+    </style>
+</head>
+<body>
+    <h1>Environmental Quiz Memory Game</h1>
+    <div class="user-input">
+        <label for="username">사용자 이름:</label>
+        <input type="text" id="username">
+        <button onclick="addUser()">등록</button>
+    </div>
+    <div id="user-list">
+        <ul id="user-list-ul"></ul>
+    </div>
+    <div id="board"></div>
+    <div id="finish-restart-buttons"></div> <!-- 여기에 버튼 추가 -->
+
+  <script>
+        let users = [];
+        let currentUserIndex = 0;
+        let scores = {};
+
+        function addUser() {
+            const usernameInput = document.getElementById('username');
+            const username = usernameInput.value.trim();
+            if (username !== '') {
+                users.push(username);
+                scores[username] = 0;
+                renderUserList();
+            }
+            usernameInput.value = '';
+        }
+
+        function nextUser() {
+            currentUserIndex = (currentUserIndex + 1) % users.length;
+            renderUserList();
+        }
+
+        function createCards(pairs) {
+            const cards = [];
+            pairs.forEach((pair, index) => {
+                cards.push({ type: 'quiz', content: pair.quiz, pairIndex: index });
+                cards.push({ type: 'answer', content: pair.answer, pairIndex: index });
+            });
+            return cards;
+        }
+
+        function shuffleCards(cards) {
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
+            }
+            return cards;
+        }
+
+        function handleCardClick(cardIndex) {
+            if (selectedCardIndices.length === 2) return;
+
+            if (!revealed[cardIndex]) {
+                revealed[cardIndex] = true;
+                renderBoard();
+
+                selectedCardIndices.push(cardIndex);
+
+                if (selectedCardIndices.length === 2) {
+                    setTimeout(checkMatch, 1000);
+                }
+            }
+        }
+
+        function checkMatch() {
+            const [index1, index2] = selectedCardIndices;
+            const card1 = cards[index1];
+            const card2 = cards[index2];
+
+            if (card1.pairIndex === card2.pairIndex && card1.type !== card2.type) {
+                matched[index1] = true;
+                matched[index2] = true;
+                const currentUser = users[currentUserIndex];
+                scores[currentUser]++;
+            } else {
+                revealed[index1] = false;
+                revealed[index2] = false;
+            }
+
+            selectedCardIndices = [];
+            renderBoard();
+            nextUser();
+        }
+
+        function renderUserList() {
+            const userListUl = document.getElementById('user-list-ul');
+            userListUl.innerHTML = '';
+            users.forEach((user, index) => {
+                const listItem = document.createElement('li');
+                if (index === currentUserIndex) {
+                    listItem.textContent = `➡️ ${user} (${scores[user]} 점)`;
+                } else {
+                    listItem.textContent = `${user} (${scores[user]} 점)`;
+                }
+                userListUl.appendChild(listItem);
+            });
+        }
+
+        function renderBoard() {
+            boardElement.innerHTML = '';
+            for (let i = 0; i < cards.length; i++) {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'card';
+                if (revealed[i]) {
+                    if (matched[i]) {
+                        cardElement.classList.add('matched');
+                        cardElement.textContent = '✔️';
+                    } else {
+                        cardElement.textContent = cards[i].content;
+                    }
+                } else {
+                    cardElement.textContent = '';
+                }
+                cardElement.addEventListener('click', () => handleCardClick(i));
+                boardElement.appendChild(cardElement);
+            }
+
+            if (matched.every(match => match)) {
+                let winner = null;
+                let maxScore = -1;
+                let tie = false;
+                for (const user in scores) {
+                    if (scores[user] > maxScore) {
+                        winner = user;
+                        maxScore = scores[user];
+                        tie = false;
+                    } else if (scores[user] === maxScore) {
+                        tie = true;
+                    }
+                }
+                if (tie) {
+                    boardElement.innerHTML += `<div>게임 종료! 동점입니다.</div>`;
+                } else {
+                    boardElement.innerHTML += `<div>게임 종료! ${winner}님이 ${maxScore}개의 카드를 맞췄습니다. 축하합니다!</div>`;
+                }
+                renderFinishButtons();
+            }
+        }
+
+        function renderFinishButtons() {
+            const buttonsDiv = document.createElement('div');
+            buttonsDiv.className = 'buttons';
+
+            const finishButton = document.createElement('button');
+            finishButton.textContent = 'Finish';
+            finishButton.onclick = () => {
+                window.location.href = "index.html"; // 원하는 페이지 URL로 변경
+            };
+            buttonsDiv.appendChild(finishButton);
+
+            const restartButton = document.createElement('button');
+            restartButton.textContent = 'Restart';
+            restartButton.onclick = () => {
+                resetGame();
+            };
+            buttonsDiv.appendChild(restartButton);
+
+            boardElement.appendChild(buttonsDiv);
+        }
+
+        function resetGame() {
+            currentUserIndex = 0;
+            scores = {};
+            users.forEach(user => scores[user] = 0);
+            cards = shuffleCards(createCards(pairs));
+            revealed = new Array(cards.length).fill(false);
+            matched = new Array(cards.length).fill(false);
+            selectedCardIndices = [];
+            renderUserList();
+            renderBoard();
+        }
+
+        const pairs = [
+            { quiz: '지구의 대기 구성에서 가장 많은 기체는?', answer: '질소' },
+            { quiz: '온실가스를 줄이기 위한 방법은?', answer: '재활용' },
+            { quiz: '기후 변화의 주요 원인은?', answer: '이산화탄소' },
+            { quiz: '플라스틱 오염을 줄이기 위한 방법은?', answer: '재사용' },
+            { quiz: '오존층 파괴의 주요 원인은?', answer: '프레온 가스' },
+            { quiz: '산성비의 원인은?', answer: '황산화물' }
+        ];
+        let cards = shuffleCards(createCards(pairs));
+        let revealed = new Array(cards.length).fill(false);
+        let matched = new Array(cards.length).fill(false);
+        let selectedCardIndices = [];
+
+        const boardElement = document.getElementById('board');
+        renderUserList();
+        renderBoard();
+
+
+
+
+        // 피니쉬 버튼과 리스타트 버튼을 보여주는 함수
+        function renderFinishRestartButtons() {
+            const finishRestartButtonsDiv = document.getElementById('finish-restart-buttons');
+            finishRestartButtonsDiv.innerHTML = '';
+
+            if (matched.every(match => match)) {
+                const finishButton = document.createElement('button');
+                finishButton.textContent = 'Finish';
+                finishButton.onclick = () => {
+                    window.location.href = 'https://www.example.com'; // 이동할 페이지 URL로 변경
+                };
+                finishRestartButtonsDiv.appendChild(finishButton);
+
+                const restartButton = document.createElement('button');
+                restartButton.textContent = 'Restart';
+                restartButton.onclick = () => {
+                    resetGame();
+                };
+                finishRestartButtonsDiv.appendChild(restartButton);
+            }
+        }
+    </script>
+</body>
+</html>

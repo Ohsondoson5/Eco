@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미로 게임</title>
+    <style>
+        body {
+            background-image: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        #maze {
+            display: grid;
+            grid-template-columns: repeat(20, 30px);
+            grid-template-rows: repeat(20, 30px);
+            gap: 1px;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cell {
+            width: 30px;
+            height: 30px;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+        }
+
+        .wall {
+            background-color: #555;
+        }
+
+        .player {
+            background-color: #3498db;
+        }
+
+        .goal {
+            background-color: #2ecc71;
+        }
+
+        .fake-goal {
+            background-color: #e74c3c;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+            display: none;
+        }
+
+        #timer {
+            font-size: 20px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        #restart-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #restart-button:hover {
+            background-color: #2980b9;
+        }
+
+        #finish-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #finish-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div id="maze"></div>
+    <p id="timer">경과 시간: <span id="time">0</span> 초</p>
+    <button id="restart-button" onclick="restartGame()">게임 다시 시작</button>
+    <button id="finish-button" onclick="finishGame()">Finish</button>
+    <div id="result"></div>
+    <script>
+        // JavaScript 코드는 아래에 있습니다.
+
+        // 게임 관련 변수들
+        const size = 20;
+        const maze = Array.from({ length: size }, () => Array(size).fill(1));
+        const playerPosition = { x: 0, y: 0 };
+        const goalPositions = [];
+        const numFakeGoals = 3;
+        let startTime, endTime;
+
+        // 게임 시작 함수
+        function startGame() {
+            generateMaze();
+            placeGoals();
+            drawMaze();
+            startTime = new Date().getTime();
+        }
+
+        // 게임 다시 시작 함수
+        function restartGame() {
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('timer').style.display = 'block';
+            startGame();
+        }
+
+        // 시간 측정 및 표시 함수
+        function updateTime() {
+            const currentTime = new Date().getTime();
+            const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+            document.getElementById('time').textContent = elapsedTime;
+        }
+
+        // 게임 종료 함수
+        function endGame() {
+            endTime = new Date().getTime();
+            const elapsedTime = Math.floor((endTime - startTime) / 1000);
+            document.getElementById('timer').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').textContent = `축하합니다! 미로를 탈출했습니다. 소요 시간: ${elapsedTime} 초`;
+        }
+
+        function generateMaze() {
+    for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+            maze[y][x] = 1;
+        }
+    }
+
+    let path = [{ x: 0, y: 0 }];
+    maze[0][0] = 0;
+
+    while (path.length > 0) {
+        const current = path[path.length - 1];
+        const directions = shuffle([
+            { dx: 0, dy: -1 }, // up
+            { dx: 0, dy: 1 },  // down
+            { dx: -1, dy: 0 }, // left
+            { dx: 1, dy: 0 }   // right
+        ]);
+
+        let moved = false;
+        for (const { dx, dy } of directions) {
+            const nx = current.x + dx * 2;
+            const ny = current.y + dy * 2;
+            if (nx >= 0 && nx < size && ny >= 0 && ny < size && maze[ny][nx] === 1) {
+                maze[ny][nx] = 0;
+                maze[current.y + dy][current.x + dx] = 0;
+                path.push({ x: nx, y: ny });
+                moved = true;
+                break;
+            }
+        }
+
+        if (!moved) {
+            path.pop();
+        }
+    }
+
+    // Add fake exits between start and goal
+    const midX = Math.floor(size / 2);
+    const midY = Math.floor(size / 2);
+    maze[midY][midX] = 0; // Ensure there's a path through the middle
+    const fakeExit1 = { x: midX - 2, y: midY };
+    const fakeExit2 = { x: midX + 2, y: midY };
+    maze[fakeExit1.y][fakeExit1.x] = 0;
+    maze[fakeExit2.y][fakeExit2.x] = 0;
+}
+
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function placeGoals() {
+            goalPositions.length = 0;
+            
+            while (goalPositions.length < 1) {
+                let edge = Math.floor(Math.random() * 4);
+                let x, y;
+                switch (edge) {
+                    case 0: // Top edge
+                        x = Math.floor(Math.random() * size);
+                        y = 0;
+                        break;
+                    case 1: // Bottom edge
+                        x = Math.floor(Math.random() * size);
+                        y = size - 1;
+                        break;
+                    case 2: // Left edge
+                        x = 0;
+                        y = Math.floor(Math.random() * size);
+                        break;
+                    case 3: // Right edge
+                        x = size - 1;
+                        y = Math.floor(Math.random() * size);
+                        break;
+                }
+                if (maze[y][x] === 0 && !(x === 0 && y === 0)) {
+                    goalPositions.push({ x, y });
+                }
+            }
+
+            while (goalPositions.length < numFakeGoals + 1) {
+                const x = Math.floor(Math.random() * size);
+                const y = Math.floor(Math.random() * size);
+                if (maze[y][x] === 0 && !(x === 0 && y === 0) && !goalPositions.some(pos => pos.x === x && pos.y === y)) {
+                    goalPositions.push({ x, y });
+                }
+            }
+        }
+
+        function drawMaze() {
+            const mazeContainer = document.getElementById('maze');
+            mazeContainer.innerHTML = '';
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    if (maze[y][x] === 1) {
+                        cell.classList.add('wall');
+                    } else if (playerPosition.x === x && playerPosition.y === y) {
+                        cell.classList.add('player');
+                    } else if (goalPositions.some(pos => pos.x === x && pos.y === y)) {
+                        if (goalPositions[0].x === x && goalPositions[0].y === y) {
+                            cell.classList.add('goal');
+                        } else {
+                            cell.classList.add('fake-goal');
+                        }
+                    }
+                    mazeContainer.appendChild(cell);
+                }
+            }
+        }
+
+        function movePlayer(dx, dy) {
+    const newX = playerPosition.x + dx;
+    const newY = playerPosition.y + dy;
+    if (newX >= 0 && newX < size && newY >= 0 && newY < size) {
+        if (maze[newY][newX] === 0) {
+            playerPosition.x = newX;
+            playerPosition.y = newY;
+            drawMaze();
+            checkWin();
+        } else if (maze[newY][newX] === 0 && isFakeGoal(newX, newY)) {
+            askEnvironmentQuestion(newX, newY);
+        }
+    }
+}
+
+
+
+
+
+function askEnvironmentQuestion(x, y) {
+    const questions = [
+        { question: '태양계에서 가장 큰 행성은 어디인가요?', answer: '목성' },
+        { question: '대기 중 가장 흔한 기체는 무엇인가요?', answer: '질소' },
+        { question: '지구상에서 가장 큰 대륙은 어디인가요?', answer: '아시아' },
+        { question: '태양계에서 가장 가까운 행성은 어디인가요?', answer: '수성' },
+        { question: '유일하게 피해자가 없는 동물은 무엇인가요?', answer: '갯수달새' }
+        // 추가적인 퀴즈를 필요에 따라 추가할 수 있습니다.
+    ];
+
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    const randomQuestion = questions[randomIndex];
+    const userAnswer = prompt(randomQuestion.question);
+
+    if (userAnswer && userAnswer.toLowerCase() === randomQuestion.answer.toLowerCase()) {
+        alert('정답입니다! 계속해서 미로를 탐험하세요.');
+        playerPosition.x = x;
+        playerPosition.y = y;
+        drawMaze();
+    } else {
+        alert('틀렸습니다! 처음 위치로 되돌아갑니다.');
+        playerPosition.x = 0;
+        playerPosition.y = 0;
+        drawMaze();
+    }
+}
+
+
+        function checkWin() {
+            if (goalPositions[0].x === playerPosition.x && goalPositions[0].y === playerPosition.y) {
+                alert('축하합니다! 미로를 탈출했습니다.');
+            } else if (goalPositions.slice(1).some(pos => pos.x === playerPosition.x && pos.y === playerPosition.y)) {
+                askEnvironmentQuestion(playerPosition.x, playerPosition.y);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            switch (e.key) {
+                case 'ArrowUp':
+                    movePlayer(0, -1);
+                    break;
+                case 'ArrowDown':
+                    movePlayer(0, 1);
+                    break;
+                case 'ArrowLeft':
+                    movePlayer(-1, 0);
+                    break;
+                case 'ArrowRight':
+                    movePlayer(1, 0);
+                    break;
+            }
+        });
+        
+        generateMaze();
+        placeGoals();
+        drawMaze();
+
+        // 게임 초기 실행
+        startGame();
+
+        // 매 초마다 경과 시간 업데이트
+        setInterval(updateTime, 1000);
+
+
+
+        function finishGame() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

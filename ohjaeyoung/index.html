@@ -36,6 +36,7 @@
     margin: 0 auto; /* 가운데 정렬 */
   }
 
+  
   /* 각 모서리 이미지 스타일 */
   .corner_image {
     position: absolute;
@@ -79,6 +80,32 @@
   
 </style>
 
+<style>
+  .search-container {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .search-container input[type="text"] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid #ccc;
+    width: 20%;
+  }
+
+  .search-container button {
+    padding: 10px 20px;
+    background: #3CB371;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+  }
+
+  .search-container button:hover {
+    background: #2E8B57;
+  }
+</style>
 
  
 
@@ -122,56 +149,77 @@
 <!-- 헤더 부분 -->
 <header>
   <nav class="navbar navbar-expand-lg bg-light shadow-lg">
-      <div class="container">
-          <a class="navbar-brand" href="main.html">
-              <img src="images/GreenIssue.png" class="logo img-fluid" alt="">
+    <div class="container">
+      <a class="navbar-brand" href="main.html">
+        <img src="../images/GreenIssue.png" class="logo img-fluid" alt="" />
+        <span>
+          <br>
+          GreenIssue<br>
+          <small>Ohsondoson</small>
+        </span>
+      </a>
+      
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-              <span>
-                <br>
-                
-                GreenIssue<br>
-                <small>Ohsondoson</small>
-            </span>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link smoothscroll" href="main.html">Home</a>
+          </li>
 
-          </a>
+          <li class="nav-item">
+            <a class="nav-link smoothscroll" href="../ohseungmok/index.html"
+              >캠페인</a
+            >
+          </li>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
+          <li class="nav-item">
+            <a class="nav-link smoothscroll" href="../ohjaeyoung/index.html"
+              >분리수거</a
+            >
+          </li>
 
-          <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                      <a class="nav-link smoothscroll" href="main.html">Home</a>
-                  </li>
+          <li class="nav-item">
+            <a
+              class="nav-link smoothscroll"
+              href="../junghyunchul/quiz.html"
+              >퀴즈</a
+            >
+          </li>
 
-                  <li class="nav-item">
-                      <a class="nav-link smoothscroll" href="../ohseungmok/index.html">캠페인</a>
-                  </li>
+          <li class="nav-item">
+            <a class="nav-link smoothscroll" href="../sonminuk/index.html"
+              >뉴스</a
+            >
+          </li>
 
-                  <li class="nav-item">
-                      <a class="nav-link smoothscroll" href="../ohjaeyoung/Tree/index.html">분리수거</a>
-                  </li>
+          <li class="nav-item">
+            <a class="nav-link smoothscroll" href="../yuyongjae/notice.html"
+              >게시판</a
+            >
+          </li>
 
-                  <li class="nav-item">
-                      <a class="nav-link smoothscroll" href="../junghyunchul/quiz.html">퀴즈</a>
-                  </li>
-
-                  <li class="nav-item">
-                      <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
-                  </li>
-
-                  <li class="nav-item">
-                      <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
-                  </li>
-
-                  <li class="nav-item ms-3">
-                      <a class="nav-link custom-btn custom-border-btn btn" href="../kimkyungwan/Login.html">Login</a>
-                  </li>
-              </ul>
-          </div>
+          <li class="nav-item ms-3">
+            <a
+              class="nav-link custom-btn custom-border-btn btn"
+              href="../kimkyungwan/Login.html"
+              
+              >Login</a
+            >
+          </li>
+        </ul>
       </div>
+    </div>
   </nav>
 </header>
       <div class="container-fluid">
@@ -193,11 +241,11 @@
             </div>
             <div class="overlay-content">
               <a class="" href="index.html"> Home <span class="sr-only">(current)</span></a>
-              <a class="" href="about.html"> About</a>
-              <a class="" href="why.html"> Why Us </a>
-              <a class="active" href="team.html"> Our Team</a>
-              <a class="" href="testimonial.html"> Testimonial</a>
-              <a class="" href="contact.html"> Contact Us</a>
+              <a class="" href="../ohseungmok/index.html"> 캠페인</a>
+              <a class="" href="../ohjaeyoung/index.html"> 분리수거 </a>
+              <a class="active" href="../junghyunchul/quiz.html">퀴즈</a>
+              <a class="" href="../sonminwook/index.html"> 뉴스</a>
+              <a class="" href="../yuyongjae/notice.html"> 게시판</a>
             </div>
           </div>
           <a class="navbar-brand" href="index.html">
@@ -224,6 +272,62 @@
     <!-- end header section -->
   </div>
 
+<!-- 검색창 추가 -->
+<div class="search-container">
+  <form id="searchForm" action="javascript:void(0);" onsubmit="search()">
+    <input type="text" id="searchInput" placeholder="검색어를 입력하세요...">
+    <button type="submit">검색</button>
+  </form>
+</div>
+
+<script>
+  function search() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    let url = '';
+
+    switch(query) {
+      case '음식물쓰레기':
+        url = 'food.html';
+        break;
+      case '비닐':
+        url = 'Vinyl.html';
+        break;
+      case '플라스틱':
+        url = 'Plastic.html';
+        break;
+      case '종이':
+        url = 'Paper.html';
+        break;
+      case '유리':
+        url = 'Glass.html';
+        break;
+      case '더락':
+        url = 'TheRock.html';
+        break;
+        case '아이젠소스케':
+        url = 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20150219_162%2Fdlalsgur7711_14243561126089CRgK_JPEG%2FzRdAai8h-1.jpg&type=sc960_832';
+        break;
+        case '강성관':
+        url = 'images/강성관.jpg';
+        break;
+        case 'the rock':
+        url = 'images/rock.gif';
+        break;
+        case '무한츠쿠요미':
+        url = 'images/츠쿠요미.gif';
+        break;
+        case '대림대학교':
+        url = 'https://www.daelim.ac.kr/intro.do';
+        break;
+
+        
+      default:
+        alert('검색 결과가 없습니다.');
+        return;
+    }
+    window.location.href = url;
+  }
+</script>
 
 
   <!-- team section -->
@@ -354,7 +458,7 @@
   <!-- footer section -->
   <footer class="footer_section container-fluid">
     <p>
-      &copy; <span id="displayYear"></span> 오순도순
+      &copy; <span id="displayYear"></span> 오손도손
      
     </p>
   </footer>
