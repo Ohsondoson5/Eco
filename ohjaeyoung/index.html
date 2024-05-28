@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+
+  
+
+  <style>
+    /* 화려한 메인 제목 스타일 */
+    h1 {
+      font-size: 48px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold; /* 글씨 두껍게 */
+      color: #3CB371; /* 제목 색상 (밝은 초록) */
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 */
+      padding: 20px; /* 제목 주변 여백 */
+      background-image: linear-gradient(to right, #90EE90, #2E8B57); /* 배경 그라데이션 (밝은 초록에서 어두운 초록으로) */
+      -webkit-background-clip: text; /* 텍스트에만 그라데이션 적용 */
+      -webkit-text-fill-color: transparent; /* 텍스트 색상 투명하게 설정 */
+    }
+
+    
+    
+  </style>
+
+<style>
+  /* 텍스트 박스 스타일 */
+  .quote_box {
+    position: relative;
+    padding: 80px; /* 텍스트와 이미지 사이 여백 */
+    
+    border-radius: 20px; /* 텍스트 박스 모서리 둥글게 */
+    max-width: 5000px; /* 텍스트 박스 최대 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+  }
+
+  /* 각 모서리 이미지 스타일 */
+  .corner_image {
+    position: absolute;
+    width: 200px; /* 이미지 너비 */
+    height: 200px; /* 이미지 높이 */
+    object-fit: cover; /* 이미지 비율 유지 */
+  }
+
+  /* 오른쪽 위 모서리 */
+  .top_right {
+    top: 0;
+    right: 0;
+  }
+
+  /* 왼쪽 위 모서리 */
+  .top_left {
+    top: 0;
+    left: 0;
+  }
+
+  /* 오른쪽 아래 모서리 */
+  .bottom_right {
+    bottom: 0;
+    right: 0;
+  }
+
+  /* 왼쪽 아래 모서리 */
+  .bottom_left {
+    bottom: 0;
+    left: 0;
+  }
+
+  /* 텍스트 스타일 */
+  .quote_text {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    color: #000; /* 텍스트 색상 (검은색) */
+    line-height: 1.5; /* 줄 간격 */
+  }
+
+  
+</style>
+
+
+ 
+
+<body>
+
+
+
+
+
+
+
+  
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>분리수거 사전</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- fonts awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<!-- 헤더 부분 -->
+<header>
+  <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+      <div class="container">
+          <a class="navbar-brand" href="main.html">
+              <img src="images/GreenIssue.png" class="logo img-fluid" alt="">
+
+              <span>
+                <br>
+                
+                GreenIssue<br>
+                <small>Ohsondoson</small>
+            </span>
+
+          </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="main.html">Home</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../ohseungmok/index.html">캠페인</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../ohjaeyoung/Tree/index.html">분리수거</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../junghyunchul/quiz.html">퀴즈</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
+                  </li>
+
+                  <li class="nav-item ms-3">
+                      <a class="nav-link custom-btn custom-border-btn btn" href="../kimkyungwan/Login.html">Login</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+</header>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+          </div>
+          <div id="myNav" class="overlay">
+            <div class="menu_btn-style ">
+              <button onclick="closeNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div class="overlay-content">
+              <a class="" href="index.html"> Home <span class="sr-only">(current)</span></a>
+              <a class="" href="about.html"> About</a>
+              <a class="" href="why.html"> Why Us </a>
+              <a class="active" href="team.html"> Our Team</a>
+              <a class="" href="testimonial.html"> Testimonial</a>
+              <a class="" href="contact.html"> Contact Us</a>
+            </div>
+          </div>
+          <a class="navbar-brand" href="index.html">
+            <span>
+              <!-- <h1>분리수거 사전</h1> -->
+            </span>
+          </a>
+          <div class="user_option">
+            <a href="">
+              <span>
+               
+              </span>
+             
+            </a>
+            <form class="form-inline">
+              
+              
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+
+  <!-- team section -->
+
+  <section class="team_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container">
+        
+        <img src="images/using.jpg" alt="" />
+        <p>
+          <h3>사진을 선택해보세요!</h3>
+        </p>
+      </div>
+      <div class="carousel-wrap ">
+        <div class="owl-carousel team_carousel">
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <a href="food.html">
+                <img src="images/team1.jpg" alt="" />
+              </a>
+              </div>
+              
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <a href="Vinyl.html">
+                <img src="images/team2.jpg" alt="" />
+              </a>
+              </div>
+              
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <a href="Plastic.html">
+                <img src="images/team3.jpg" alt="" />
+                </a>
+              </div>
+             
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <a href="Paper.html">
+                <img src="images/team4.jpg" alt="" />
+              </a>
+              </div>
+              
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <a href="Glass.html">
+                <img src="images/team5.jpg" alt="" />
+                </a>
+              </div>
+              
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <a href="TheRock.html">
+                <img src="images/team6.jpg" alt="" />
+                </a>
+              </div>
+              
+            </div>
+          </div>
+          <!-- <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/team2.jpg" alt="" />
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- end team section -->
+
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="quote_box">
+          <!-- 각 모서리에 이미지 배치 -->
+          <img src="images/box2.jpg" class="corner_image top_right" alt="Top Right Image"> <!-- 오른쪽 위 모서리 -->
+          <img src="images/box1.jpg" class="corner_image top_left" alt="Top Left Image"> <!-- 왼쪽 위 모서리 -->
+          <img src="images/box3.jpg" class="corner_image bottom_right" alt="Bottom Right Image"> <!-- 오른쪽 아래 모서리 -->
+          <img src="images/box4.jpg" class="corner_image bottom_left" alt="Bottom Left Image"> <!-- 왼쪽 아래 모서리 -->
+          <!-- 명언 텍스트 -->
+          <p class="quote_text">
+            <p>지구를 살리려면 우리는 쓰레기 문화를 깨고 분리수거 문화를 살려야 합니다. - 𝒜𝓁𝒾𝓈𝓉𝒶𝒾𝓇 𝒢𝑜𝑜𝒹𝓌𝒾𝓃</p>
+            <p>분리수거는 우리가 지구를 지키는 가장 간단하고 효과적인 방법 중 하나입니다. - 𝒷𝓇𝓊𝒸𝑒 𝓂𝒾𝓇𝑜𝒻𝒻</p>
+            <p>우리가 버리는 것은 우리의 행동이자 선택입니다. 그것을 올바르게 분리수거하는 것은 우리의 의무입니다. - 𝒜𝓁𝒶𝓃 𝒞𝓇𝒶𝓌𝒻𝑜𝓇𝒹</p>
+            <p>분리수거는 단순한 행동이 아니라 지구와의 약속입니다. 우리는 그것을 지켜야 합니다. - 𝑀𝒾𝒸𝒽𝑒𝓁𝓁𝑒 𝒪𝒷𝒶𝓂𝒶</p>
+            <p>우리가 지구를 보호하고 미래 세대를 위해 남겨야 할 것은 우리가 사용하는 자원을 올바르게 관리하는 것입니다. 그 첫걸음이 분리수거입니다. - 𝒜𝓁𝒷𝑒𝓇𝓉 𝐸𝒾𝓃𝓈𝓉𝑒𝒾𝓃</p>
+          </p>
+          
+            </div>            
+          </div>
+        </div>
+        
+           
+         
+        
+            
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section container-fluid">
+    <p>
+      &copy; <span id="displayYear"></span> 오순도순
+     
+    </p>
+  </footer>
+
+  <canvas></canvas> <!-- 여기에 <canvas></canvas> 태그 추가 -->
+
+<!-- <script>
+    const canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const ctx = canvas.getContext('2d');
+
+    const TOTAL = 150;
+    const petalArray = [];
+
+    const petalImg = new Image();
+    petalImg.src = "images/petal.png";
+    petalImg.onload = () => {
+      for (let i = 0; i < TOTAL; i++) {
+        petalArray.push(new Petal());
+      }
+      render();
+    };
+
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      window.requestAnimationFrame(render);
+      petalArray.forEach((petal) => {
+        petal.animate();
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    class Petal {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        // Adjusting y range to make particles fly within a smaller vertical range
+        this.y = Math.random() * canvas.height * 0.5 - canvas.height * 0.25;
+        this.w = 30 + Math.random() * 15;
+        this.h = 20 + Math.random() * 10;
+        this.opacity = this.w / 45;
+        this.xSpeed = 2 + Math.random();
+        this.ySpeed = 1 + Math.random();
+        this.flip = Math.random();
+        this.flipSpeed = Math.random() * 0.03;
+      }
+
+      draw() {
+        if (this.y > canvas.height || this.x > canvas.width) {
+          this.x = -petalImg.width;
+          // Adjusting y range when particles go beyond canvas height
+          this.y = Math.random() * canvas.height * 0.5 - canvas.height * 0.25;
+          this.xSpeed = 2 + Math.random();
+          this.ySpeed = 1 + Math.random();
+          this.flip = Math.random();
+        }
+
+        ctx.globalAlpha = this.opacity;
+        // Drawing the petal image
+        ctx.drawImage(petalImg, this.x, this.y, this.w * (0.66 + Math.abs(Math.cos(this.flip) / 3)), this.h * (0.8 + Math.abs(Math.sin(this.flip) / 2)));
+      }
+
+      animate() {
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+        this.draw();
+        this.flip += this.flipSpeed;
+      }
+    }
+  </script> -->
+
+
+
+<div style="text-align : center;">
+
+ <!--  <img class="front" src="images/bankai.jpg"> -->
+
+</div>
+  <!-- footer section -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="js/custom.js"></script>
+
+</body>
+
+</html>
