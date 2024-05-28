@@ -11,6 +11,8 @@
     <link href="notice_board.css" rel="stylesheet" />
 
     <title>게시판</title>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
     <script>
       /*
         totalPage : 총 게시글 수
@@ -19,7 +21,7 @@
         total_block : 블록의 총 수
         current_block : 현재 블록 위치
         data: 게시글 데이터를 담고 있는 객체 배열
-        post_data_print(block) : 게시글 데이터 출력하기 / 매개변수 : 선택 블럭 
+        post_data_print(block) : 게시글 데이터 출력하기 / 매개변수 : 선택 블럭
         block_print(front_block) : 블럭 출력하기 / 매개변수 : 가장 앞에 오는 블럭
         */
       let totalPage = 1000;
@@ -36,19 +38,16 @@
         제목 : data[게시글 번호].title
         작성자 : data[게시글 번호].writer
         작성일 : data[게시글 번호].date_created
-        조회 : data[게시글 번호].Lookkup_num
-        좋아요 : data[게시글 번호].like
+        조회 : data[게시글 번호].Lookup_num
         */
       let data = new Array();
-
       for (let i = 1; i <= totalPage; i++) {
         data[i] = {
           notice_num: i,
           title: "환경보호" + i + "일차",
           writer: "admin",
           date_created: "2024-04-05",
-          Lookkup_num: i,
-          like: i,
+          Lookup_num: i,
         };
       }
       // 게시글 데이터 출력하기
@@ -74,15 +73,14 @@
           post.className = "board_row";
           post.className = "data_row";
 
-          let classname = ["w70", "w500", "w120", "w100", "w100", "w100"];
+          let classname = ["w100", "w510", "w140", "w120", "w120"];
 
           let post_data = [
             data[i].notice_num,
             data[i].title,
             data[i].writer,
             data[i].date_created,
-            data[i].Lookkup_num,
-            data[i].like,
+            data[i].Lookup_num,
           ];
 
           //게시글 생성
@@ -92,7 +90,6 @@
             li.textContent = post_data[j];
             post.appendChild(li);
           }
-
           // 게시글 추가
           notice_board.appendChild(post);
         }
@@ -248,12 +245,11 @@
     <div class="notice_board">
       <!-- title 열 -->
       <ul class="board_row title_row">
-        <li class="w80">번호</li>
-        <li class="w500">제목</li>
-        <li class="w120">작성자</li>
-        <li class="w100">작성일</li>
-        <li class="w100">조회</li>
-        <li class="w90">좋아요</li>
+        <li class="w100">번호</li>
+        <li class="w510">제목</li>
+        <li class="w140">작성자</li>
+        <li class="w120">작성일</li>
+        <li class="w120">조회</li>
       </ul>
       <!-- 게시글 추가로 들어오는 위치 -->
     </div>

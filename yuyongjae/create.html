@@ -4,14 +4,116 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link href="../css/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/templatemo-kind-heart-charity.css" rel="stylesheet" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="notice_board.css" rel="stylesheet" />
+    <link href="create_board.css" rel="stylesheet" />
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+        <div class="container">
+          <a class="navbar-brand" href="main.html">
+            <img src="../images/GreenIssue.png" class="logo img-fluid" alt="" />
+            <span>
+              GreenIssue
+              <small>Ohsondoson</small>
+            </span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="main.html">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="../ohseungmok/index.html"
+                  >캠페인</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="../ohjaeyoung/index.html"
+                  >분리수거</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link smoothscroll"
+                  href="../junghyunchul/quiz.html"
+                  >퀴즈</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="../sonminwook/index.html"
+                  >뉴스</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="../yuyongjae/notice.html"
+                  >게시판</a
+                >
+              </li>
+
+              <li class="nav-item ms-3">
+                <a
+                  class="nav-link custom-btn custom-border-btn btn"
+                  href="../kimkyungwan/Login.html"
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <form id="writeNotice">
-      <div>제목 : <input type="text" name="title" /></div>
-      <!-- <div>작성자: <input type="text" name="title"></div> -->
-      <div>내용 : <textarea name="content"></textarea></div>
-      <input type="submit" value="글작성" />
+      <table>
+        <tr>
+          <td><h2>글쓰기</h2></td>
+        </tr>
+        <tr>
+          <td class="header">Title</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" placeholder="제목을 입력하세요" name="title" />
+          </td>
+        </tr>
+        <tr>
+          <td class="header">Comment</td>
+        </tr>
+        <tr>
+          <td>
+            <textarea placeholder="내용을 입력하세요" name="detail"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="등록" onclick="alert('작성 완료!')" />
+          </td>
+        </tr>
+      </table>
     </form>
-    <a href="/Eco/yuyongjae/notice.html">뒤로 가기</a>
+    <span id="back-button"
+      ><a href="/Eco/yuyongjae/notice.html">뒤로 가기</a></span
+    >
   </body>
 </html>
