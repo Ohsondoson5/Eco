@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Firebase 게시판</title>
+</head>
+
+<body>
+    <h1>Firebase 게시판</h1>
+    
+    <div id="writePostSection">
+        <h2>글쓰기</h2>
+        <a href="write.html" id="writePostLink">글쓰기 페이지로 이동</a>
+    </div>
+
+    <div id="boardSection">
+        <h2>게시판</h2>
+        <div id="board"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-auth-compat.js"></script>
+    <script>
+        // Firebase 프로젝트 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbNYchKcFia8-uIdjlBUOAfalqBwStJdY",
+            authDomain: "my-eco-prj.firebaseapp.com",
+            databaseURL: "https://my-eco-prj-default-rtdb.firebaseio.com",
+            projectId: "my-eco-prj",
+            storageBucket: "my-eco-prj.appspot.com",
+            messagingSenderId: "322109404527",
+            appId: "1:322109404527:web:ab160e33c4927336fc249a",
+            measurementId: "G-LGEKHFM498"
+        };
+
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        const auth = firebase.auth();
+
+        // 게시글 읽기 함수
+        function readPosts() {
+            const postsRef = db.ref('posts');
+            postsRef.on('value', (snapshot) => {
+                const posts = snapshot.val();
+                console.log(posts);
+                let boardHTML = '<table border="1"><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>삭제</th></tr>';
+                for (let id in posts) {
+                    boardHTML += `<tr>
+                                    <td>${posts[id].number}</td>
+                                    <td><a href="post.html?id=${id}" onclick="incrementViews('${id}')">${posts[id].title}</a></td>
+                                    <td>${posts[id].author}</td>
+                                    <td>${posts[id].date}</td>
+                                    <td>${posts[id].views}</td>
+                                    <td><button onclick="deletePost('${id}', '${posts[id].author}')">삭제</button></td>
+                                  </tr>`;
+                }
+                boardHTML += '</table>';
+                document.getElementById('board').innerHTML = boardHTML;
+            });
+        }
+
+        // 조회수 증가 함수
+        function incrementViews(postId) {
+            const postRef = db.ref('posts/' + postId + '/views');
+            postRef.transaction((currentViews) => {
+                return (currentViews || 0) + 1;
+            });
+        }
+
+        // 게시글 삭제 함수
+        function deletePost(postId, postAuthorUID) {
+            const currentUserUID = getCookie('user');  // 쿠키에서 현재 사용자 UID 가져오기
+            if (currentUserUID === postAuthorUID) {
+                db.ref('posts/' + postId).remove()
+                    .then(() => {
+                        alert('게시글이 삭제되었습니다.');
+                        readPosts();
+                    })
+                    .catch(error => {
+                        alert('게시글 삭제 실패: ' + error.message);
+                    });
+            } else {
+                alert('삭제 권한이 없습니다.');
+            }
+        }
+
+        // 로그인 상태 확인 함수
+        auth.onAuthStateChanged((user) => {
+            const writePostLink = document.getElementById('writePostLink');
+            if (getCookie('user')) {  // 쿠키에 사용자 정보가 있는지 확인
+                writePostLink.style.display = 'block';
+                console.log("로그인 됨");
+            } else {
+                writePostLink.style.display = 'none';
+                console.log("로그인 안 됨");
+            }
+        });
+
+        // 로그인 쿠키 가져오기
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+        // 페이지 로드 시 게시글 읽기
+        readPosts();
+    </script>
+</body>
+
+</html>

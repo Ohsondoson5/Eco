@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>게시글 작성</title>
+</head>
+
+<body>
+    <h1>게시글 작성</h1>
+    <div id="writePostSection">
+        <input type="text" id="postTitle" placeholder="제목">
+        <textarea id="postContent" placeholder="내용"></textarea>
+        <button onclick="writePost()">작성하기</button>
+    </div>
+    <a href="index.html">메인 페이지로 이동</a>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-auth-compat.js"></script>
+
+    <script>
+        // Firebase 프로젝트 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbNYchKcFia8-uIdjlBUOAfalqBwStJdY",
+            authDomain: "my-eco-prj.firebaseapp.com",
+            databaseURL: "https://my-eco-prj-default-rtdb.firebaseio.com",
+            projectId: "my-eco-prj",
+            storageBucket: "my-eco-prj.appspot.com",
+            messagingSenderId: "322109404527",
+            appId: "1:322109404527:web:ab160e33c4927336fc249a",
+            measurementId: "G-LGEKHFM498"
+        };
+
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        const auth = firebase.auth();
+
+        // 사용자 인증 상태 확인
+        auth.onAuthStateChanged((user) => {
+            if (!getCookie('user')) {
+                alert('로그인이 필요합니다.');
+                window.location.href = '/sonminuk/login.html';
+            }
+        });
+
+        // 게시글 작성 함수
+        function writePost() {
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            const userUID = getCookie('user');  // 쿠키에서 사용자 UID 가져오기
+
+            if (!title || !content) {
+                alert('제목과 내용을 입력해주세요.');
+                return;
+            }
+
+            if (userUID) {
+                const newPostKey = db.ref().child('posts').push().key;
+                const postData = {
+                    number: newPostKey,  // 게시글 번호는 고유 키로 사용
+                    title: title,
+                    author: userUID,  // 작성자 UID 저장
+                    date: new Date().toISOString(),
+                    views: 0,
+                    content: content
+                };
+
+                let updates = {};
+                updates['/posts/' + newPostKey] = postData;
+
+                db.ref().update(updates)
+                    .then(() => {
+                        alert('게시글이 작성되었습니다.');
+                        window.location.href = 'index.html';
+                    })
+                    .catch(error => {
+                        alert('게시글 작성 실패: ' + error.message);
+                    });
+            } else {
+                alert('로그인이 필요합니다.');
+            }
+        }
+
+        // 로그인 쿠키 가져오기
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+    </script>
+</body>
+
+</html>
