@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>게시글 수정</title>
+</head>
+
+<body>
+    <h1>게시글 수정</h1>
+    <div id="updatePostSection">
+        <input type="text" id="editTitle" placeholder="제목"><br>
+        <textarea id="editContent" placeholder="내용"></textarea><br>
+        <button onclick="updatePost()">수정 완료</button>
+        <a href="index.html">취소</a>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-auth-compat.js"></script>
+
+    <script>
+        // Firebase 프로젝트 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbNYchKcFia8-uIdjlBUOAfalqBwStJdY",
+            authDomain: "my-eco-prj.firebaseapp.com",
+            databaseURL: "https://my-eco-prj-default-rtdb.firebaseio.com",
+            projectId: "my-eco-prj",
+            storageBucket: "my-eco-prj.appspot.com",
+            messagingSenderId: "322109404527",
+            appId: "1:322109404527:web:ab160e33c4927336fc249a",
+            measurementId: "G-LGEKHFM498"
+        };
+
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        const auth = firebase.auth();
+
+        // 게시글 데이터 로드 함수
+        function loadPostData(postId) {
+            const postRef = db.ref('posts/' + postId);
+            postRef.once('value', (snapshot) => {
+                const post = snapshot.val();
+                if (post) { 
+                    console.log('Post data:', post);
+                    document.getElementById('editTitle').value = post.title;
+                    document.getElementById('editContent').value = post.content;
+                    
+                } else {
+                    alert('게시글을 찾을 수 없습니다.');
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+
+        // 게시글 수정 함수
+        function updatePost() {
+            const postId = getPostIdFromUrl();
+            const title = document.getElementById('editTitle').value;
+            const content = document.getElementById('editContent').value;
+            const userUID = getCookie('user');  // 쿠키에서 사용자 UID 가져오기
+
+            if (!title || !content) {
+                alert('제목과 내용을 입력해주세요.');
+                return;
+            }
+
+            const newPostKey = db.ref().child('posts').push().key;
+            const postData = {
+                number: newPostKey,  // 게시글 번호는 고유 키로 사용
+                title: title,
+                author: userUID,  // 작성자 UID 저장
+                date: new Date().toISOString(),
+                views: 0,
+                content: content
+            };
+
+            const updates = {};
+            updates['/posts/' + postId] = postData;
+
+            db.ref().update(updates)
+                .then(() => {
+                    alert('게시글이 수정되었습니다.');
+                    window.location.href = `post.html?id=${postId}`;
+                })
+                .catch(error => {
+                    alert('게시글 수정 실패: ' + error.message);
+                });
+        }
+
+        // URL에서 postId 추출
+        function getPostIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        // 페이지 로드 시 게시글 데이터 로드
+        const postId = getPostIdFromUrl();
+        if (postId) {
+            loadPostData(postId); // 수정 페이지 로드 시 데이터 불러오기
+        } else {
+            alert('잘못된 접근입니다.');
+            window.location.href = 'index.html';
+        }
+        // 로그인 쿠키 가져오기
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+    </script>
+</body>
+
+</html>

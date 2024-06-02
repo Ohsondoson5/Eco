@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kind Heart Charity - News Detail</title>
+
+    <!-- CSS FILES -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="../css/templatemo-kind-heart-charity.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .news-detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-detail-container h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .news-detail-container p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .news-detail-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .news-detail-container .content {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .comment-section {
+            margin-top: 40px;
+        }
+
+        .comment-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comment-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comment-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .comments-list {
+            margin-top: 20px;
+        }
+
+        .comments-list .comment {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .comments-list .comment p {
+            margin: 0;
+        }
+
+        .comments-list .comment .comment-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .comments-list .comment .delete-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <!--
+
+TemplateMo 581 Kind Heart Charity
+
+https://templatemo.com/tm-581-kind-heart-charity
+
+-->
+</head>
+
+<body>
+
+    <!-- 헤더 부분 -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="main.html">
+                    <img src="../images/GreenIssue.png" class="logo img-fluid" alt="">
+
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="main.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../ohseungmok/index.html">캠페인</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../ohjaeyoung/index.html">분리수거</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../junghyunchul/quiz.html">퀴즈</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
+                        </li>
+
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn"
+                                href="../kimkyungwan/Login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <main>
+
+        <section class="news-detail-header-section text-center">
+            <div class="section-overlay"></div>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12">
+                        <h1 class="text-white">News Detail</h1>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="news-section section-padding">
+            <div class="news-detail-container" id="news-detail-container">
+                <!-- 뉴스 상세 정보가 여기에 동적으로 추가될 것입니다. -->
+            </div>
+
+            <div class="comment-section">
+                <h2>Comments</h2>
+                <div class="comment-form">
+                    <input type="text" id="nickname-input" placeholder="Nickname">
+                    <input type="password" id="password-input" placeholder="Password">
+                    <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+                    <button onclick="submitComment()">Submit</button>
+                </div>
+                <div class="comments-list" id="comments-list">
+                    <!-- 댓글 목록이 여기에 동적으로 추가될 것입니다. -->
+                </div>
+            </div>
+
+            <!-- 파이어베이스 JavaScript SDK 직접 로드 -->
+            <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+
+            <script>
+                // Firebase 프로젝트 설정
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAbNYchKcFia8-uIdjlBUOAfalqBwStJdY",
+                    authDomain: "my-eco-prj.firebaseapp.com",
+                    databaseURL: "https://my-eco-prj-default-rtdb.firebaseio.com",
+                    projectId: "my-eco-prj",
+                    storageBucket: "my-eco-prj.appspot.com",
+                    messagingSenderId: "322109404527",
+                    appId: "1:322109404527:web:ab160e33c4927336fc249a",
+                    measurementId: "G-LGEKHFM498"
+                };
+
+                // Firebase 초기화
+                firebase.initializeApp(firebaseConfig);
+
+                // Firebase 데이터베이스 참조
+                const database = firebase.database();
+                const newsRef = database.ref('news');
+
+                // URL에서 뉴스 ID 가져오기
+                const urlParams = new URLSearchParams(window.location.search);
+                const newsId = urlParams.get('id');
+
+                // 뉴스 데이터 가져오기
+                newsRef.child(newsId).once('value', (snapshot) => {
+                    const newsData = snapshot.val();
+                    const newsDetailContainer = document.getElementById('news-detail-container');
+
+                    // 제목
+                    const title = document.createElement('h1');
+                    title.textContent = newsData.title;
+                    newsDetailContainer.appendChild(title);
+
+                    // 날짜
+                    const date = document.createElement('p');
+                    date.textContent = newsData.date;
+                    newsDetailContainer.appendChild(date);
+
+                    // 뉴스 이미지
+                    const img = document.createElement('img');
+                    img.src = newsData.img_href;
+                    newsDetailContainer.appendChild(img);
+
+                    // 내용
+                    const content = document.createElement('div');
+                    content.classList.add('content');
+                    content.textContent = newsData.content;
+                    newsDetailContainer.appendChild(content);
+                });
+
+                // 댓글 제출 함수
+                function submitComment() {
+                    const nicknameInput = document.getElementById('nickname-input');
+                    const passwordInput = document.getElementById('password-input');
+                    const commentInput = document.getElementById('comment-input');
+                    const nickname = nicknameInput.value;
+                    const password = passwordInput.value;
+                    const commentText = commentInput.value;
+
+                    if (nickname.trim() !== "" && password.trim() !== "" && commentText.trim() !== "") {
+                        const commentRef = database.ref(`news/${newsId}/comments`).push();
+                        commentRef.set({
+                            nickname: nickname,
+                            password: password,
+                            text: commentText,
+                            timestamp: Date.now()
+                        });
+
+                        nicknameInput.value = "";
+                        passwordInput.value = "";
+                        commentInput.value = "";
+                    } else {
+                        alert("Please fill in all fields.");
+                    }
+                }
+
+                // 댓글 삭제 함수
+                function deleteComment(commentId) {
+                    const password = prompt("Please enter your password to delete this comment:");
+                    const commentRef = database.ref(`news/${newsId}/comments/${commentId}`);
+
+                    commentRef.once('value', (snapshot) => {
+                        const commentData = snapshot.val();
+                        if (commentData.password === password) {
+                            commentRef.remove();
+                        } else {
+                            alert("Incorrect password. Unable to delete comment.");
+                        }
+                    });
+                }
+
+                // 댓글 데이터 가져오기
+                newsRef.child(`${newsId}/comments`).on('value', (snapshot) => {
+                    const commentsList = document.getElementById('comments-list');
+                    commentsList.innerHTML = "";
+
+                    snapshot.forEach((childSnapshot) => {
+                        const commentData = childSnapshot.val();
+                        const comment = document.createElement('div');
+                        comment.classList.add('comment');
+
+                        const commentInfo = document.createElement('div');
+                        commentInfo.classList.add('comment-info');
+                        const date = new Date(commentData.timestamp);
+                        commentInfo.textContent = `${commentData.nickname} - ${date.toLocaleString()}`;
+                        comment.appendChild(commentInfo);
+
+                        const commentText = document.createElement('p');
+                        commentText.textContent = commentData.text;
+                        comment.appendChild(commentText);
+
+                        const deleteButton = document.createElement('button');
+                        deleteButton.classList.add('delete-button');
+                        deleteButton.textContent = "Delete";
+                        deleteButton.onclick = () => deleteComment(childSnapshot.key);
+                        comment.appendChild(deleteButton);
+
+                        commentsList.appendChild(comment);
+                    });
+                });
+            </script>
+        </section>
+
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-12 mb-4">
+                    <img src="images/logo.png" class="logo img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <h5 class="site-footer-title mb-3">Quick Links</h5>
+
+                    <ul class="footer-menu">
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Our Story</a></li>
+
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Newsroom</a></li>
+
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Causes</a></li>
+
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Become a volunteer</a></li>
+
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Partner with us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mx-auto">
+                    <h5 class="site-footer-title mb-3">Contact Infomation</h5>
+
+                    <p class="text-white d-flex mb-2">
+                        <i class="bi-telephone me-2"></i>
+
+                        <a href="tel: 120-240-9600" class="site-footer-link">
+                            120-240-9600
+                        </a>
+                    </p>
+
+                    <p class="text-white d-flex">
+                        <i class="bi-envelope me-2"></i>
+
+                        <a href="mailto:info@yourgmail.com" class="site-footer-link">
+                            donate@charity.org
+                        </a>
+                    </p>
+
+                    <p class="text-white d-flex mt-3">
+                        <i class="bi-geo-alt me-2"></i>
+                        Akershusstranda 20, 0150 Oslo, Norway
+                    </p>
+
+                    <a href="#" class="custom-btn btn mt-3">Get Direction</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-7 col-12">
+                        <p class="copyright-text mb-0">Copyright © 2036 <a href="#">Kind Heart</a> Charity Org.
+                            Design: <a href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+                    </div>
+
+                    <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
+                        <ul class="social-icon">
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-twitter"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-facebook"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-instagram"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-linkedin"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="https://youtube.com/templatemo" class="social-icon-link bi-youtube"></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
