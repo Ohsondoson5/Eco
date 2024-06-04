@@ -11,21 +11,18 @@
     <link href="../css/templatemo-kind-heart-charity.css" rel="stylesheet">
     
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5; /* 연한 회색 계열의 배경색 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-            height: 100vh;
-            background-image: url('c1.jpg'); /* 배경 이미지 경로 지정 */
-            background-size: cover; /* 배경 이미지를 화면에 꽉 채우도록 설정 */
-            background-position: center; /* 배경 이미지를 가운데 정렬 */
-            background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
-        }
+
  
         h1 {
             text-align: center;
@@ -45,7 +42,7 @@
         }
 
         #startButton:hover {
-            background-color: yellowgreen;
+            background-color: #FFC0CB;
         }
 
         
@@ -63,7 +60,7 @@
         display: inline-block;
         width: 400px;
         height: 70px;
-        background-color: #4CAF50; /* 버튼 배경색 */
+        background-color: #FFC0CB; /* 버튼 배경색 */
         color: white; /* 버튼 텍스트 색상 */
         text-align: center;
         text-decoration: none;
@@ -76,10 +73,71 @@
     }
 
     .quiz-button:hover {
-        background-color: #45a049; /* 마우스 호버 시 배경색 변경 */
+        background-color: #FFA500; /* 마우스 호버 시 배경색 변경 */
     }
 
+
+
+    html, body {
+          width: 100%;
+          height: 100%;
+          background: #FF7777;
+          -webkit-font-smoothing: antialiased;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+        }
+      
+        h1 {
+          height: 100px;
+        }
+      
+        h1 span {
+          position: relative;
+          top: 20px;
+          display: inline-block;
+          animation: bounce .3s ease infinite alternate;
+          font-family: 'Titan One', cursive;
+          font-size: 80px;
+          color: #FFF;
+          text-shadow: 0 1px 0 #CCC,
+                       0 2px 0 #CCC,
+                       0 3px 0 #CCC,
+                       0 4px 0 #CCC,
+                       0 5px 0 #CCC,
+                       0 6px 0 transparent,
+                       0 7px 0 transparent,
+                       0 8px 0 transparent,
+                       0 9px 0 transparent,
+                       0 10px 10px rgba(0, 0, 0, .4);
+        }
+      
+        h1 span:nth-child(2) { animation-delay: .1s; }
+        h1 span:nth-child(3) { animation-delay: .2s; }
+        h1 span:nth-child(4) { animation-delay: .3s; }
+        h1 span:nth-child(5) { animation-delay: .4s; }
+        h1 span:nth-child(6) { animation-delay: .5s; }
+        h1 span:nth-child(7) { animation-delay: .6s; }
+        h1 span:nth-child(8) { animation-delay: .7s; }
+      
+        @keyframes bounce {
+          100% {
+            top: -20px;
+            text-shadow: 0 1px 0 #CCC,
+                         0 2px 0 #CCC,
+                         0 3px 0 #CCC,
+                         0 4px 0 #CCC,
+                         0 5px 0 #CCC,
+                         0 6px 0 #CCC,
+                         0 7px 0 #CCC,
+                         0 8px 0 #CCC,
+                         0 9px 0 #CCC,
+                         0 50px 25px rgba(0, 0, 0, .2);
+          }
+        }
     </style>
+    
 </head>
 
 <body>
@@ -119,15 +177,24 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
+                        <a class="nav-link smoothscroll" href="../sonminuk/index.html">뉴스</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
                     </li>
 
-                    <li class="nav-item ms-3">
-                        <a class="nav-link custom-btn custom-border-btn btn" href="../kimkyungwan/Login.html">Login</a>
+                    <li class="nav-item ms-3" id="login-item">
+                        <a class="nav-link custom-btn custom-border-btn btn"
+                            href="../kimkyungwan/Login.html">Login</a>
+                    </li>
+
+                    <li class="nav-item" id="username-item" style="display: none;">
+                        <span class="nav-link smoothscroll" id="username-display"></span>
+                    </li>
+
+                    <li class="nav-item ms-3" id="logout-item" style="display: none;">
+                        <a class="nav-link custom-btn custom-border-btn btn" href="#" onclick="logout()">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -135,14 +202,30 @@
     </nav>
 </header>
 
+
+
     <!-- 메인 콘텐츠 -->
     <div>
-        <h1>Quiz Page</h1>
-        
         <br><br><br><br>
         <br><br><br><br>
-        <br><br><br><br>
-        <br><br><br><br>
+
+        <h1>
+            <span>Q</span>
+            <span>u</span>
+            <span>i</span>
+            <span>z</span>
+            <span> </span>
+            <span>P</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+          </h1>
+
+          <br><br><br><br>
+          <br><br><br><br>
+
+
+
         
         <div style="text-align: center;">
             <a href="quiz.html"><button class="quiz-button">일반 퀴즈!</button></a>
@@ -155,6 +238,9 @@
         
   
     </div>
+
+
+    
     
 
     <script>
@@ -162,5 +248,42 @@
             window.location.href = "quiz.html"; // 실제 퀴즈 페이지의 파일명으로 변경해주세요
         }
     </script>
+      <script src="../js/jquery.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+      <script src="../js/jquery.sticky.js"></script>
+      <script src="js/click-scroll.js"></script>
+      <script src="../js/counter.js"></script>
+      <script src="../js/custom.js"></script>
+  
+      <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              const username = localStorage.getItem('username');
+              const loginItem = document.getElementById('login-item');
+              const usernameItem = document.getElementById('username-item');
+              const logoutItem = document.getElementById('logout-item');
+  
+              if (username) {
+                  const usernameDisplay = document.getElementById('username-display');
+                  if (usernameDisplay) {
+                      usernameDisplay.textContent = username;
+                      usernameDisplay.style.color = '#00b22d';
+                      usernameDisplay.style.fontSize = '1rem';
+                      usernameDisplay.style.lineHeight = '1.5';
+                  }
+                  loginItem.style.display = 'none';
+                  usernameItem.style.display = 'block';
+                  logoutItem.style.display = 'block';
+              } else {
+                  loginItem.style.display = 'block';
+                  usernameItem.style.display = 'none';
+                  logoutItem.style.display = 'none';
+              }
+          });
+  
+          function logout() {
+              localStorage.removeItem('username');
+              window.location.href = '../kimkyungwan/Login.html';
+          }
+      </script>
 </body>
 </html>

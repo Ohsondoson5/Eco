@@ -97,7 +97,64 @@
     <div id="board"></div>
     <div id="finish-restart-buttons"></div> <!-- 여기에 버튼 추가 -->
 
+
+    <div id="finish-restart-buttons">
+        <!-- 여기에 버튼 추가 -->
+        <!-- 게임이 종료되면 Finish와 Restart 버튼이 여기에 추가됩니다. -->
+    </div> 
+    
+    <!-- 게임에 관한 설명 -->
+    <div id="game-description">
+        <p>이 게임은 "Environmental Quiz Memory Game"으로, 환경에 관한 퀴즈와 메모리 게임을 결합한 것입니다.</p>    
+            <p>사용자 등록: 사용자는 자신의 이름을 입력하여 게임에 참여할 수 있습니다. 사용자 이름을 등록한 후 게임을 시작할 수 있습니다.
+            </p>
+            <p>환경 퀴즈: 게임은 여섯 가지 환경 관련 퀴즈를 포함하고 있습니다. 퀴즈의 내용은 지구의 대기 구성, 온실가스 감소 방법, 기후 변화의 주요 원인 등에 관한 것입니다.
+            </p>
+               <p> 메모리 게임: 사용자는 퀴즈 카드와 해당 퀴즈에 대한 정답 카드를 짝을 맞추는 메모리 게임을 진행합니다.
+            </p>
+                <p>게임 종료 및 점수: 모든 카드의 짝을 맞추면 게임이 종료됩니다. 각 사용자의 점수는 맞춘 짝의 수로 결정되며, 점수가 가장 높은 사용자가 승리합니다.
+                </p>
+                
+    </div>
+
   <script>
+// 피니쉬 버튼과 리스타트 버튼을 보여주는 함수
+function renderFinishRestartButtons() {
+    const finishRestartButtonsDiv = document.getElementById('finish-restart-buttons');
+    finishRestartButtonsDiv.innerHTML = '';
+
+    if (matched.every(match => match)) {
+        const finishButton = document.createElement('button');
+        finishButton.textContent = 'Finish';
+        finishButton.onclick = () => {
+            window.location.href = 'https://www.example.com'; // 이동할 페이지 URL로 변경
+        };
+        finishRestartButtonsDiv.appendChild(finishButton);
+
+        const restartButton = document.createElement('button');
+        restartButton.textContent = 'Restart';
+        restartButton.onclick = () => {
+            resetGame();
+        };
+        finishRestartButtonsDiv.appendChild(restartButton);
+    }
+}
+
+
+
+
+// 게임 설명을 표시하는 함수
+function renderGameDescription() {
+    const gameDescriptionDiv = document.getElementById('game-description');
+    gameDescriptionDiv.innerHTML = `
+        <p>환경 퀴즈 메모리 게임에 오신 것을 환영합니다!</p>
+        <p>이 게임은 환경에 관한 퀴즈와 메모리 게임을 결합한 것입니다.</p>
+        <p>사용자 이름을 등록하고 게임을 시작하세요.</p>
+    `;
+}
+
+
+
         let users = [];
         let currentUserIndex = 0;
         let scores = {};
