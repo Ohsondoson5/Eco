@@ -144,7 +144,10 @@ https://templatemo.com/tm-581-kind-heart-charity
             <div class="container">
                 <a class="navbar-brand" href="main.html">
                     <img src="../images/GreenIssue.png" class="logo img-fluid" alt="">
-
+                    <span>
+                        GreenIssue
+                        <small>Ohsondoson</small>
+                    </span>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -155,11 +158,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="main.html">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="../ohseungmok/index.html">캠페인</a>
+                            <a class="nav-link smoothscroll" href="index.html">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -167,20 +166,30 @@ https://templatemo.com/tm-581-kind-heart-charity
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="../junghyunchul/quiz.html">퀴즈</a>
+                            <a class="nav-link smoothscroll" href="../junghyunchul/index.html">퀴즈</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="../sonminwook/index.html">뉴스</a>
+                            <a class="nav-link smoothscroll" href="../sonminuk/index.html">뉴스</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="../yuyongjae/notice.html">게시판</a>
+                            <a class="nav-link smoothscroll"
+                                href="..\ohseungmok\sonminuk\notice_board\index.html">게시판</a>
                         </li>
 
-                        <li class="nav-item ms-3">
+
+                        <li class="nav-item ms-3" id="login-item">
                             <a class="nav-link custom-btn custom-border-btn btn"
                                 href="../kimkyungwan/Login.html">Login</a>
+                        </li>
+
+                        <li class="nav-item" id="username-item" style="display: none;">
+                            <span class="nav-link smoothscroll" id="username-display"></span>
+                        </li>
+
+                        <li class="nav-item ms-3" id="logout-item" style="display: none;">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="#" onclick="logout()">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -446,12 +455,43 @@ https://templatemo.com/tm-581-kind-heart-charity
     </footer>
 
     <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
     <script src="js/click-scroll.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/counter.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const username = localStorage.getItem('username');
+            const loginItem = document.getElementById('login-item');
+            const usernameItem = document.getElementById('username-item');
+            const logoutItem = document.getElementById('logout-item');
+
+            if (username) {
+                const usernameDisplay = document.getElementById('username-display');
+                if (usernameDisplay) {
+                    usernameDisplay.textContent = username;
+                    usernameDisplay.style.color = '#00b22d';
+                    usernameDisplay.style.fontSize = '1rem';
+                    usernameDisplay.style.lineHeight = '1.5';
+                }
+                loginItem.style.display = 'none';
+                usernameItem.style.display = 'block';
+                logoutItem.style.display = 'block';
+            } else {
+                loginItem.style.display = 'block';
+                usernameItem.style.display = 'none';
+                logoutItem.style.display = 'none';
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('username');
+            window.location.href = '../kimkyungwan/Login.html';
+        }
+    </script>
 
 </body>
 
