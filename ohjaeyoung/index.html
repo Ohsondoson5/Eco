@@ -86,43 +86,51 @@
 </style>
 
 <style>
-  .search-container {
+ .search-container {
     text-align: center;
     margin: 20px;
-  }
+}
 
-  .search-container input[type="text"] {
+.search-container input[type="text"] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid #ccc;
     width: 20%;
-  }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 그림자 효과에도 transition 추가 */
+}
 
-  .search-container button {
-    padding: 10px 20px;
+.search-container input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); /* 포커스시 더 강한 그림자 효과 추가 */
+}
+
+.search-container button {
+    padding: 11px 20px;
     background: #3CB371;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 17px;
-  }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* 그림자 효과에도 transition 추가 */
+}
 
-  .search-container button:hover {
+.search-container button:hover {
     background: #2E8B57;
-  }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 호버시 더 강한 그림자 효과 추가 */
+}
+
+.search-container button:active {
+    transform: scale(0.95);
+}
+
 </style>
 
  
 
+
 <body>
-
-
-
-
-
-
-
-  
   <!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -151,80 +159,63 @@
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
-<!-- 헤더 부분 -->
-<header>
+ <!-- 헤더 부분 -->
+ <header>
   <nav class="navbar navbar-expand-lg bg-light shadow-lg">
-    <div class="container">
-      <a class="navbar-brand" href="main.html">
-        <img src="../images/GreenIssue.png" class="logo img-fluid" alt="" />
-        <span>
-          <br>
-          GreenIssue
-          <small>Ohsondoson</small>
-        </span>
-      </a>
-      
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="container">
+          <a class="navbar-brand" href="main.html">
+              <img src="../images/GreenIssue.png" class="logo img-fluid" alt="">
+              <span>
+                <br>
+                  GreenIssue
+                  <small>Ohsondoson</small>
+              </span>
+          </a>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link smoothscroll" href="main.html">Home</a>
-          </li>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
 
-          <li class="nav-item">
-            <a class="nav-link smoothscroll" href="../ohseungmok/index.html"
-              >캠페인</a
-            >
-          </li>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="index.html">Home</a>
+                  </li>
 
-          <li class="nav-item">
-            <a class="nav-link smoothscroll" href="../ohjaeyoung/index.html"
-              >분리수거</a
-            >
-          </li>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../ohjaeyoung/index.html">분리수거</a>
+                  </li>
 
-          <li class="nav-item">
-            <a
-              class="nav-link smoothscroll"
-              href="../junghyunchul/quiz.html"
-              >퀴즈</a
-            >
-          </li>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../junghyunchul/index.html">퀴즈</a>
+                  </li>
 
-          <li class="nav-item">
-            <a class="nav-link smoothscroll" href="../sonminuk/index.html"
-              >뉴스</a
-            >
-          </li>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll" href="../sonminuk/index.html">뉴스</a>
+                  </li>
 
-          <li class="nav-item">
-            <a class="nav-link smoothscroll" href="../yuyongjae/notice.html"
-              >게시판</a
-            >
-          </li>
+                  <li class="nav-item">
+                      <a class="nav-link smoothscroll"
+                          href="..\ohseungmok\sonminuk\notice_board\index.html">게시판</a>
+                  </li>
 
-          <li class="nav-item ms-3">
-            <a
-              class="nav-link custom-btn custom-border-btn btn"
-              href="../kimkyungwan/Login.html"
-              
-              >Login</a
-            >
-          </li>
-        </ul>
+
+                  <li class="nav-item ms-3" id="login-item">
+                      <a class="nav-link custom-btn custom-border-btn btn"
+                          href="../kimkyungwan/Login.html">Login</a>
+                  </li>
+
+                  <li class="nav-item" id="username-item" style="display: none;">
+                      <span class="nav-link smoothscroll" id="username-display"></span>
+                  </li>
+
+                  <li class="nav-item ms-3" id="logout-item" style="display: none;">
+                      <a class="nav-link custom-btn custom-border-btn btn" href="#" onclick="logout()">Logout</a>
+                  </li>
+              </ul>
+          </div>
       </div>
-    </div>
   </nav>
 </header>
       <div class="container-fluid">
@@ -306,6 +297,10 @@
       case '유리':
         url = 'Glass.html';
         break;
+        case '캔':
+        url = 'can.html';
+        break;
+
       case '더락':
         url = 'TheRock.html';
         break;
@@ -324,7 +319,7 @@
         case '대림대학교':
         url = 'https://www.daelim.ac.kr/intro.do';
         break;
-
+        
         
       default:
         alert('검색 결과가 없습니다.');
@@ -395,6 +390,16 @@
                 <img src="images/team5.jpg" alt="" />
                 </a>
               </div>
+
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <a href="can.html">
+                <img src="images/team7.jpg" alt="" />
+                </a>
+              </div>
               
             </div>
           </div>
@@ -408,16 +413,7 @@
               
             </div>
           </div>
-          <!-- <div class="item">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/team2.jpg" alt="" />
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div> -->
+          
     </div>
   </section>
 
@@ -449,9 +445,6 @@
         </div>
         
            
-         
-        
-            
           
         </div>
       </div>
@@ -463,91 +456,12 @@
   <!-- footer section -->
   <footer class="footer_section container-fluid">
     <p>
+      <canvas style="position: absolute; top: 0; left: 0;"></canvas>
+    
       &copy; <span id="displayYear"></span> 오손도손
      
     </p>
   </footer>
-
-  <canvas></canvas> <!-- 여기에 <canvas></canvas> 태그 추가 -->
-
-<!-- <script>
-    const canvas = document.querySelector('canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const ctx = canvas.getContext('2d');
-
-    const TOTAL = 150;
-    const petalArray = [];
-
-    const petalImg = new Image();
-    petalImg.src = "images/petal.png";
-    petalImg.onload = () => {
-      for (let i = 0; i < TOTAL; i++) {
-        petalArray.push(new Petal());
-      }
-      render();
-    };
-
-    function render() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      window.requestAnimationFrame(render);
-      petalArray.forEach((petal) => {
-        petal.animate();
-      });
-    }
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-
-    class Petal {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        // Adjusting y range to make particles fly within a smaller vertical range
-        this.y = Math.random() * canvas.height * 0.5 - canvas.height * 0.25;
-        this.w = 30 + Math.random() * 15;
-        this.h = 20 + Math.random() * 10;
-        this.opacity = this.w / 45;
-        this.xSpeed = 2 + Math.random();
-        this.ySpeed = 1 + Math.random();
-        this.flip = Math.random();
-        this.flipSpeed = Math.random() * 0.03;
-      }
-
-      draw() {
-        if (this.y > canvas.height || this.x > canvas.width) {
-          this.x = -petalImg.width;
-          // Adjusting y range when particles go beyond canvas height
-          this.y = Math.random() * canvas.height * 0.5 - canvas.height * 0.25;
-          this.xSpeed = 2 + Math.random();
-          this.ySpeed = 1 + Math.random();
-          this.flip = Math.random();
-        }
-
-        ctx.globalAlpha = this.opacity;
-        // Drawing the petal image
-        ctx.drawImage(petalImg, this.x, this.y, this.w * (0.66 + Math.abs(Math.cos(this.flip) / 3)), this.h * (0.8 + Math.abs(Math.sin(this.flip) / 2)));
-      }
-
-      animate() {
-        this.x += this.xSpeed;
-        this.y += this.ySpeed;
-        this.draw();
-        this.flip += this.flipSpeed;
-      }
-    }
-  </script> -->
-
-
-
-<div style="text-align : center;">
-
- <!--  <img class="front" src="images/bankai.jpg"> -->
-
-</div>
-  <!-- footer section -->
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
