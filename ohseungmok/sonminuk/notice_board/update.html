@@ -3,15 +3,49 @@
 
 <head>
     <title>게시글 수정</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../css/templatemo-kind-heart-charity.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .update-post-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .update-post-section h1 {
+            margin-bottom: 20px;
+        }
+
+        .update-post-section input,
+        .update-post-section textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .update-post-section .btn {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>게시글 수정</h1>
-    <div id="updatePostSection">
-        <input type="text" id="editTitle" placeholder="제목"><br>
-        <textarea id="editContent" placeholder="내용"></textarea><br>
-        <button onclick="updatePost()">수정 완료</button>
-        <a href="index.html">취소</a>
+    <div class="update-post-section">
+        <h1>게시글 수정</h1>
+        <div id="updatePostSection">
+            <input type="text" id="editTitle" class="form-control" placeholder="제목"><br>
+            <textarea id="editContent" class="form-control" rows="10" placeholder="내용"></textarea><br>
+            <button class="btn btn-success" onclick="updatePost()">수정 완료</button>
+            <a class="btn btn-secondary" href="index.html">취소</a>
+        </div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
@@ -41,11 +75,9 @@
             const postRef = db.ref('posts/' + postId);
             postRef.once('value', (snapshot) => {
                 const post = snapshot.val();
-                if (post) { 
-                    console.log('Post data:', post);
+                if (post) {
                     document.getElementById('editTitle').value = post.title;
                     document.getElementById('editContent').value = post.content;
-                    
                 } else {
                     alert('게시글을 찾을 수 없습니다.');
                     window.location.href = 'index.html';
@@ -65,13 +97,10 @@
                 return;
             }
 
-            const newPostKey = db.ref().child('posts').push().key;
             const postData = {
-                number: newPostKey,  // 게시글 번호는 고유 키로 사용
                 title: title,
                 author: userUID,  // 작성자 UID 저장
                 date: new Date().toISOString(),
-                views: 0,
                 content: content
             };
 
@@ -102,6 +131,7 @@
             alert('잘못된 접근입니다.');
             window.location.href = 'index.html';
         }
+
         // 로그인 쿠키 가져오기
         function getCookie(name) {
             let matches = document.cookie.match(new RegExp(

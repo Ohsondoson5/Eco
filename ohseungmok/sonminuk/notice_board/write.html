@@ -3,16 +3,50 @@
 
 <head>
     <title>게시글 작성</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../css/templatemo-kind-heart-charity.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .write-post-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .write-post-section h1 {
+            margin-bottom: 20px;
+        }
+
+        .write-post-section input,
+        .write-post-section textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .write-post-section .btn {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>게시글 작성</h1>
-    <div id="writePostSection">
-        <input type="text" id="postTitle" placeholder="제목">
-        <textarea id="postContent" placeholder="내용"></textarea>
-        <button onclick="writePost()">작성하기</button>
+    <div class="write-post-section">
+        <h1>게시글 작성</h1>
+        <div id="writePostSection">
+            <input type="text" id="postTitle" class="form-control" placeholder="제목"><br>
+            <textarea id="postContent" class="form-control" rows="10" placeholder="내용"></textarea><br>
+            <button class="btn btn-success" onclick="writePost()">작성하기</button>
+            <a class="btn btn-secondary" href="index.html">메인 페이지로 이동</a>
+        </div>
     </div>
-    <a href="index.html">메인 페이지로 이동</a>
 
     <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>

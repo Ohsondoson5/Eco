@@ -2,21 +2,179 @@
 <html>
 
 <head>
-    <title>Firebase 게시판</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS FILES -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../css/templatemo-kind-heart-charity.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .header-section {
+            margin-bottom: 20px;
+        }
+
+        .header-section a.navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-section a.navbar-brand img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+
+        .main-section {
+            padding: 20px;
+        }
+
+        .main-section h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .main-section h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .main-section #writePostSection {
+            margin-bottom: 40px;
+            text-align: right;
+        }
+
+        .main-section #writePostSection .btn-write-post {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .main-section #writePostSection .btn-write-post:hover {
+            background-color: #218838;
+        }
+
+        .main-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .main-section table th,
+        .main-section table td {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+        }
+
+        .main-section table th {
+            background-color: #e9ecef;
+        }
+
+        .main-section table a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .main-section table a:hover {
+            text-decoration: underline;
+        }
+
+        .main-section table button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .main-section table button:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Firebase 게시판</h1>
-    
-    <div id="writePostSection">
-        <h2>글쓰기</h2>
-        <a href="write.html" id="writePostLink">글쓰기 페이지로 이동</a>
-    </div>
+    <!-- 헤더 부분 -->
+    <header class="header-section">
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="main.html">
+                    <img src="../images/GreenIssue.png" class="logo img-fluid" alt="">
+                    <span>
+                        GreenIssue
+                        <small>Ohsondoson</small>
+                    </span>
+                </a>
 
-    <div id="boardSection">
-        <h2>게시판</h2>
-        <div id="board"></div>
-    </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../ohjaeyoung/index.html">분리수거</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../junghyunchul/index.html">퀴즈</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll" href="../sonminuk/index.html">뉴스</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link smoothscroll"
+                                href="..\ohseungmok\sonminuk\notice_board\index.html">게시판</a>
+                        </li>
+
+                        <li class="nav-item ms-3" id="login-item">
+                            <a class="nav-link custom-btn custom-border-btn btn"
+                                href="../kimkyungwan/Login.html">Login</a>
+                        </li>
+
+                        <li class="nav-item" id="username-item" style="display: none;">
+                            <span class="nav-link smoothscroll" id="username-display"></span>
+                        </li>
+
+                        <li class="nav-item ms-3" id="logout-item" style="display: none;">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="#" onclick="logout()">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-section container">
+        <h1>게시판</h1>
+
+        <div id="writePostSection">
+            <a href="write.html" class="btn btn-success btn-write-post">글쓰기</a>
+        </div>
+
+        <div id="boardSection">
+            <div id="board"></div>
+        </div>
+    </main>
 
     <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
@@ -45,18 +203,20 @@
             postsRef.on('value', (snapshot) => {
                 const posts = snapshot.val();
                 console.log(posts);
-                let boardHTML = '<table border="1"><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>삭제</th></tr>';
+                let boardHTML = '<table class="table table-bordered"><thead class="thead-light"><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>삭제</th></tr></thead><tbody>';
+                let index = 1;
                 for (let id in posts) {
                     boardHTML += `<tr>
-                                    <td>${posts[id].number}</td>
+                                    <td>${index}</td>
                                     <td><a href="post.html?id=${id}" onclick="incrementViews('${id}')">${posts[id].title}</a></td>
                                     <td>${posts[id].author}</td>
                                     <td>${posts[id].date}</td>
                                     <td>${posts[id].views}</td>
                                     <td><button onclick="deletePost('${id}', '${posts[id].author}')">삭제</button></td>
                                   </tr>`;
+                    index++;
                 }
-                boardHTML += '</table>';
+                boardHTML += '</tbody></table>';
                 document.getElementById('board').innerHTML = boardHTML;
             });
         }
@@ -109,6 +269,13 @@
         // 페이지 로드 시 게시글 읽기
         readPosts();
     </script>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
+    <script src="../../js/counter.js"></script>
+    <script src="../../js/custom.js"></script>
 </body>
 
 </html>
