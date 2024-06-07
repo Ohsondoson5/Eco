@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS FILES -->
+    <link href="../ohseungmok/css/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../ohseungmok/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="../ohseungmok/css/templatemo-kind-heart-charity.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .header-section {
+        margin-bottom: 20px;
+      }
+
+      .header-section a.navbar-brand {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-section a.navbar-brand img {
+        max-width: 50px;
+        margin-right: 10px;
+      }
+
+      .main-section {
+        padding: 20px;
+      }
+
+      .main-section h1 {
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+
+      .main-section h2 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+      }
+
+      .main-section #writePostSection {
+        margin-bottom: 40px;
+        text-align: right;
+      }
+
+      .main-section #writePostSection .btn-write-post {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .main-section #writePostSection .btn-write-post:hover {
+        background-color: #218838;
+      }
+
+      .main-section table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+      }
+
+      .main-section table th,
+      .main-section table td {
+        padding: 15px;
+        border: 1px solid #dee2e6;
+        text-align: center;
+      }
+
+      .main-section table th {
+        background-color: #e9ecef;
+      }
+
+      .main-section table a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .main-section table a:hover {
+        text-decoration: underline;
+      }
+
+      .main-section table button {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .main-section table button:hover {
+        background-color: #c82333;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .navigation button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 5px;
+      }
+
+      .navigation button:hover {
+        background-color: #0056b3;
+      }
+
+      .page_numbers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page_numbers button {
+        margin: 0 5px;
+        padding: 10px 20px;
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .page_numbers button:hover {
+        background-color: #5a6268;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 헤더 부분 -->
+    <header class="header-section">
+      <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+        <div class="container">
+          <a class="navbar-brand" href="D:\ase\Eco\ohseungmok\index.html">
+            <img src="../images/GreenIssue.png" class="logo img-fluid" alt="" />
+            <span>GreenIssue<small>Ohsondoson</small></span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link smoothscroll"
+                  href="D:\ase\Eco\ohseungmok\index.html"
+                  >Home</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link smoothscroll"
+                  href="D:\ase\Eco\ohjaeyoung\index.html"
+                  >분리수거</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link smoothscroll"
+                  href="D:\ase\Eco\junghyunchul\index.html"
+                  >퀴즈</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="../sonminuk/index.html"
+                  >뉴스</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="index.html">게시판</a>
+              </li>
+
+              <li class="nav-item ms-3" id="login-item">
+                <a
+                  class="nav-link custom-btn custom-border-btn btn"
+                  href="D:\ase\Eco\kimkyungwan\Login.html"
+                  >Login</a
+                >
+              </li>
+
+              <li class="nav-item" id="username-item" style="display: none">
+                <span
+                  class="nav-link smoothscroll"
+                  id="username-display"
+                ></span>
+              </li>
+
+              <li class="nav-item ms-3" id="logout-item" style="display: none">
+                <a
+                  class="nav-link custom-btn custom-border-btn btn"
+                  href="#"
+                  onclick="logout()"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-section container">
+      <h1>게시판</h1>
+
+      <div id="writePostSection">
+        <a href="write.html" class="btn btn-success btn-write-post">글쓰기</a>
+      </div>
+
+      <div id="boardSection">
+        <div id="board"></div>
+      </div>
+
+      <div class="navigation">
+        <button class="before_move" onclick="before()">이전</button>
+        <div class="page_numbers"></div>
+        <button class="next_move" onclick="next()">다음</button>
+      </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+
+    <script>
+      // Firebase 프로젝트 설정
+      const firebaseConfig = {
+        apiKey: "AIzaSyAbNYchKcFia8-uIdjlBUOAfalqBwStJdY",
+        authDomain: "my-eco-prj.firebaseapp.com",
+        databaseURL: "https://my-eco-prj-default-rtdb.firebaseio.com",
+        projectId: "my-eco-prj",
+        storageBucket: "my-eco-prj.appspot.com",
+        messagingSenderId: "322109404527",
+        appId: "1:322109404527:web:ab160e33c4927336fc249a",
+        measurementId: "G-LGEKHFM498",
+      };
+
+      // Firebase 초기화
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+
+      let totalPage = 1; // 총 페이지 수
+      let currentPage = 1; // 현재 페이지
+      let postsPerPage = 5; // 페이지 당 게시글 수
+      let allPosts = []; // 모든 게시글 저장 배열
+
+      // 페이지 로드 시 실행될 함수
+      window.onload = function () {
+        readPosts();
+      };
+
+      // 게시글 읽어오기
+      function readPosts() {
+        const postsRef = db.ref("posts");
+        postsRef.on("value", (snapshot) => {
+          const posts = snapshot.val();
+          if (posts) {
+            allPosts = Object.values(posts);
+            totalPage = Math.ceil(allPosts.length / postsPerPage);
+            currentPage = 1;
+            post_data_print(currentPage);
+            block_print();
+          } else {
+            // No posts found
+            document.getElementById("board").innerHTML =
+              "<p>No posts found.</p>";
+          }
+        });
+      }
+
+      // 게시글 출력 함수
+      function post_data_print(page) {
+        const startIndex = (page - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        const postsToShow = allPosts.slice(startIndex, endIndex);
+
+        let boardHTML =
+          '<table class="table table-bordered"><thead class="thead-light"><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>삭제</th></tr></thead><tbody>';
+        postsToShow.forEach((post, index) => {
+          const postIndex = startIndex + index + 1;
+          boardHTML += `<tr>
+            <td>${postIndex}</td>
+            <td><a href="post.html?id=${post.id}" onclick="incrementViews('${
+            post.id
+          }')">${post.title}</a></td>
+            <td>${post.author}</td>
+            <td>${post.date}</td>
+            <td>${post.views || 0}</td>
+            <td><button onclick="deletePost('${post.id}', '${
+            post.author
+          }')">삭제</button></td>
+          </tr>`;
+        });
+        boardHTML += "</tbody></table>";
+        document.getElementById("board").innerHTML = boardHTML;
+      }
+
+      // 이전 페이지로 이동
+      function before() {
+        if (currentPage > 1) {
+          currentPage--;
+          post_data_print(currentPage);
+          updateButtons();
+        }
+      }
+
+      // 다음 페이지로 이동
+      function next() {
+        if (currentPage < totalPage) {
+          currentPage++;
+          post_data_print(currentPage);
+          updateButtons();
+        }
+      }
+
+      // 페이지 버튼 업데이트
+      function updateButtons() {
+        let beforeButton = document.querySelector(".before_move");
+        let nextButton = document.querySelector(".next_move");
+
+        beforeButton.style.display =
+          currentPage === 1 ? "none" : "inline-block";
+        nextButton.style.display =
+          currentPage < totalPage ? "inline-block" : "none";
+
+        block_print();
+      }
+
+      // 게시글 삭제
+      function deletePost(postId, postAuthorUID) {
+        // 삭제 로직 추가
+        console.log("Delete post with ID:", postId);
+      }
+
+      // 조회수 증가
+      function incrementViews(postId) {
+        // 조회수 증가 로직 추가
+        console.log("Increment views for post ID:", postId);
+      }
+
+      // 페이지 블록 출력
+      function block_print() {
+        let block_box = document.querySelector(".page_numbers");
+        block_box.innerHTML = "";
+
+        for (let i = 1; i <= totalPage; i++) {
+          let button = document.createElement("button");
+          button.textContent = i;
+          button.classList.add("page-number");
+          if (i === currentPage) {
+            button.style.backgroundColor = "#0056b3";
+          }
+          button.addEventListener("click", function () {
+            currentPage = i;
+            post_data_print(currentPage);
+            updateButtons();
+          });
+          block_box.appendChild(button);
+        }
+      }
+      //로그인 쿠키 가져오기
+      // function getCookie(name) {
+      //   let matches = document.cookie.match(
+      //     new RegExp(
+      //       "(?:^|; )" +
+      //         name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+      //         "=([^;]*)"
+      //     )
+      //   );
+      //   return matches ? decodeURIComponent(matches[1]) : undefined;
+      // }
+    </script>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
+    <script src="../../js/counter.js"></script>
+    <script src="../../js/custom.js"></script>
+  </body>
+</html>
