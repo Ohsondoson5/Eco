@@ -11,6 +11,7 @@
       href="../ohseungmok/css/templatemo-kind-heart-charity.css"
       rel="stylesheet"
     />
+    <link href="notice_board.css" rel="stylesheet" />
 
     <style>
       body {
@@ -109,7 +110,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 30px;
+        margin-bottom: 30px 0;
       }
 
       .navigation button {
@@ -120,10 +121,16 @@
         border-radius: 5px;
         cursor: pointer;
         margin: 0 5px;
+        transition: background-color 0.2s;
       }
 
       .navigation button:hover {
         background-color: #0056b3;
+      }
+
+      .navigation button[disabled] {
+        background-color: #ccc;
+        cursor: default;
       }
 
       .page_numbers {
@@ -135,7 +142,7 @@
       .page_numbers button {
         margin: 0 5px;
         padding: 10px 20px;
-        background-color: #6c757d;
+        background-color: #007bff;
         color: white;
         border: none;
         border-radius: 5px;
@@ -143,7 +150,7 @@
       }
 
       .page_numbers button:hover {
-        background-color: #5a6268;
+        background-color: #0056b3;
       }
     </style>
   </head>
@@ -247,9 +254,7 @@
       </div>
 
       <div class="navigation">
-        <button class="before_move" onclick="before()">이전</button>
-        <div class="page_numbers"></div>
-        <button class="next_move" onclick="next()">다음</button>
+        <div class="page_numbers" id="pagination"></div>
       </div>
     </main>
 
@@ -294,11 +299,12 @@
             totalPage = Math.ceil(allPosts.length / postsPerPage);
             currentPage = 1;
             post_data_print(currentPage);
-            block_print();
+            renderFilteredPagination(currentPage, totalPage, allPosts);
           } else {
             // No posts found
-            document.getElementById("board").innerHTML =
-              "<p>No posts found.</p>";
+            document.getElementById("postTableBody").innerHTML =
+              "<tr><td colspan='6'>No posts found.</td></tr>";
+            document.querySelector(".navigation").style.display = "none"; // 버튼 숨기기
           }
         });
       }
@@ -314,13 +320,13 @@
         postsToShow.forEach((post, index) => {
           const postIndex = startIndex + index + 1;
           boardHTML += `<tr>
-            <td>${postIndex}</td>
-            <td><a href="post.html?id=${post.id}" onclick="incrementViews('${
-            post.id
-          }')">${post.title}</a></td>
-            <td>${post.author}</td>
-            <td>${post.date}</td>
-            <td>${post.views || 0}</td>
+            <td class="w100">${postIndex}</td>
+            <td class="w510"><a href="post.html?id=${
+              post.id
+            }" onclick="incrementViews('${post.id}')">${post.title}</a></td>
+            <td class="w140">${post.author}</td>
+            <td class="w120">${post.date}</td>
+            <td class="w120">${post.views || 0}</td>
             <td><button onclick="deletePost('${post.id}', '${
             post.author
           }')">삭제</button></td>
@@ -329,7 +335,9 @@
         boardHTML += "</tbody></table>";
         document.getElementById("board").innerHTML = boardHTML;
       }
-
+      for (let i = postsToShow.length; i < postsPerPage; i++) {
+        boardHTML += `<tr><td colspan="6">&nbsp;</td></tr>`;
+      }
       // 이전 페이지로 이동
       function before() {
         if (currentPage > 1) {
@@ -358,7 +366,7 @@
         nextButton.style.display =
           currentPage < totalPage ? "inline-block" : "none";
 
-        block_print();
+        renderFilteredPagination(currentPage, totalPage, allPosts);
       }
 
       // 게시글 삭제
@@ -374,26 +382,61 @@
       }
 
       // 페이지 블록 출력
-      function block_print() {
-        let block_box = document.querySelector(".page_numbers");
-        block_box.innerHTML = "";
+      function renderFilteredPagination(current, total, newsArray) {
+        const pagination = document.getElementById("pagination");
+        pagination.innerHTML = "";
 
-        for (let i = 1; i <= totalPage; i++) {
-          let button = document.createElement("button");
-          button.textContent = i;
-          button.classList.add("page-number");
-          if (i === currentPage) {
-            button.style.backgroundColor = "#0056b3";
+        const prevButton = document.createElement("button");
+        prevButton.textContent = "이전";
+        prevButton.disabled = current === 1;
+        prevButton.addEventListener("click", () => {
+          currentPage--;
+          post_data_print(currentPage);
+          renderFilteredPagination(currentPage, totalPage, allPosts);
+        });
+        pagination.appendChild(prevButton);
+
+        let startPage, endPage;
+        if (total <= 7) {
+          startPage = 1;
+          endPage = total;
+        } else {
+          if (current <= 4) {
+            startPage = 1;
+            endPage = 7;
+          } else if (current + 3 >= total) {
+            startPage = total - 6;
+            endPage = total;
+          } else {
+            startPage = current - 3;
+            endPage = current + 3;
           }
-          button.addEventListener("click", function () {
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+          const pageButton = document.createElement("button");
+          pageButton.textContent = i;
+          pageButton.disabled = i === current;
+          pageButton.addEventListener("click", () => {
             currentPage = i;
             post_data_print(currentPage);
-            updateButtons();
+            renderFilteredPagination(currentPage, totalPage, allPosts);
           });
-          block_box.appendChild(button);
+          pagination.appendChild(pageButton);
         }
+
+        const nextButton = document.createElement("button");
+        nextButton.textContent = "다음";
+        nextButton.disabled = current === total;
+        nextButton.addEventListener("click", () => {
+          currentPage++;
+          post_data_print(currentPage);
+          renderFilteredPagination(currentPage, totalPage, allPosts);
+        });
+        pagination.appendChild(nextButton);
       }
-      //로그인 쿠키 가져오기
+
+      // 로그인 쿠키 가져오기
       // function getCookie(name) {
       //   let matches = document.cookie.match(
       //     new RegExp(
@@ -405,12 +448,5 @@
       //   return matches ? decodeURIComponent(matches[1]) : undefined;
       // }
     </script>
-
-    <!-- JAVASCRIPT FILES -->
-    <script src="../../js/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/jquery.sticky.js"></script>
-    <script src="../../js/counter.js"></script>
-    <script src="../../js/custom.js"></script>
   </body>
 </html>
