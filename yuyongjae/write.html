@@ -33,6 +33,32 @@
       .write-post-section .btn {
         margin-top: 10px;
       }
+      .btn.btn-success {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+      }
+      .btn.btn-success:hover {
+        background-color: #218838;
+      }
+      .btn.btn-secondary {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+      }
+      .btn.btn-secondary:hover {
+        background-color: #0056b3;
+      }
     </style>
   </head>
 
@@ -54,7 +80,9 @@
         ></textarea
         ><br />
         <button class="btn btn-success" onclick="writePost()">작성하기</button>
-        <a class="btn btn-secondary" href="index.html">메인 페이지로 이동</a>
+        <a class="btn btn-secondary" href="notice_board.html"
+          >메인 페이지로 이동</a
+        >
       </div>
     </div>
 
@@ -127,7 +155,7 @@
         }
       }
 
-      // 로그인 쿠키 가져오기
+      //로그인 쿠키 가져오기
       function getCookie(name) {
         let matches = document.cookie.match(
           new RegExp(
