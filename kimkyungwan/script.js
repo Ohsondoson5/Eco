@@ -131,7 +131,7 @@ function resetPassword() {
           alert(`재설정 링크가 ${email}로 전송되었습니다.`);
         })
         .catch((error) => {
-          alert(error.message);
+          alert("비밀번호 재설정 이메일 전송 실패: " + error.message);
         });
     } else {
       alert('올바른 이메일 주소를 입력해주세요.');
