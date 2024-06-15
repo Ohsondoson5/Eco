@@ -105,12 +105,12 @@
     </style>
 </head>
 
-<body>
+<body id="section_1">
     <!-- 헤더 부분 -->
-    <header class="header-section">
+    <header>
         <nav class="navbar navbar-expand-lg bg-light shadow-lg">
             <div class="container">
-                <a class="navbar-brand" href="D:\ase\Eco\ohseungmok\index.html">
+                <a class="navbar-brand" href="../ohseungmok/index.html">
                     <img src="../images/GreenIssue.png" class="logo img-fluid" alt="">
                     <span>
                         GreenIssue
@@ -126,29 +126,30 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="D:\ase\Eco\ohseungmok\index.html">Home</a>
+                            <a class="nav-link smoothscroll" href="../../../ohseungmok/index.html">Home</a>
                         </li>
-
+    
+    
                         <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="D:\ase\Eco\ohjaeyoung\index.html">분리수거</a>
+                            <a class="nav-link smoothscroll" href="../../../ohjaeyoung/index.html">분리수거</a>
                         </li>
-
+    
                         <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="D:\ase\Eco\junghyunchul\index.html">퀴즈</a>
+                            <a class="nav-link smoothscroll" href="../../../junghyunchul/index.html">퀴즈</a>
                         </li>
-
+    
                         <li class="nav-item">
-                            <a class="nav-link smoothscroll" href="../sonminuk/index.html">뉴스</a>
+                            <a class="nav-link smoothscroll" href="../../sonminuk/index.html">뉴스</a>
                         </li>
-
+    
                         <li class="nav-item">
                             <a class="nav-link smoothscroll"
-                                href="index.html">게시판</a>
+                                href="../notice_board/index.html">게시판</a>
                         </li>
 
                         <li class="nav-item ms-3" id="login-item">
                             <a class="nav-link custom-btn custom-border-btn btn"
-                                href="../kimkyungwan/Login.html">Login</a>
+                                href="../../kimkyungwan/Login.html">Login</a>
                         </li>
 
                         <li class="nav-item" id="username-item" style="display: none;">
@@ -268,6 +269,35 @@
 
         // 페이지 로드 시 게시글 읽기
         readPosts();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const username = localStorage.getItem('username');
+            const loginItem = document.getElementById('login-item');
+            const usernameItem = document.getElementById('username-item');
+            const logoutItem = document.getElementById('logout-item');
+
+            if (username) {
+                const usernameDisplay = document.getElementById('username-display');
+                if (usernameDisplay) {
+                    usernameDisplay.textContent = username;
+                    usernameDisplay.style.color = '#00b22d';
+                    usernameDisplay.style.fontSize = '1rem';
+                    usernameDisplay.style.lineHeight = '1.5';
+                }
+                loginItem.style.display = 'none';
+                usernameItem.style.display = 'block';
+                logoutItem.style.display = 'block';
+            } else {
+                loginItem.style.display = 'block';
+                usernameItem.style.display = 'none';
+                logoutItem.style.display = 'none';
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('username');
+            window.location.href = '../kimkyungwan/Login.html';
+        }
     </script>
 
     <!-- JAVASCRIPT FILES -->
