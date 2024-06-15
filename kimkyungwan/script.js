@@ -43,8 +43,8 @@ function signUp() {
   }
 
   // 비밀번호 검사
-  if (password === '' || password.length < 4) {
-    alert('비밀번호는 4자 이상이어야 합니다.');
+  if (password === '' || password.length < 6) {
+    alert('비밀번호는 6자 이상이어야 합니다.');
     document.getElementById('password').focus();
     return false;
   }
