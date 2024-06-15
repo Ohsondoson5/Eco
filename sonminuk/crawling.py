@@ -76,3 +76,5 @@ if __name__ == "__main__":
         main_url=base_url+str(page_num)
         extracted_data=extract_data(main_url)
         save_data_to_firebase(extracted_data)
+
+# 현재 프로젝트에는 비공개 키(Firebase Admin SDK)를 넣어두지 않았기에 현재 프로젝트는 실행되지 않습니다.

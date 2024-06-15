@@ -4,7 +4,7 @@
 
 ### 환경 보호 플랫폼 
 1. 환경 관련 최신 뉴스정보 제공
-참고:https://greennews360.com/
+참조 : https://www.hkbs.co.kr/news/articleList.html?sc_section_code=S1N1&view_type=sm&page=
 
 2. 분리수거 및 음식물 처리 방법 제공
   (물품별로 올바른 처리방법제공)
