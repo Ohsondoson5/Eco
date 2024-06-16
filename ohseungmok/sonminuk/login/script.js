@@ -49,7 +49,6 @@ function signIn() {
       localStorage.setItem('username', username); // 유저 아이디를 로컬 스토리지에 저장
       window.location.href = '../notice_board/index.html'; // 메인페이지로 이동
       setCookie('user', user.email)
-      //window.location.href = '../notice_board/index.html'; // 글쓰기 index 페이지로 이동
     } else {
       alert("아이디 또는 비밀번호가 올바르지 않습니다.");
     }
@@ -89,34 +88,7 @@ function setCookie(name, value, options = {}) {
   document.cookie = updatedCookie;
 }
 
-// 비밀번호 재설정 함수
-function resetPassword() {
-  const email = prompt("이메일을 입력하세요:");
-
-  // 이메일 유효성 검사 함수
-  function isValidEmail(email) {
-    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailPattern.test(email);
-  }
-
-  if (email) {
-    if (isValidEmail(email)) {
-      auth.sendPasswordResetEmail(email)
-        .then(() => {
-          alert(`재설정 링크가 ${email}로 전송되었습니다.`);
-        })
-        .catch((error) => {
-          alert("비밀번호 재설정 이메일 전송 실패: " + error.message);
-        });
-    } else {
-      alert('올바른 이메일 주소를 입력해주세요.');
-    }
-  } else {
-    alert("이메일을 입력해주세요.");
-  }
-}
 
 // 이벤트 리스너 등록
 document.getElementById('sign-up-btn')?.addEventListener('click', signUp);
 document.getElementById('sign-in-btn')?.addEventListener('click', signIn);
-document.querySelector('b.pointer')?.addEventListener('click', resetPassword);
